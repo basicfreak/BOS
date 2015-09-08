@@ -1,0 +1,17 @@
+floppy is the current floppy image
+floppy .his .my .grub are backup images for boot sectors
+
+compiled kernel = SRC/KERNEL.ELF
+
+makefile = SRC/makefile
+
+bochs setup (must be root):
+floppy = floppy
+COM1 = /dev/tty9
+mouse = disabled (but driver is there)
+
+
+
+Kernel Info:
+COM1 Tx = DEBUG Out
+COM1 Rx = Keyboard Buffer ;)

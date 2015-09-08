@@ -1,0 +1,13 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.27 16:23:26 =~=~=~=~=~=~=~=~=~=~=~=
+dir
+cat test.txt
+cat boot\grub\menu.lst
+read 765 1
+write 765
+read 765 1
+dir
+user
+
+dir
+
+help

@@ -1,0 +1,867 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.22 17:21:36 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097A3CS = 0x8EFLAGS = 0x10202SS = 0x10F664
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x109793 - 0x1097B3]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0  F  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2  POP CS  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H     H             E   
+ESP - RAM[0xFFFFFFF1 - 0x11]:
+
+
+
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097A3CS = 0x8EFLAGS = 0x10202SS = 0x10F664
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x109793 - 0x1097B3]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0  F  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2  POP CS  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H     H             E   
+ESP - RAM[0xFFFFFFF1 - 0x11]:
+
+
+
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401) = Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097A3CS = 0x8EFLAGS = 0x10202SS = 0x10F664
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x109793 - 0x1097B3]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0  F  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2  POP CS  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H     H             E   
+ESP - RAM[0xFFFFFFF1 - 0x11]:
+
+
+
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401) = Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097EDCS = 0x8EFLAGS = 0x10202SS = 0x10F67C
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x1097DD - 0x1097FD]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H    () H             E   
+ESP - RAM[0x111E8C - 0x111EAC]:
+60 62 2 0 0 0 18 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 ED 97 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401) = Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E8C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097ECCS = 0x8EFLAGS = 0x10202SS = 0x10F67C
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x1097DC - 0x1097FC]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 0 89 44 24 8 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV ADD MOV INC ESP AND OR 
+
+    ,     E   H    () H             D $  
+ESP - RAM[0x111E7C - 0x111E9C]:
+60 62 2 0 0 0 18 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 EC 97 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401) = Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E8C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1097ECCS = 0x8EFLAGS = 0x10202SS = 0x10F67C
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x1097DC - 0x1097FC]:
+FF FF 8B 15 14 50 11 0 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 0 89 44 24 8 
+
+#5 #5 MOV ADC ADC PUSH EAX ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV ADD MOV INC ESP AND OR 
+
+     P    E   H    () H             D $  
+ESP - RAM[0x111E7C - 0x111E9C]:
+60 62 2 0 0 0 18 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 EC 97 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x401  32))
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x401
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x10980CCS = 0x8EFLAGS = 0x10202SS = 0x10F6C8
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x1097FC - 0x10981C]:
+E8 2A A5 FF FF 8B 55 8 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 89 54 24 C 89 44 24 8 C7 44 24 
+
+CALL SUB MOVSW #5 #5 MOV PUSH EBP OR MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD MOV PUSH ESP AND OR MOV INC ESP AND OR MOV INC ESP AND 
+
+ *     U   E   H    () H      T $   D $   D $ 
+ESP - RAM[0x111E8C - 0x111EAC]:
+60 62 2 0 1 4 0 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 C 98 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x401  32))
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x1))
+Mem_Map[(0x401 / 32)] & 0x2)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x2
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x10988DCS = 0x8EFLAGS = 0x10202SS = 0x10F73C
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x10987D - 0x10989D]:
+89 C1 D3 E2 89 D0 89 C2 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 89 54 24 C 89 44 24 8 C7 44 24 
+
+MOV #2 #2 LOOP MOV #2 MOV RETN MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD MOV PUSH ESP AND OR MOV INC ESP AND OR MOV INC ESP AND 
+
+         E   H    () H      T $   D $   D $ 
+ESP - RAM[0x111E8C - 0x111EAC]:
+60 62 2 0 2 0 0 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 8D 98 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x401  32))
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x1))
+Mem_Map[(0x401 / 32)] & 0x2)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x2
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x1098C3CS = 0x8EFLAGS = 0x10202SS = 0x10F75C
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x1098B3 - 0x1098D3]:
+89 C1 D3 E2 89 D0 89 C2 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 89 54 24 C 89 44 24 8 C7 44 24 
+
+MOV #2 #2 LOOP MOV #2 MOV RETN MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD MOV PUSH ESP AND OR MOV INC ESP AND OR MOV INC ESP AND 
+
+         E   H    () H      T $   D $   D $ 
+ESP - RAM[0x111E8C - 0x111EAC]:
+60 62 2 0 2 0 0 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 C3 98 10 0 8 0 0 0 2 
+
+` b                                 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x401  32))
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x1))
+Mem_Map[(0x401 / 32)] & 0x2)
+Mem_Map[0x20] & 0x2)
+0x0 & 0x2)
+0x0
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x0ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E8C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x10998DCS = 0x8EFLAGS = 0x10202SS = 0x10F7A5
+USER-ESP = 0x1ERROR-CODE = 0x0
+
+RAM[0x10997D - 0x10999D]:
+FF FF 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0 (F)  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+#5 #5 MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2 (POP CS)  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H    () H             E   
+ESP - RAM[0x111E7C - 0x111E9C]:
+0 0 0 0 0 0 18 0 20 4 0 0 1 4 0 0 6 0 0 0 0 0 0 0 8D 99 10 0 8 0 0 0 2 
+
+                                  
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A i=0x0
+Test Echo A i=0x1
+Test Echo A i=0x2
+Test Echo A i=0x3
+Test Echo A i=0x4
+Test Echo A i=0x5
+Test Echo A i=0x6
+Test Echo A i=0x7
+Test Echo A i=0x8
+Test Echo A i=0x9
+Test Echo A i=0xA
+Test Echo A i=0xB
+Test Echo A i=0xC
+Test Echo A i=0xD
+Test Echo A i=0xE
+Test Echo A i=0xF
+Test Echo A i=0x10
+Test Echo A i=0x11
+Test Echo A i=0x12
+Test Echo A i=0x13
+Test Echo A i=0x14
+Test Echo A i=0x15
+Test Echo A i=0x16
+Test Echo A i=0x17
+Test Echo A i=0x18
+Test Echo A i=0x19
+Test Echo A i=0x1A
+Test Echo A i=0x1B
+Test Echo A i=0x1C
+Test Echo A i=0x1D
+Test Echo A i=0x1E
+Test Echo A i=0x1F
+Test Echo A i=0x20
+Test Echo B j=0x0
+Test Echo C bit=0x1 startingBit=0x401
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x401)
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x401  32))
+Mem_Map[(0x401 / 32)] & (uint32_t) (0x01 << (0x1))
+Mem_Map[(0x401 / 32)] & 0x2)
+Mem_Map[0x20] & 0x2)
+0x0 & 0x2)
+0x0
+count=0x0 testbit=FALSE
+Test Echo Ea free{0x0}++
+Test Echo F free=0x1
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x402)
+Mem_Map[(0x402 / 32)] & (uint32_t) (0x01 << (0x402  32))
+Mem_Map[(0x402 / 32)] & (uint32_t) (0x01 << (0x2))
+Mem_Map[(0x402 / 32)] & 0x4)
+Mem_Map[0x20] & 0x4)
+0x0 & 0x4)
+0x0
+count=0x1 testbit=FALSE
+Test Echo Ea free{0x1}++
+Test Echo F free=0x2
+Test Echo D 
+(PHYSICAL.C:Line 53) mmap_test(0x403)
+Mem_Map[(0x403 / 32)] & (uint32_t) (0x01 << (0x403  32))
+Mem_Map[(0x403 / 32)] & (uint32_t) (0x01 << (0x3))
+Mem_Map[(0x403 / 32)] & 0x8)
+Mem_Map[0x20] & 0x8)
+0x0 & 0x8)
+0x0
+count=0x2 testbit=FALSE
+Test Echo Ea free{0x2}++
+Test Echo F free=0x3
+0x400
+
+Test Echo G returning=0x0
+(PHYSICAL.C:Line 61) set_used(0x400)
+
+(PHYSICAL.C:Line 61) set_used(0x401)
+
+(PHYSICAL.C:Line 61) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 166) calloc(0x1)
+
+(PHYSICAL.C:Line 135) malloc(0x1) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 71) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 61) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 166) calloc(0x1)
+
+(PHYSICAL.C:Line 135) malloc(0x1) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 71) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 61) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 166) calloc(0x1)
+
+(PHYSICAL.C:Line 135) malloc(0x1) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 71) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 61) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 166) calloc(0x1)
+
+(PHYSICAL.C:Line 135) malloc(0x1) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 71) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 61) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x0, 0x1, 0x0) = 1 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x0
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+

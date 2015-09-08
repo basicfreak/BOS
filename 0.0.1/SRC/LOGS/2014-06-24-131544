@@ -1,0 +1,316 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.24 13:15:44 =~=~=~=~=~=~=~=~=~=~=~=
+initfdc
+
+_DMA_outb(0xA, 0x6)
+_DMA_outb(0xC, 0xFF)
+_DMA_outb(0x4, 0x0)
+_DMA_outb(0x4, 0x10)
+_DMA_outb(0xC, 0xFF)
+_DMA_outb(0x5, 0xFF)
+_DMA_outb(0x5, 0x23)
+_DMA_outb(0x81, 0x0)
+_DMA_outb(0xA, 0x2)
+_FDC_Write(0x3F0, 0x2, 0x0)
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x2, 0xC)
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x7, 0x0)
+_FDC_WAIT_IR()
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC1
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC2
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC3
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x13)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x12)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x3)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x30)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x21)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x2, 0x1C)
+_FDC_Write(0x3F0, 0x5, 0x7)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_WAIT_IR()
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x81
+_FDC_READ(0x3F0, 0x4) = 0x1
+_FDC_READ(0x3F0, 0x4) = 0xD1
+_FDC_READ(0x3F0, 0x5) = 0x20
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x2, 0xC)
+
+echo placed in a disk i don't care about....
+placed in a disk i don't care about.... 
+
+echo now lets try to read sector 0
+now lets try to read sector 0 
+
+echo seek to 0
+seek to 0 
+outb 3f2 1c
+outb 3f5 f
+outb 3f5 0
+outb 3f5 0
+			FDC IRQ RECIVED
+outb 3f5 8
+inb 3f5
+We recived 20 = 32 =  
+inb 3f5
+We recived 0 = 0 = 
+
+echo DMS A...?
+DMA...? 
+
+outb a 6
+outb b 46
+outb a 2
+
+echo ree ad sector...?
+read sector...? 
+
+outb 3f5 6 e6
+outb 3f5 0
+outb 3f5 0
+outb 3f5 0
+outb 3f5 1
+outb 3f5 2
+outb 3f5 2
+outb 3f5 1b
+outb 3f5 ff
+			FDC IRQ RECIVED
+			FDC IRQ RECIVED
+inb 3f5
+We recived 40 = 64 = @
+inb 3f5
+We recived 10 = 16 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 1 = 1 = 
+inb 3f5
+We recived 2 = 2 = 
+outb 3f5 8
+inb 3f5
+We recived 80 = 128 = 
+inb 3f5
+We recived 80 = 128 = 
+outb 2 3f2 c
+ramx 1000 1200
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+echo nope
+nope 
+
+initfdc
+
+_DMA_outb(0xA, 0x6)
+_DMA_outb(0xC, 0xFF)
+_DMA_outb(0x4, 0x0)
+_DMA_outb(0x4, 0x10)
+_DMA_outb(0xC, 0xFF)
+_DMA_outb(0x5, 0xFF)
+_DMA_outb(0x5, 0x23)
+_DMA_outb(0x81, 0x0)
+_DMA_outb(0xA, 0x2)
+_FDC_Write(0x3F0, 0x2, 0x0)
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x2, 0xC)
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x7, 0x0)
+_FDC_WAIT_IR()
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC1
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC2
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_READ(0x3F0, 0x4) = 0x0
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0xC3
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x5, 0x13)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x12)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x3)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x30)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x5, 0x21)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_Write(0x3F0, 0x2, 0x1C)
+_FDC_Write(0x3F0, 0x5, 0x7)
+_FDC_READ(0x3F0, 0x4) = 0x80
+_FDC_Write(0x3F0, 0x5, 0x0)
+_FDC_READ(0x3F0, 0x4) = 0x90
+_FDC_WAIT_IR()
+			FDC IRQ RECIVED
+_FDC_Write(0x3F0, 0x5, 0x8)
+_FDC_READ(0x3F0, 0x4) = 0x81
+_FDC_READ(0x3F0, 0x4) = 0x1
+_FDC_READ(0x3F0, 0x4) = 0xD1
+_FDC_READ(0x3F0, 0x5) = 0x20
+_FDC_READ(0x3F0, 0x4) = 0xD0
+_FDC_READ(0x3F0, 0x5) = 0x0
+_FDC_Write(0x3F0, 0x2, 0xC)
+
+echo well we reset it...
+well we reset it... 
+
+outb 3f2 1c
+outb 3f5 f
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 0
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 0
+			FDC IRQ RECIVED
+inb 3f4
+We recived 81 = 129 = 
+outb 3f5 8
+inb 3f4
+We recived D1 = 209 = 
+inb 3f5
+We recived 20 = 32 =  
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 0 = 0 = 
+outb a 6
+outb b 56
+outb a 2
+inb 3f4
+We recived 80 = 128 = 
+outb 3f5 e6
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 0
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 0
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 0
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 1
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 2
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 2
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 1b
+inb 3f4
+We recived 90 = 144 = 
+outb 3f5 ff
+			FDC IRQ RECIVED
+			FDC IRQ RECIVED
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 40 = 64 = @
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 10 = 16 = 
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 1 = 1 = 
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 2 = 2 = 
+inb 3f4
+We recived 80 = 128 = 
+outb 3f5 8
+inb 3f4
+We recived D0 = 208 = 
+inb 3f5
+We recived 80 = 128 = 
+inb 3f4
+We recived 80 = 128 = 
+inb 3f5
+We recived 80 = 128 = 
+inb 3f4
+We recived 0 = 0 = 
+outb 3f5   1   2 c
+ramx 1000 1200
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

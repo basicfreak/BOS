@@ -1,0 +1,101 @@
+INT F0h:
+IPC Handler
+
+FUNCTIONS (AL):
+01h	Wait for message
+02h	Send message
+80h	Wait for INT
+81h	Wait for INT and get REGS
+
+FUNCTION 01h:
+Wait for message, upon receiving a message task will start.
+EBX	Sorce Task ID (0 for any)
+
+FUNCTION 02h:
+Send message to waiting task.
+Will start the waiting task or return eax = 0 if task not waiting
+EDX	Destination Task ID
+ECX	Size of Data (in Bytes)
+
+FUNCTION 80h:
+Wait for INT, thread runs on INT
+EBX = INT Number
+
+FUNCTION 81h:
+Wait for INT, get regs from caller
+EBX = INT Number
+
+-----------------------------------------------------------------------
+
+INT F1h:
+TaskManagement Handler
+
+FUNCTIONS (AL):
+00h	Kill / Die
+01h	Fork
+02h	Exec
+03h	Yield
+80h	Request SSE/FPU Services
+81h	Request IO Permission
+
+FUNCTION 00h:
+Kill the current thread.
+No input or return
+
+FUNCTION 01h:
+Fork current thread
+EDX	Start EIP of new thread
+
+FUNCTION 02h:
+Execute / New Thread
+UNKNOWN....
+
+FUNCTION 03h:
+Yield Current Thread
+No input.
+
+FUNCTION 80h:
+Request SSE/FPU.
+No input needed. The Task manager will now save/load SSE/FPU
+
+FUNCTION 81h:
+Request IO Permissions
+No input needed. Thread should now have full Port I/O.
+
+-----------------------------------------------------------------------
+
+INT F2h:
+Memory Handler
+
+FUNCTIONS (AL):
+00h	Request New Page
+01h	Unmap Page and Free Physical
+80h	Map Physical To Virtual
+81h	Unmap Page
+
+FUNCTION 00h:
+Request New Page, Maps a new page to Virtual Address
+EDX	Virtual Address
+EBX	0 = Read only ELSE Writable
+
+FUNCTION 01h:
+Unmap Page and Free Physical Memory. <- Does what it says
+EDX	Virtual Address
+
+FUNCTION 80h:
+Map Physical Address To Virtual. Yes this is a security hole...
+ECX	Physical Address
+EDX	Virtual Address
+EBX	0 = Read only ELSE Writable
+
+FUNCTION 81h:
+Unmap page. <- Does what it says
+EDX	Virtual Address
+
+-----------------------------------------------------------------------
+
+INT F3h:
+API Handler
+
+FUNCTIONS (AL):
+TO BE ADDED SOON....

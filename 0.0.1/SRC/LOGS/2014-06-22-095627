@@ -1,0 +1,29 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.22 09:56:27 =~=~=~=~=~=~=~=~=~=~=~=
+
+(8042.C:Line 136) _8042_readPort()
+
+(8042.C:Line 109) readWait()
+
+(8042.C:Line 85) getStatus()
+
+(8042.C:Line 101) getDevice()
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 113) cmd_handler()
+
+(8042.C:Line 136) _8042_readPort()
+
+(8042.C:Line 109) readWait()
+
+(8042.C:Line 85) getStatus()
+
+(8042.C:Line 101) getDevice()
+help
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 31) help()
+(COMMAND.C:Line 113) cmd_handler()
+echo hello world of putty on linux on windows
+(COMMAND.C:Line 53) do_CMD(0x8)
+(COMMAND.C:Line 113) cmd_handler()
+exit
+(COMMAND.C:Line 53) do_CMD(0x0)
+

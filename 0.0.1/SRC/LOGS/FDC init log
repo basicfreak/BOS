@@ -1,0 +1,136 @@
+(FDC.C:Line 550) floppy_install()
+(FDC.C:Line 344) floppy_setVars(0x4)
+(FDC.C:Line 336) fdc_disable()
+(FDC.C:Line 136) DOR_write(0x0)
+(FDC.C:Line 165) floppy_reset()
+(FDC.C:Line 336) fdc_disable()
+(FDC.C:Line 136) DOR_write(0x0)
+(FDC.C:Line 328) fdc_enable()
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line (FDC.C:Line 231) floppy_handler(0x112E10)
+FDC IRQ RECIVED
+144) floppy_waitIRQ()
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 118) FIFO_write(0x13)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 287) floppy_speed(0x0)
+(FDC.C:Line 397) floppy_mechanical_info(0x3, 0x10, 0xF0, TRUE)
+(FDC.C:Line 118) FIFO_write(0x3)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x30)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x20)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 410) floppy_calibrate()
+(FDC.C:Line 275) floppy_motor(TRUE)
+(FDC.C:Line 136) DOR_write(0x1C)
+(FDC.C:Line 118) FIFO_write(0x7)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 144) floppy_waitIRQ()
+(FDC.C:Line 231) floppy_handler(0x112EB4)
+FDC IRQ RECIVED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F58, 0x112F54)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 426) CALIBRATED!
+(FDC.C:Line 275) floppy_motor(FALSE)
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line 118) FIFO_write(0x14)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready

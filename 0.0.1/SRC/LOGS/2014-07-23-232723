@@ -1,0 +1,753 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.07.23 23:27:23 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x8000
+Total RAM:32768KB
+Free RAM:28672KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+0x407000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x4, 0x407000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x408
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x408000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x5, 0x408000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+0x409000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x6, 0x409000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40A
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x40A000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x7, 0x40A000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+0x40B000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x420
+
+(PHYSICAL.C:Line 73) set_used(0x420)
+
+(PHYSICAL.C:Line 73) set_used(0x421)
+0x420000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+
+(PHYSICAL.C:Line 180) calloc(0x10)
+
+(PHYSICAL.C:Line 149) malloc(0x10) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x10) = 0x422
+
+(PHYSICAL.C:Line 73) set_used(0x422)
+
+(PHYSICAL.C:Line 73) set_used(0x423)
+
+(PHYSICAL.C:Line 73) set_used(0x424)
+
+(PHYSICAL.C:Line 73) set_used(0x425)
+
+(PHYSICAL.C:Line 73) set_used(0x426)
+
+(PHYSICAL.C:Line 73) set_used(0x427)
+
+(PHYSICAL.C:Line 73) set_used(0x428)
+
+(PHYSICAL.C:Line 73) set_used(0x429)
+
+(PHYSICAL.C:Line 73) set_used(0x42A)
+
+(PHYSICAL.C:Line 73) set_used(0x42B)
+
+(PHYSICAL.C:Line 73) set_used(0x42C)
+
+(PHYSICAL.C:Line 73) set_used(0x42D)
+
+(PHYSICAL.C:Line 73) set_used(0x42E)
+
+(PHYSICAL.C:Line 73) set_used(0x42F)
+
+(PHYSICAL.C:Line 73) set_used(0x430)
+
+(PHYSICAL.C:Line 73) set_used(0x431)
+0x422000
+_IDE_init()
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x1
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xA1)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xA1)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+Found Disks:
+PRIMARY MASTER 14679 MB ATA "WDC WD153AA-53BAA0                      "
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x440
+
+(PHYSICAL.C:Line 73) set_used(0x440)
+
+(PHYSICAL.C:Line 73) set_used(0x441)
+
+(PHYSICAL.C:Line 73) set_used(0x442)
+
+(PHYSICAL.C:Line 73) set_used(0x443)
+0x440000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40D
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+0x40D000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x0, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x3F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abc
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x8000
+Total RAM:32768KB
+Free RAM:28672KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+0x407000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x4, 0x407000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x408
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x408000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x5, 0x408000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+0x409000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x6, 0x409000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40A
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x40A000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x7, 0x40A000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+0x40B000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x420
+
+(PHYSICAL.C:Line 73) set_used(0x420)
+
+(PHYSICAL.C:Line 73) set_used(0x421)
+0x420000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+
+(PHYSICAL.C:Line 180) calloc(0x10)
+
+(PHYSICAL.C:Line 149) malloc(0x10) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x10) = 0x422
+
+(PHYSICAL.C:Line 73) set_used(0x422)
+
+(PHYSICAL.C:Line 73) set_used(0x423)
+
+(PHYSICAL.C:Line 73) set_used(0x424)
+
+(PHYSICAL.C:Line 73) set_used(0x425)
+
+(PHYSICAL.C:Line 73) set_used(0x426)
+
+(PHYSICAL.C:Line 73) set_used(0x427)
+
+(PHYSICAL.C:Line 73) set_used(0x428)
+
+(PHYSICAL.C:Line 73) set_used(0x429)
+
+(PHYSICAL.C:Line 73) set_used(0x42A)
+
+(PHYSICAL.C:Line 73) set_used(0x42B)
+
+(PHYSICAL.C:Line 73) set_used(0x42C)
+
+(PHYSICAL.C:Line 73) set_used(0x42D)
+
+(PHYSICAL.C:Line 73) set_used(0x42E)
+
+(PHYSICAL.C:Line 73) set_used(0x42F)
+
+(PHYSICAL.C:Line 73) set_used(0x430)
+
+(PHYSICAL.C:Line 73) set_used(0x431)
+0x422000
+_IDE_init()
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x1
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xA0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xA1)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xEC)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x170, 0x6, 0xB0)
+(IDE.C:Line 106) _IDE_Write(0x170, 0x7, 0xA1)
+(IDE.C:Line 114) _IDE_Read(0x170, 0x7) = 0x3
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+Found Disks:
+PRIMARY MASTER 14679 MB ATA "WDC WD153AA-53BAA0                      "
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x440
+
+(PHYSICAL.C:Line 73) set_used(0x440)
+
+(PHYSICAL.C:Line 73) set_used(0x441)
+
+(PHYSICAL.C:Line 73) set_used(0x442)
+
+(PHYSICAL.C:Line 73) set_used(0x443)
+0x440000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40D
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+0x40D000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x40)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x0, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x3F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x726F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xAE)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x726F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x3)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xAE)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x30, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x6F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x2F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x6E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x2E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x6D)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x2F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x6E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x5F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x9E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x5E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x9D)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x50, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0xD)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x8F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x5F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x2)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x9E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x5F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x9E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x5E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x9D)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x20, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x5F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x1F, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x5E)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x20, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0x5F)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x728E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xCD)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x728D, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x1)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xCC)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x728E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x10)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xCD)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x729E, 0x10, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x729E, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x6, 0xE0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x1, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x2, 0x10)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x3, 0xDD)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x4, 0x72)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x5, 0x0)
+(IDE.C:Line 106) _IDE_Write(0x1F0, 0x7, 0x20)
+(IDE.C:Line 114) _IDE_Read(0x1F0, 0x7) = 0x58
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abc

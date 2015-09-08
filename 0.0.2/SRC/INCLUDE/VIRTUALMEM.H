@@ -1,0 +1,49 @@
+/*
+./SRC/INCLUDE/VIRTUALMEM.H
+*/
+
+#ifndef				VIRTUALMEM_H_INCLUDED
+	#define				VIRTUALMEM_H_INCLUDED
+
+	#include <KLIB.h>
+
+	#define PAGES_PER_TABLE 1024
+	#define TABLES_PER_DIR 1024
+	#define PAGE_SIZE 4096
+	
+	typedef uint32_t vaddr;
+	typedef uint32_t paddr;
+	
+	enum I86_PAGE_FLAGS {
+		I86_PRESENT			=	1,			//0000000000000000000000000000001
+		I86_WRITABLE		=	2,			//0000000000000000000000000000010
+		I86_USER			=	4,			//0000000000000000000000000000100
+		I86_WRITETHOUGH		=	8,			//0000000000000000000000000001000
+		I86_PWT				=	8,
+		I86_NOT_CACHEABLE	=	0x10,		//0000000000000000000000000010000
+		I86_PCD				=	0x10,
+		I86_ACCESSED		=	0x20,		//0000000000000000000000000100000
+		I86_DIRTY			=	0x40,		//0000000000000000000000001000000
+		I86_PAT				=	0x80,		//0000000000000000000000010000000
+		I86_4MB				=	0x80,
+		I86_CPU_GLOBAL		=	0x100,		//0000000000000000000000100000000
+		I86_LV4_GLOBAL		=	0x200,		//0000000000000000000001000000000
+		I86_FRAME			=	0x7FFFF000 	//1111111111111111111000000000000
+	};
+
+	typedef uint32_t PageEntry;
+	typedef struct Page_Table {
+		PageEntry page[PAGES_PER_TABLE];
+	} ptbl_t, *ptbl_p;
+	typedef struct Page_Directory {
+		ptbl_p table[TABLES_PER_DIR];
+	} pdir_t, *pdir_p;
+
+	
+	pdir_p KERNEL_PAGE_DIR;
+
+	bool		VIRTUALMEM_init			(void);
+	bool		AddPage					(pdir_p Dir, paddr Phys, vaddr Virt, bool user, bool write);
+	bool		DelPage					(pdir_p Dir, vaddr Virt, bool clean);
+
+#endif

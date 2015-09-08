@@ -1,0 +1,179 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.23 22:19:09 =~=~=~=~=~=~=~=~=~=~=~=
+d fdc  re     initfa dc
+_FDC_init()
+FDC_Reset()
+DOR_Handler(0x0, FALSE, TRUE)
+_FDC_Write(0x3F0, 0x2, 0x0)
+FDC IRQ RECIVED
+DOR_Handler(0x0, FALSE, FALSE)
+_FDC_Write(0x3F0, 0x2, 0xC)
+FDC IRQ RECIVED
+FDC_Speed(0x0, 0x0)
+_FDC_Write(0x3F0, 0x7, 0x0)
+_FDC_WAIT_IR()
+_FDC_SENSEINT(*st0, *cyl)
+_FDC_Write(0x3F0, 0x5, 0x8)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_SENSEINT(*st0, *cyl)
+_FDC_Write(0x3F0, 0x5, 0x8)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_SENSEINT(*st0, *cyl)
+_FDC_Write(0x3F0, 0x5, 0x8)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_SENSEINT(*st0, *cyl)
+_FDC_Write(0x3F0, 0x5, 0x8)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x13)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x0)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x32)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x0)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+FDC_Specify(0x0, TRUE, 0x3, 0x10, 0xF0)
+_FDC_Write(0x3F0, 0x5, 0x3)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x30)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x21)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+FDC_Calibrate(0x0)
+DOR_Handler(0x0, TRUE, FALSE)
+_FDC_Write(0x3F0, 0x2, 0x1C)
+_FDC_Write(0x3F0, 0x5, 0x7)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Write(0x3F0, 0x5, 0x0)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FFDC IRQ RECIVED
+DC_WAIT_IR()
+_FDC_SENSEINT(*st0, *cyl)
+_FDC_Write(0x3F0, 0x5, 0x8)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+_FDC_Read(0x3F0, 0x5)
+MSR_Handler()
+_FDC_Read(0x3F0, 0x4)
+DOR_Handler(0x0, FALSE, FALSE)
+_FDC_Write(0x3F0, 0x2, 0xC)
+cls
+echo wish me lick
+wish me lick 
+echo lol lick... (luck)
+lol lick... (luck) 
+ramx 1000 10 200
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+cls
+echo now enough fulling arround... tim  e to get to work
+now enough fulling arround... time to get to work 
+echo I a cannot spell today...
+I cannot spell today... 
+cls
+color 43
+cls
+color 34
+color f4
+color 4f
+cls
+echo live test!
+live test! 
+outb 2 3f2 1c
+outb 3f2   5 f
+outb 3f5 0
+outb 3f5 0
+FDC IRQ RECIVED
+inb 3f5
+We recived F8 = 248 = 
+inb 3f5
+We recived F8 = 248 = 
+outb 3f5 8
+inb 3f5
+We recived 20 = 32 =  
+inb 3f5
+We recived 0 = 0 = 
+outb a 6
+outb c 46
+outb d 46
+outb b 46
+outb 4 0
+outb 4 10
+outb 81 0
+outb 5 ff
+outb 5 23
+outb a 2
+outb 3f5 e6  
+outb 3f5 0
+outb 3f5 0
+outb 3f5 0
+outb 3f5 1
+outb 3f5 2
+outb 3f5 2
+outb 3f5 1b
+outb 3f5 ff
+FDC IRQ RECIVED
+FDC IRQ RECIVED
+inb 3f5
+We recived 40 = 64 = @
+inb 3f5
+We recived 10 = 16 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 1 = 1 = 
+inb 3f5
+We recived 2 = 2 = 
+outb 3f5 8
+inb 3f5
+We recived 80 = 128 = 
+inb 3f5
+We recived 80 = 128 = 
+outb 3f2 0 c
+ramx 1000 1200
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+echo damn
+damn 
+color 0

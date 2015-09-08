@@ -1,0 +1,401 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.07.16 20:51:04 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f1 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f1 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f2 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f2 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f4 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f4 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f5 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f5 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f6 40
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f7 24
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abccls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f1 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f1 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f2 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f2 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 4 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f4 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f5 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f5 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f6 50
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f7 24
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinf b 1f7  
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinf 1f0     w 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 1f0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived F003 = 61443 = 
+(COMMAND.C:Line 115) cmd_handler()
+abccls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f3 a5
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f3
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 3 a5
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 173
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived A5 = 165 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1f6 b0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 b0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 a0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 175 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 175 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 40
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 177 24
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f 77
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 18 77
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 

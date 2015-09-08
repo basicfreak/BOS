@@ -1,0 +1,534 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.22 21:15:20 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 198) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 178) calloc(0x3)
+
+(PHYSICAL.C:Line 147) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = ERROR
+ERROR
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x0
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x0, 0x1, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x0
+& EIP = 0x0
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x0, 0x1, 0x0) = 1 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x0
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+(FDC.C:Line 550) floppy_install()
+(FDC.C:Line 344) floppy_setVars(0x4)
+(FDC.C:Line 336) fdc_disable()
+(FDC.C:Line 136) DOR_write(0x0)
+(FDC.C:Line 165) floppy_reset()
+(FDC.C:Line 336) fdc_disable()
+(FDC.C:Line 136) DOR_write(0x0)
+(FDC.C:Line 328) fdc_enable()
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line (FDC.C:Line 231) floppy_handler(0x112E10)
+FDC IRQ RECIVED
+144) floppy_waitIRQ()
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F88, 0x112F84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 118) FIFO_write(0x13)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 287) floppy_speed(0x0)
+(FDC.C:Line 397) floppy_mechanical_info(0x3, 0x10, 0xF0, TRUE)
+(FDC.C:Line 118) FIFO_write(0x3)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x30)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x20)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 410) floppy_calibrate()
+(FDC.C:Line 275) floppy_motor(TRUE)
+(FDC.C:Line 136) DOR_write(0x1C)
+(FDC.C:Line 118) FIFO_write(0x7)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 144) floppy_waitIRQ()
+(FDC.C:Line 231) floppy_handler(0x112EB4)
+FDC IRQ RECIVED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112F58, 0x112F54)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 426) CALIBRATED!
+(FDC.C:Line 275) floppy_motor(FALSE)
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line 118) FIFO_write(0x14)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+read 0 1
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(FDC.C:Line 518) floppy_readSector(0, 1)
+(FDC.C:Line 45) floppy_set_dma(0x3500)
+(FDC.C:Line 275) floppy_motor(TRUE)
+(FDC.C:Line 136) DOR_write(0x1C)
+(FDC.C:Line 563) lbaCHS(0x0, 0x0, 0x0, 0x1)
+(FDC.C:Line 446) floppy_readSector_imp(0x0, 0x0, 0x1, 0x1)
+(FDC.C:Line 53) floppy_init_dma(3500, 200)
+(DMA.C:Line 44) dma_reset()
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 54) dma_reset_flipflop(0x1)
+(DMA.C:Line 66) dma_set_address(0x2, 0x0, 0x35)
+(DMA.C:Line 54) dma_reset_flipflop(0x1)
+(DMA.C:Line 89) dma_set_count(0x2, 0xFF, 0x1)
+(DMA.C:Line 125) dma_set_read(0x2)
+(DMA.C:Line 111) dma_set_mode(0x2, 0x44)
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 32) dma_unmask_all()
+(DMA.C:Line 32) dma_unmask_all()
+(FDC.C:Line 84) floppy_dma_read()
+(DMA.C:Line 125) dma_set_read(0x2)
+(DMA.C:Line 111) dma_set_mode(0x2, 0x44)
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 32) dma_unmask_all()
+(FDC.C:Line 118) FIFO_write(0xE6)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x1)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x2)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x2)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x1B)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0xFF)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 144) floppy_waitIRQ()
+(FDC.C:Line 156) NO IRQ
+(FDC.C:Line 313) fdc_quickReset()
+(FDC.C:Line 336) fdc_disable()
+(FDC.C:Line 136) DOR_write(0x0)
+(FDC.C:Line 231) floppy_handler(0x112D94)
+FDC IRQ RECIVED
+(FDC.C:Line 328) fdc_enable()
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line (FDC.C:Line 231) floppy_handler(0x112D2C)
+FDC IRQ RECIVED
+144) floppy_waitIRQ()
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E88, 0x112E84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E88, 0x112E84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E88, 0x112E84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E88, 0x112E84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 410) floppy_calibrate()
+(FDC.C:Line 275) floppy_motor(TRUE)
+(FDC.C:Line 136) DOR_write(0x1C)
+(FDC.C:Line 118) FIFO_write(0x7)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:L(FDC.C:Line 231) floppy_handler(0x112CE0)
+FDC IRQ RECIVED
+ine 144) floppy_waitIRQ()
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E58, 0x112E54)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 426) CALIBRATED!
+(FDC.C:Line 275) floppy_motor(FALSE)
+(FDC.C:Line 136) DOR_write(0xC)
+(FDC.C:Line 275) floppy_motor(TRUE)
+(FDC.C:Line 136) DOR_write(0x1C)
+(FDC.C:Line 446) floppy_readSector_imp(0x0, 0x0, 0x1, 0x1)
+(FDC.C:Line 53) floppy_init_dma(3500, 200)
+(DMA.C:Line 44) dma_reset()
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 54) dma_reset_flipflop(0x1)
+(DMA.C:Line 66) dma_set_address(0x2, 0x0, 0x35)
+(DMA.C:Line 54) dma_reset_flipflop(0x1)
+(DMA.C:Line 89) dma_set_count(0x2, 0xFF, 0x1)
+(DMA.C:Line 125) dma_set_read(0x2)
+(DMA.C:Line 111) dma_set_mode(0x2, 0x44)
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 32) dma_unmask_all()
+(DMA.C:Line 32) dma_unmask_all()
+(FDC.C:Line 84) floppy_dma_read()
+(DMA.C:Line 125) dma_set_read(0x2)
+(DMA.C:Line 111) dma_set_mode(0x2, 0x44)
+(DMA.C:Line 10) dma_mask_channel(0x2)
+(DMA.C:Line 32) dma_unmask_all()
+(FDC.C:Line 118) FIFO_write(0xE6)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x0)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x1)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x2)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x2)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x1B)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0xFF)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 144) floppy_waitIRQ()
+(FDC.C:Line 231) floppy_handler(0x112DC4)
+FDC IRQ RECIVED
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 241) floppy_IRQ_handle(0x112E88, 0x112E84)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 118) FIFO_write(0x8)
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 101) FIFO_read()
+(FDC.C:Line 203) FIFO_ready()
+(FDC.C:Line 223) floppy_status()
+(FDC.C:Line 211) Ready
+(FDC.C:Line 260) IRQ HANDLED
+(FDC.C:Line 275) floppy_motor(FALSE)
+(FDC.C:Line 136) DOR_write(0xC)
+(COMMAND.C:Line 115) cmd_handler()
+user
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+

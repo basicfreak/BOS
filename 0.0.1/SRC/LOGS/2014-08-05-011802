@@ -1,0 +1,156 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.08.05 01:18:02 =~=~=~=~=~=~=~=~=~=~=~=
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 & EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 & EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+DATAOFFSET = 0x21FATOFFSET = 0x0
+
+BPB Info:OEM Name+FGD`IHC
+BytesPerSector0x200SectorsPerCluster0x1
+ReservedSectors0x1NumberOfFats0x2
+RootDirEntries0xE0SectorsCount0xB40
+Media0xF0SectorsPerFAT0x9
+SectorsPerTrack0x12HeadsPerCyl0x2
+HiddenSectors0x0LongSectors0x0
+DATAOFFSET = 0x726EFATOFFSET = 0x0
+
+BPB Info:OEM NameMSWIN4.1
+BytesPerSector0x200SectorsPerCluster0x10
+ReservedSectors0x20NumberOfFats0x2
+RootDirEntries0x0SectorsCount0x0
+Media0xF8SectorsPerFAT0x0
+SectorsPerTrack0x3FHeadsPerCyl0xFF
+HiddenSectors0x3FLongSectors0x1CA26CE
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+dir
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+dir /0
+(COMMAND.C:Line 53) do_CMD(0x2)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x1C00EBX = 0x2ECX = 0xB8E60EDX = 0x1DFF
+EDI = 0x0ESI = 0x0EBP = 0x115C8CESP = 0x115A20
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x103A6FCS = 0x8EFLAGS = 0x10206SS = 0x1
+USER-ESP = 0x0ERROR-CODE = 0x0
+
+RAM[0x103A5F - 0x103A7F]:
+66 F B7 45 D6 C1 E0 5 8D 90 FF 1 0 0 85 C0 (F)  48 C2 C1 F8 9 F B7 F8 8B 5D D0 BE 0 0 0 0 
+
+OPSIZE POP CS MOV INC EBP SALC #2 LOOPNZ ADD LEA NOP #5 ADD ADD ADD TEST #2 (POP CS)  DEC EAX RETN #2 CLC OR POP CS MOV CLC MOV POP EBP #2 MOV ADD ADD ADD ADD 
+
+f   E             () H         ]       
+ESP - RAM[0x115A10 - 0x115A30]:
+2 0 0 0 FF 1D 0 0 60 8E B 0 0 1C 0 0 6 0 0 0 0 0 0 0 6F 3A 10 0 8 0 0 0 6 
+
+        `                o :        
+System  Halted
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 & EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 & EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+DATAOFFSET = 0x21FATOFFSET = 0x0
+
+BPB Info:OEM Name+FGD`IHC
+BytesPerSector0x200SectorsPerCluster0x1
+ReservedSectors0x1NumberOfFats0x2
+RootDirEntries0xE0SectorsCount0xB40
+Media0xF0SectorsPerFAT0x9
+SectorsPerTrack0x12HeadsPerCyl0x2
+HiddenSectors0x0LongSectors0x0
+DATAOFFSET = 0x726EFATOFFSET = 0x0
+
+BPB Info:OEM NameMSWIN4.1
+BytesPerSector0x200SectorsPerCluster0x10
+ReservedSectors0x20NumberOfFats0x2
+RootDirEntries0x0SectorsCount0x0
+Media0xF8SectorsPerFAT0x0
+SectorsPerTrack0x3FHeadsPerCyl0xFF
+HiddenSectors0x3FLongSectors0x1CA26CE
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x1C00EBX = 0x2ECX = 0xB8E60EDX = 0x1DFF
+EDI = 0x0ESI = 0x0EBP = 0x115C8CESP = 0x115A20
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x103A6FCS = 0x8EFLAGS = 0x10206SS = 0x1
+USER-ESP = 0x0ERROR-CODE = 0x0
+
+RAM[0x103A5F - 0x103A7F]:
+66 F B7 45 D6 C1 E0 5 8D 90 FF 1 0 0 85 C0 (F)  48 C2 C1 F8 9 F B7 F8 8B 5D D0 BE 0 0 0 0 
+
+OPSIZE POP CS MOV INC EBP SALC #2 LOOPNZ ADD LEA NOP #5 ADD ADD ADD TEST #2 (POP CS)  DEC EAX RETN #2 CLC OR POP CS MOV CLC MOV POP EBP #2 MOV ADD ADD ADD ADD 
+
+f   E             () H         ]       
+ESP - RAM[0x115A10 - 0x115A30]:
+2 0 0 0 FF 1D 0 0 60 8E B 0 0 1C 0 0 6 0 0 0 0 0 0 0 6F 3A 10 0 8 0 0 0 6 
+
+        `                o :        
+System  Halted
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 & EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 & EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+DATAOFFSET = 0x21FATOFFSET = 0x0
+
+BPB Info:OEM Name+FGD`IHC
+BytesPerSector0x200SectorsPerCluster0x1
+ReservedSectors0x1NumberOfFats0x2
+RootDirEntries0xE0SectorsCount0xB40
+Media0xF0SectorsPerFAT0x9
+SectorsPerTrack0x12HeadsPerCyl0x2
+HiddenSectors0x0LongSectors0x0
+DATAOFFSET = 0x726EFATOFFSET = 0x0
+
+BPB Info:OEM NameMSWIN4.1
+BytesPerSector0x200SectorsPerCluster0x10
+ReservedSectors0x20NumberOfFats0x2
+RootDirEntries0x0SectorsCount0x0
+Media0xF8SectorsPerFAT0x0
+SectorsPerTrack0x3FHeadsPerCyl0xFF
+HiddenSectors0x3FLongSectors0x1CA26CE
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+Fatal System Error
+Invalid Opcode Exception
+EAX = 0x1C00EBX = 0x2ECX = 0xB8E60EDX = 0x1DFF
+EDI = 0x0ESI = 0x0EBP = 0x115C8CESP = 0x115A20
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x103A6FCS = 0x8EFLAGS = 0x10206SS = 0x1
+USER-ESP = 0x0ERROR-CODE = 0x0
+
+RAM[0x103A5F - 0x103A7F]:
+66 F B7 45 D6 C1 E0 5 8D 90 FF 1 0 0 85 C0 (F)  48 C2 C1 F8 9 F B7 F8 8B 5D D0 BE 0 0 0 0 
+
+OPSIZE POP CS MOV INC EBP SALC #2 LOOPNZ ADD LEA NOP #5 ADD ADD ADD TEST #2 (POP CS)  DEC EAX RETN #2 CLC OR POP CS MOV CLC MOV POP EBP #2 MOV ADD ADD ADD ADD 
+
+f   E             () H         ]       
+ESP - RAM[0x115A10 - 0x115A30]:
+2 0 0 0 FF 1D 0 0 60 8E B 0 0 1C 0 0 6 0 0 0 0 0 0 0 6F 3A 10 0 8 0 0 0 6 
+
+        `                o :        
+System  Halted
+

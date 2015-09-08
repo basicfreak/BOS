@@ -1,0 +1,177 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.23 13:53:33 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x0, 0x1, 0x0) = 1 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x0
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+cls
+outb 3f2 c
+FDC IRQ RECIVED
+outb 3f2 8
+inb 3f      outb 3f2 0
+FDC IRQ RECIVED
+cls
+outb 2 3f2 0
+outb 3f2 c
+FDC IRQ RECIVED
+outb 3f5 8
+inb 3f5
+We recived C0 = 192 = 
+inb 3f5
+We recived 0 = 0 = 
+outb 3f5 8
+inb 3f5
+We recived C1 = 193 = 
+inb 3f5
+We recived 0 = 0 = 
+outb 3f5 8
+inb 3f5
+We recived C2 = 194 = 
+inb 3f5
+We recived 0 = 0 = 
+outb 3f5 8
+inb 3f5
+We recived C3 = 195 = 
+inb 3f5
+We recived 0 = 0 = 
+outb 3f7 0
+outb 3f5 3
+outb 3f5 30
+outb 3f5 21
+outb 3f2 1d
+outb 3f2 1c
+outb 3f5 7
+outb 3f5 0
+FDC IRQ RECIVED
+outb 3f5 8
+inb 3f5
+We recived 20 = 32 =  
+inb 3f5
+We recived 0 = 0 = 
+outb 3f2 c
+outb a 6
+outb d8 ff
+outb 4 0
+outb 4 10
+outb d8 ff
+outb 5 ff
+outb 5 23
+outb 80 0
+outb a 2
+outb 3f2 1c
+outb 3f5 f
+outb 3f5 0
+outb 3f5 0
+FDC IRQ RECIVED
+outb 3f5 8
+inb 3f5
+We recived 20 = 32 =  
+inb 3f5
+We recived 0 = 0 = 
+outb 1 6   a 6
+outb b 56
+outb a 2
+outb 3f5 e6
+outb 3f5 0
+outb 3f5 0
+outb 3f5 0
+outb 3f5 1
+outb 3f5 2
+outb 3f5 2
+outb 3f5 1b
+outb 3f5 ff
+FDC IRQ RECIVED
+FDC IRQ RECIVED
+inb 3f5
+We recived 40 = 64 = @
+inb 3f5
+We recived 10 = 16 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3ft 5
+We recived 0 = 0 = 
+inb 3f5
+We recived 0 = 0 = 
+inb 3f5
+We recived 1 = 1 = 
+inb 3f5
+We recived 2 = 2 = 
+outb 3f5 8
+inb 3f5
+We recived 80 = 128 = 

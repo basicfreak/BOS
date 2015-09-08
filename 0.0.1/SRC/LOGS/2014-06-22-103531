@@ -1,0 +1,217 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.22 10:35:31 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+(COMMAND.C:Line 128) init_cmd()
+(COMMAND.C:Line 115) cmd_handler()
+cls
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+read 0 1
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+o (COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 0
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 c
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 0
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 0 c
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 1c
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 0
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 c
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 8
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+inb inb     3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 8
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 8
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 8
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+inb 3f5
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f7 0
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 3
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 f0  30
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f5 20
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+read 0 1
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 1c
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+read 0 1
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 140) cmd_read(0x0, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+outb 3f2 0
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+cls
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A
+Test Echo B
+Test Echo C
+Test Echo DFatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x109785CS = 0x8EFLAGS = 0x10202SS = 0x20
+USER-ESP = 0x10F77CERROR-CODE = 0x0
+
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A
+Test Echo B
+Test Echo C
+Test Echo DFatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x109788CS = 0x8EFLAGS = 0x10202SS = 0x20
+USER-ESP = 0x10F7BCERROR-CODE = 0x0
+
+RAM[0x109778 - 0x109798]:
+EC 14 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0  F  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+IN ADC MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2  POP CS  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H     H             E   
+ESP - RAM[0x10F7AC - 0x10F7CC]:
+D 9 54 65 73 74 20 45 63 68 6F 20 48 0 0 0 A D 28 50 48 59 53 49 43 41 4C 2E 43 3A 4C 69 6E 
+
+  T e s t   E c h o   H    
+  ( P H Y S I C A L . C : L i n 
+System  Halted
+
+(PHYSICAL.C:Line 186) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 166) calloc(0x3)
+
+(PHYSICAL.C:Line 135) malloc(0x3) = 
+(PHYSICAL.C:Line 93) mmap_first_free_s (0x3) = 
+Test Echo A
+Test Echo B j=0x0
+Test Echo C bit=0x1
+Test Echo D count=0x0Fatal System Error
+Invalid Opcode Exception
+EAX = 0x401EBX = 0x26260ECX = 0x420EDX = 0x180000
+EDI = 0x263F8ESI = 0x263EBEBP = 0x111EC8ESP = 0x111E9C
+GS = 0x10FS = 0x10ES = 0x10DS = 0x10
+EIP = 0x109788CS = 0x8EFLAGS = 0x10202SS = 0x20
+USER-ESP = 0x10F824ERROR-CODE = 0x0
+
+RAM[0x109778 - 0x109798]:
+EC 14 8B 15 2C D2 11 0 8B 45 8 8D 48 1F 85 C0  F  48 C1 C1 F8 5 C1 E0 2 1 D0 8B 18 8B 45 8 99 
+
+IN ADC MOV ADC SUB #2 ADC ADD MOV INC EBP OR LEA DEC EAX POP DS TEST #2  POP CS  DEC EAX #2 #2 CLC ADD #2 LOOPNZ ADD ADD #2 MOV SBB MOV INC EBP OR CWD 
+
+    ,     E   H     H             E   
+ESP - RAM[0x10F814 - 0x10F834]:
+9 54 65 73 74 20 45 63 68 6F 20 48 0 0 0 0 A D 28 50 48 59 53 49 43 41 4C 2E 43 3A 4C 69 6E 
+
+ T e s t   E c h o   H     
+  ( P H Y S I C A L . C : L i n 
+System  Halted
+

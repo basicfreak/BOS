@@ -1,0 +1,170 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.06.29 16:58:02 =~=~=~=~=~=~=~=~=~=~=~=
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x0, 0x1, 0x0) = 1 
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x0
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x407000
+(COMMAND.C:Line 115) cmd_handler()
+load t clock.exe
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 207) load(clock.exe)
+
+(THREADMAN.C:Line 68) _THREAD_MAN_disable()
+
+(THREADMAN.C:Line 119) AddThread(0x800000, 0xFF, 0x1) = 2 
+(VIRTUAL.C:Line 120) Create_Process_Directory(0x1000. 0x0)
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40E
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40E000
+(VIRTUAL.C:Line 127) Physical Location Of Thread = 0x40E000
+
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x420
+
+(PHYSICAL.C:Line 73) set_used(0x420)
+
+(PHYSICAL.C:Line 73) set_used(0x421)
+0x420000
+(VIRTUAL.C:Line 133) Physical Location Of Stack = 0x0
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2FF, 0x40F000, 0x40B000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x410
+
+(PHYSICAL.C:Line 73) set_used(0x410)
+0x410000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x410000, 0x40B000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403027, 0x40B000, 0x0, 0x0)
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404027, 0x40B000, 0x0, 0x0)
+& EIP = 0x800000
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+(COMMAND.C:Line 115) cmd_handler()
+help

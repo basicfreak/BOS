@@ -1,0 +1,3255 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.07.16 21:03:29 =~=~=~=~=~=~=~=~=~=~=~=
+help
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 31) help()
+(COMMAND.C:Line 115) cmd_handler()
+abcck ls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 175 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 175 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 40
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 177 24
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 1f7
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3 = 3 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 50 = 80 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 0 = 0 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb      cls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcout  b 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoub 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 175 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 e0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 177 20
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abccls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 172 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abccls
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 171   2 1
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 173 9 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 174 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 1750  0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 e0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 177 20
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 58 = 88 = X
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived C033 = 49203 = 3
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived D08E = 53390 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BC = 188 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived FB7C = 64380 = |
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 750 = 1872 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcomw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1F50 = 8016 = P
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 179 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BEFC = 48892 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 7C1B = 31771 = 
+OMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1BBF = 7103 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 5006 = 20486 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived B957 = 47447 = W
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1E5 = 485 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived A4F3 = 42227 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BECB = 48843 = 
+(COMMAND.C:Line 115) cmd_handler()
+abc
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 7BE = 1982 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 4B1 = 1201 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 2C38 = 11320 = 8
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 97C = 2428 = |
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1575 = 5493 = u
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived C683 = 50819 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived E210 = 57872 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived CDF5 = 52725 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 8B18 = 35608 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 8B14 = 35604 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 83EE = 33774 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 10C6 = 4294 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 7449 = 29769 = I
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3816 = 14358 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 742C = 29740 = ,
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 0
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BEF6 = 48886 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 710 = 1808 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived AC4E = 44110 = N
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 3C = 60 = <
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived FA74 = 64116 = t
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 7BB = 1979 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived B400 = 46080 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived CD0E = 52494 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived EB10 = 60176 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 89F2 = 35314 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 2546 = 9542 = F
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 8A96 = 35478 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 446 = 1094 = F
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 6B4 = 1716 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived E3C = 3644 = <
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1174 = 4468 = t
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BB4 = 2996 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived C3C = 3132 = <
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 574 = 1396 = t
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived C43A = 50234 = :
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 2B75 = 11125 = u
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived C640 = 50752 = @
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 2546 = 9542 = F
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 7506 = 29958 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170 inw 170    inw 170 inw 170 inw 170 inw 170 inw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived BB24 = 47908 = $
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 55AA = 21930 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcinw 170
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived B450 = 46160 = P
+(COMMAND.C:Line 115) cmd_handler()
+abc
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 176 b0
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcoutb 177 ec
+klm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcinb 177
+klm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1 = 1 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abc
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 51 = 81 = Q
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 1 = 1 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 51 = 81 = Q
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 58 = 88 = X
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 51 = 81 = Q
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 58 = 88 = X
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived 14 = 20 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x1)
+We recived EB = 235 = 
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x2)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abc
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) cal_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_t_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmfree_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x0)
+
+(PHYSICAL.C:Line 180) calloc(0x168)
+
+(PHYSICAL.C:Line 149) malloc(0x168) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x168) = 0x420
+
+(PHYSICAL.C:Line 73) set_used(0x420)
+
+(PHYSICAL.C:Line 73) set_used(0x421)
+
+(PHYSICAL.C:Line 73) set_used(0x422)
+
+(PHYSICAL.C:Line 73) set_used(0x423)
+
+(PHYSICAL.C:Line 73) set_used(0x424)
+
+(PHYSICAL.C:Line 73) set_used(0x425)
+
+(PHYSICAL.C:Line 73) set_used(0x426)
+
+(PHYSICAL.C:Line 73) set_used(0x427)
+
+(PHYSICAL.C:Line 73) set_used(0x428)
+
+(PHYSICAL.C:Line 73) set_used(0x429)
+
+(PHYSICAL.C:Line 73) set_used(0x42A)
+
+(PHYSICAL.C:Line 73) set_used(0x42B)
+
+(PHYSICAL.C:Line 73) set_used(0x42C)
+
+(PHYSICAL.C:Line 73) set_used(0x42D)
+
+(PHYSICAL.C:Line 73) set_used(0x42E)
+
+(PHYSICAL.C:Line 73) set_used(0x42F)
+
+(PHYSICAL.C:Line 73) set_used(0x430)
+
+(PHYSICAL.C:Line 73) set_used(0x431)
+
+(PHYSICAL.C:Line 73) set_used(0x432)
+
+(PHYSICAL.C:Line 73) set_used(0x433)
+
+(PHYSICAL.C:Line 73) set_used(0x434)
+
+(PHYSICAL.C:Line 73) set_used(0x435)
+
+(PHYSICAL.C:Line 73) set_used(0x436)
+
+(PHYSICAL.C:Line 73) set_used(0x437)
+
+(PHYSICAL.C:Line 73) set_used(0x438)
+
+(PHYSICAL.C:Line 73) set_used(0x439)
+
+(PHYSICAL.C:Line 73) set_used(0x43A)
+
+(PHYSICAL.C:Line 73) set_used(0x43B)
+
+(PHYSICAL.C:Line 73) set_used(0x43C)
+
+(PHYSICAL.C:Line 73) set_used(0x43D)
+
+(PHYSICAL.C:Line 73) set_used(0x43E)
+
+(PHYSICAL.C:Line 73) set_used(0x43F)
+
+(PHYSICAL.C:Line 73) set_used(0x440)
+
+(PHYSICAL.C:Line 73) set_used(0x441)
+
+(PHYSICAL.C:Line 73) set_used(0x442)
+
+(PHYSICAL.C:Line 73) set_used(0x443)
+
+(PHYSICAL.C:Line 73) set_used(0x444)
+
+(PHYSICAL.C:Line 73) set_used(0x445)
+
+(PHYSICAL.C:Line 73) set_used(0x446)
+
+(PHYSICAL.C:Line 73) set_used(0x447)
+
+(PHYSICAL.C:Line 73) set_used(0x448)
+
+(PHYSICAL.C:Line 73) set_used(0x449)
+
+(PHYSICAL.C:Line 73) set_used(0x44A)
+
+(PHYSICAL.C:Line 73) set_used(0x44B)
+
+(PHYSICAL.C:Line 73) set_used(0x44C)
+
+(PHYSICAL.C:Line 73) set_used(0x44D)
+
+(PHYSICAL.C:Line 73) set_used(0x44E)
+
+(PHYSICAL.C:Line 73) set_used(0x44F)
+
+(PHYSICAL.C:Line 73) set_used(0x450)
+
+(PHYSICAL.C:Line 73) set_used(0x451)
+
+(PHYSICAL.C:Line 73) set_used(0x452)
+
+(PHYSICAL.C:Line 73) set_used(0x453)
+
+(PHYSICAL.C:Line 73) set_used(0x454)
+
+(PHYSICAL.C:Line 73) set_used(0x455)
+
+(PHYSICAL.C:Line 73) set_used(0x456)
+
+(PHYSICAL.C:Line 73) set_used(0x457)
+
+(PHYSICAL.C:Line 73) set_used(0x458)
+
+(PHYSICAL.C:Line 73) set_used(0x459)
+
+(PHYSICAL.C:Line 73) set_used(0x45A)
+
+(PHYSICAL.C:Line 73) set_used(0x45B)
+
+(PHYSICAL.C:Line 73) set_used(0x45C)
+
+(PHYSICAL.C:Line 73) set_used(0x45D)
+
+(PHYSICAL.C:Line 73) set_used(0x45E)
+
+(PHYSICAL.C:Line 73) set_used(0x45F)
+
+(PHYSICAL.C:Line 73) set_used(0x460)
+
+(PHYSICAL.C:Line 73) set_used(0x461)
+
+(PHYSICAL.C:Line 73) set_used(0x462)
+
+(PHYSICAL.C:Line 73) set_used(0x463)
+
+(PHYSICAL.C:Line 73) set_used(0x464)
+
+(PHYSICAL.C:Line 73) set_used(0x465)
+
+(PHYSICAL.C:Line 73) set_used(0x466)
+
+(PHYSICAL.C:Line 73) set_used(0x467)
+
+(PHYSICAL.C:Line 73) set_used(0x468)
+
+(PHYSICAL.C:Line 73) set_used(0x469)
+
+(PHYSICAL.C:Line 73) set_used(0x46A)
+
+(PHYSICAL.C:Line 73) set_used(0x46B)
+
+(PHYSICAL.C:Line 73) set_used(0x46C)
+
+(PHYSICAL.C:Line 73) set_used(0x46D)
+
+(PHYSICAL.C:Line 73) set_used(0x46E)
+
+(PHYSICAL.C:Line 73) set_used(0x46F)
+
+(PHYSICAL.C:Line 73) set_used(0x470)
+
+(PHYSICAL.C:Line 73) set_used(0x471)
+
+(PHYSICAL.C:Line 73) set_used(0x472)
+
+(PHYSICAL.C:Line 73) set_used(0x473)
+
+(PHYSICAL.C:Line 73) set_used(0x474)
+
+(PHYSICAL.C:Line 73) set_used(0x475)
+
+(PHYSICAL.C:Line 73) set_used(0x476)
+
+(PHYSICAL.C:Line 73) set_used(0x477)
+
+(PHYSICAL.C:Line 73) set_used(0x478)
+
+(PHYSICAL.C:Line 73) set_used(0x479)
+
+(PHYSICAL.C:Line 73) set_used(0x47A)
+
+(PHYSICAL.C:Line 73) set_used(0x47B)
+
+(PHYSICAL.C:Line 73) set_used(0x47C)
+
+(PHYSICAL.C:Line 73) set_used(0x47D)
+
+(PHYSICAL.C:Line 73) set_used(0x47E)
+
+(PHYSICAL.C:Line 73) set_used(0x47F)
+
+(PHYSICAL.C:Line 73) set_used(0x480)
+
+(PHYSICAL.C:Line 73) set_used(0x481)
+
+(PHYSICAL.C:Line 73) set_used(0x482)
+
+(PHYSICAL.C:Line 73) set_used(0x483)
+
+(PHYSICAL.C:Line 73) set_used(0x484)
+
+(PHYSICAL.C:Line 73) set_used(0x485)
+
+(PHYSICAL.C:Line 73) set_used(0x486)
+
+(PHYSICAL.C:Line 73) set_used(0x487)
+
+(PHYSICAL.C:Line 73) set_used(0x488)
+
+(PHYSICAL.C:Line 73) set_used(0x489)
+
+(PHYSICAL.C:Line 73) set_used(0x48A)
+
+(PHYSICAL.C:Line 73) set_used(0x48B)
+
+(PHYSICAL.C:Line 73) set_used(0x48C)
+
+(PHYSICAL.C:Line 73) set_used(0x48D)
+
+(PHYSICAL.C:Line 73) set_used(0x48E)
+
+(PHYSICAL.C:Line 73) set_used(0x48F)
+
+(PHYSICAL.C:Line 73) set_used(0x490)
+
+(PHYSICAL.C:Line 73) set_used(0x491)
+
+(PHYSICAL.C:Line 73) set_used(0x492)
+
+(PHYSICAL.C:Line 73) set_used(0x493)
+
+(PHYSICAL.C:Line 73) set_used(0x494)
+
+(PHYSICAL.C:Line 73) set_used(0x495)
+
+(PHYSICAL.C:Line 73) set_used(0x496)
+
+(PHYSICAL.C:Line 73) set_used(0x497)
+
+(PHYSICAL.C:Line 73) set_used(0x498)
+
+(PHYSICAL.C:Line 73) set_used(0x499)
+
+(PHYSICAL.C:Line 73) set_used(0x49A)
+
+(PHYSICAL.C:Line 73) set_used(0x49B)
+
+(PHYSICAL.C:Line 73) set_used(0x49C)
+
+(PHYSICAL.C:Line 73) set_used(0x49D)
+
+(PHYSICAL.C:Line 73) set_used(0x49E)
+
+(PHYSICAL.C:Line 73) set_used(0x49F)
+
+(PHYSICAL.C:Line 73) set_used(0x4A0)
+
+(PHYSICAL.C:Line 73) set_used(0x4A1)
+
+(PHYSICAL.C:Line 73) set_used(0x4A2)
+
+(PHYSICAL.C:Line 73) set_used(0x4A3)
+
+(PHYSICAL.C:Line 73) set_used(0x4A4)
+
+(PHYSICAL.C:Line 73) set_used(0x4A5)
+
+(PHYSICAL.C:Line 73) set_used(0x4A6)
+
+(PHYSICAL.C:Line 73) set_used(0x4A7)
+
+(PHYSICAL.C:Line 73) set_used(0x4A8)
+
+(PHYSICAL.C:Line 73) set_used(0x4A9)
+
+(PHYSICAL.C:Line 73) set_used(0x4AA)
+
+(PHYSICAL.C:Line 73) set_used(0x4AB)
+
+(PHYSICAL.C:Line 73) set_used(0x4AC)
+
+(PHYSICAL.C:Line 73) set_used(0x4AD)
+
+(PHYSICAL.C:Line 73) set_used(0x4AE)
+
+(PHYSICAL.C:Line 73) set_used(0x4AF)
+
+(PHYSICAL.C:Line 73) set_used(0x4B0)
+
+(PHYSICAL.C:Line 73) set_used(0x4B1)
+
+(PHYSICAL.C:Line 73) set_used(0x4B2)
+
+(PHYSICAL.C:Line 73) set_used(0x4B3)
+
+(PHYSICAL.C:Line 73) set_used(0x4B4)
+
+(PHYSICAL.C:Line 73) set_used(0x4B5)
+
+(PHYSICAL.C:Line 73) set_used(0x4B6)
+
+(PHYSICAL.C:Line 73) set_used(0x4B7)
+
+(PHYSICAL.C:Line 73) set_used(0x4B8)
+
+(PHYSICAL.C:Line 73) set_used(0x4B9)
+
+(PHYSICAL.C:Line 73) set_used(0x4BA)
+
+(PHYSICAL.C:Line 73) set_used(0x4BB)
+
+(PHYSICAL.C:Line 73) set_used(0x4BC)
+
+(PHYSICAL.C:Line 73) set_used(0x4BD)
+
+(PHYSICAL.C:Line 73) set_used(0x4BE)
+
+(PHYSICAL.C:Line 73) set_used(0x4BF)
+
+(PHYSICAL.C:Line 73) set_used(0x4C0)
+
+(PHYSICAL.C:Line 73) set_used(0x4C1)
+
+(PHYSICAL.C:Line 73) set_used(0x4C2)
+
+(PHYSICAL.C:Line 73) set_used(0x4C3)
+
+(PHYSICAL.C:Line 73) set_used(0x4C4)
+
+(PHYSICAL.C:Line 73) set_used(0x4C5)
+
+(PHYSICAL.C:Line 73) set_used(0x4C6)
+
+(PHYSICAL.C:Line 73) set_used(0x4C7)
+
+(PHYSICAL.C:Line 73) set_used(0x4C8)
+
+(PHYSICAL.C:Line 73) set_used(0x4C9)
+
+(PHYSICAL.C:Line 73) set_used(0x4CA)
+
+(PHYSICAL.C:Line 73) set_used(0x4CB)
+
+(PHYSICAL.C:Line 73) set_used(0x4CC)
+
+(PHYSICAL.C:Line 73) set_used(0x4CD)
+
+(PHYSICAL.C:Line 73) set_used(0x4CE)
+
+(PHYSICAL.C:Line 73) set_used(0x4CF)
+
+(PHYSICAL.C:Line 73) set_used(0x4D0)
+
+(PHYSICAL.C:Line 73) set_used(0x4D1)
+
+(PHYSICAL.C:Line 73) set_used(0x4D2)
+
+(PHYSICAL.C:Line 73) set_used(0x4D3)
+
+(PHYSICAL.C:Line 73) set_used(0x4D4)
+
+(PHYSICAL.C:Line 73) set_used(0x4D5)
+
+(PHYSICAL.C:Line 73) set_used(0x4D6)
+
+(PHYSICAL.C:Line 73) set_used(0x4D7)
+
+(PHYSICAL.C:Line 73) set_used(0x4D8)
+
+(PHYSICAL.C:Line 73) set_used(0x4D9)
+
+(PHYSICAL.C:Line 73) set_used(0x4DA)
+
+(PHYSICAL.C:Line 73) set_used(0x4DB)
+
+(PHYSICAL.C:Line 73) set_used(0x4DC)
+
+(PHYSICAL.C:Line 73) set_used(0x4DD)
+
+(PHYSICAL.C:Line 73) set_used(0x4DE)
+
+(PHYSICAL.C:Line 73) set_used(0x4DF)
+
+(PHYSICAL.C:Line 73) set_used(0x4E0)
+
+(PHYSICAL.C:Line 73) set_used(0x4E1)
+
+(PHYSICAL.C:Line 73) set_used(0x4E2)
+
+(PHYSICAL.C:Line 73) set_used(0x4E3)
+
+(PHYSICAL.C:Line 73) set_used(0x4E4)
+
+(PHYSICAL.C:Line 73) set_used(0x4E5)
+
+(PHYSICAL.C:Line 73) set_used(0x4E6)
+
+(PHYSICAL.C:Line 73) set_used(0x4E7)
+
+(PHYSICAL.C:Line 73) set_used(0x4E8)
+
+(PHYSICAL.C:Line 73) set_used(0x4E9)
+
+(PHYSICAL.C:Line 73) set_used(0x4EA)
+
+(PHYSICAL.C:Line 73) set_used(0x4EB)
+
+(PHYSICAL.C:Line 73) set_used(0x4EC)
+
+(PHYSICAL.C:Line 73) set_used(0x4ED)
+
+(PHYSICAL.C:Line 73) set_used(0x4EE)
+
+(PHYSICAL.C:Line 73) set_used(0x4EF)
+
+(PHYSICAL.C:Line 73) set_used(0x4F0)
+
+(PHYSICAL.C:Line 73) set_used(0x4F1)
+
+(PHYSICAL.C:Line 73) set_used(0x4F2)
+
+(PHYSICAL.C:Line 73) set_used(0x4F3)
+
+(PHYSICAL.C:Line 73) set_used(0x4F4)
+
+(PHYSICAL.C:Line 73) set_used(0x4F5)
+
+(PHYSICAL.C:Line 73) set_used(0x4F6)
+
+(PHYSICAL.C:Line 73) set_used(0x4F7)
+
+(PHYSICAL.C:Line 73) set_used(0x4F8)
+
+(PHYSICAL.C:Line 73) set_used(0x4F9)
+
+(PHYSICAL.C:Line 73) set_used(0x4FA)
+
+(PHYSICAL.C:Line 73) set_used(0x4FB)
+
+(PHYSICAL.C:Line 73) set_used(0x4FC)
+
+(PHYSICAL.C:Line 73) set_used(0x4FD)
+
+(PHYSICAL.C:Line 73) set_used(0x4FE)
+
+(PHYSICAL.C:Line 73) set_used(0x4FF)
+
+(PHYSICAL.C:Line 73) set_used(0x500)
+
+(PHYSICAL.C:Line 73) set_used(0x501)
+
+(PHYSICAL.C:Line 73) set_used(0x502)
+
+(PHYSICAL.C:Line 73) set_used(0x503)
+
+(PHYSICAL.C:Line 73) set_used(0x504)
+
+(PHYSICAL.C:Line 73) set_used(0x505)
+
+(PHYSICAL.C:Line 73) set_used(0x506)
+
+(PHYSICAL.C:Line 73) set_used(0x507)
+
+(PHYSICAL.C:Line 73) set_used(0x508)
+
+(PHYSICAL.C:Line 73) set_used(0x509)
+
+(PHYSICAL.C:Line 73) set_used(0x50A)
+
+(PHYSICAL.C:Line 73) set_used(0x50B)
+
+(PHYSICAL.C:Line 73) set_used(0x50C)
+
+(PHYSICAL.C:Line 73) set_used(0x50D)
+
+(PHYSICAL.C:Line 73) set_used(0x50E)
+
+(PHYSICAL.C:Line 73) set_used(0x50F)
+
+(PHYSICAL.C:Line 73) set_used(0x510)
+
+(PHYSICAL.C:Line 73) set_used(0x511)
+
+(PHYSICAL.C:Line 73) set_used(0x512)
+
+(PHYSICAL.C:Line 73) set_used(0x513)
+
+(PHYSICAL.C:Line 73) set_used(0x514)
+
+(PHYSICAL.C:Line 73) set_used(0x515)
+
+(PHYSICAL.C:Line 73) set_used(0x516)
+
+(PHYSICAL.C:Line 73) set_used(0x517)
+
+(PHYSICAL.C:Line 73) set_used(0x518)
+
+(PHYSICAL.C:Line 73) set_used(0x519)
+
+(PHYSICAL.C:Line 73) set_used(0x51A)
+
+(PHYSICAL.C:Line 73) set_used(0x51B)
+
+(PHYSICAL.C:Line 73) set_used(0x51C)
+
+(PHYSICAL.C:Line 73) set_used(0x51D)
+
+(PHYSICAL.C:Line 73) set_used(0x51E)
+
+(PHYSICAL.C:Line 73) set_used(0x51F)
+
+(PHYSICAL.C:Line 73) set_used(0x520)
+
+(PHYSICAL.C:Line 73) set_used(0x521)
+
+(PHYSICAL.C:Line 73) set_used(0x522)
+
+(PHYSICAL.C:Line 73) set_used(0x523)
+
+(PHYSICAL.C:Line 73) set_used(0x524)
+
+(PHYSICAL.C:Line 73) set_used(0x525)
+
+(PHYSICAL.C:Line 73) set_used(0x526)
+
+(PHYSICAL.C:Line 73) set_used(0x527)
+
+(PHYSICAL.C:Line 73) set_used(0x528)
+
+(PHYSICAL.C:Line 73) set_used(0x529)
+
+(PHYSICAL.C:Line 73) set_used(0x52A)
+
+(PHYSICAL.C:Line 73) set_used(0x52B)
+
+(PHYSICAL.C:Line 73) set_used(0x52C)
+
+(PHYSICAL.C:Line 73) set_used(0x52D)
+
+(PHYSICAL.C:Line 73) set_used(0x52E)
+
+(PHYSICAL.C:Line 73) set_used(0x52F)
+
+(PHYSICAL.C:Line 73) set_used(0x530)
+
+(PHYSICAL.C:Line 73) set_used(0x531)
+
+(PHYSICAL.C:Line 73) set_used(0x532)
+
+(PHYSICAL.C:Line 73) set_used(0x533)
+
+(PHYSICAL.C:Line 73) set_used(0x534)
+
+(PHYSICAL.C:Line 73) set_used(0x535)
+
+(PHYSICAL.C:Line 73) set_used(0x536)
+
+(PHYSICAL.C:Line 73) set_used(0x537)
+
+(PHYSICAL.C:Line 73) set_used(0x538)
+
+(PHYSICAL.C:Line 73) set_used(0x539)
+
+(PHYSICAL.C:Line 73) set_used(0x53A)
+
+(PHYSICAL.C:Line 73) set_used(0x53B)
+
+(PHYSICAL.C:Line 73) set_used(0x53C)
+
+(PHYSICAL.C:Line 73) set_used(0x53D)
+
+(PHYSICAL.C:Line 73) set_used(0x53E)
+
+(PHYSICAL.C:Line 73) set_used(0x53F)
+
+(PHYSICAL.C:Line 73) set_used(0x540)
+
+(PHYSICAL.C:Line 73) set_used(0x541)
+
+(PHYSICAL.C:Line 73) set_used(0x542)
+
+(PHYSICAL.C:Line 73) set_used(0x543)
+
+(PHYSICAL.C:Line 73) set_used(0x544)
+
+(PHYSICAL.C:Line 73) set_used(0x545)
+
+(PHYSICAL.C:Line 73) set_used(0x546)
+
+(PHYSICAL.C:Line 73) set_used(0x547)
+
+(PHYSICAL.C:Line 73) set_used(0x548)
+
+(PHYSICAL.C:Line 73) set_used(0x549)
+
+(PHYSICAL.C:Line 73) set_used(0x54A)
+
+(PHYSICAL.C:Line 73) set_used(0x54B)
+
+(PHYSICAL.C:Line 73) set_used(0x54C)
+
+(PHYSICAL.C:Line 73) set_used(0x54D)
+
+(PHYSICAL.C:Line 73) set_used(0x54E)
+
+(PHYSICAL.C:Line 73) set_used(0x54F)
+
+(PHYSICAL.C:Line 73) set_used(0x550)
+
+(PHYSICAL.C:Line 73) set_used(0x551)
+
+(PHYSICAL.C:Line 73) set_used(0x552)
+
+(PHYSICAL.C:Line 73) set_used(0x553)
+
+(PHYSICAL.C:Line 73) set_used(0x554)
+
+(PHYSICAL.C:Line 73) set_used(0x555)
+
+(PHYSICAL.C:Line 73) set_used(0x556)
+
+(PHYSICAL.C:Line 73) set_used(0x557)
+
+(PHYSICAL.C:Line 73) set_used(0x558)
+
+(PHYSICAL.C:Line 73) set_used(0x559)
+
+(PHYSICAL.C:Line 73) set_used(0x55A)
+
+(PHYSICAL.C:Line 73) set_used(0x55B)
+
+(PHYSICAL.C:Line 73) set_used(0x55C)
+
+(PHYSICAL.C:Line 73) set_used(0x55D)
+
+(PHYSICAL.C:Line 73) set_used(0x55E)
+
+(PHYSICAL.C:Line 73) set_used(0x55F)
+
+(PHYSICAL.C:Line 73) set_used(0x560)
+
+(PHYSICAL.C:Line 73) set_used(0x561)
+
+(PHYSICAL.C:Line 73) set_used(0x562)
+
+(PHYSICAL.C:Line 73) set_used(0x563)
+
+(PHYSICAL.C:Line 73) set_used(0x564)
+
+(PHYSICAL.C:Line 73) set_used(0x565)
+
+(PHYSICAL.C:Line 73) set_used(0x566)
+
+(PHYSICAL.C:Line 73) set_used(0x567)
+
+(PHYSICAL.C:Line 73) set_used(0x568)
+
+(PHYSICAL.C:Line 73) set_used(0x569)
+
+(PHYSICAL.C:Line 73) set_used(0x56A)
+
+(PHYSICAL.C:Line 73) set_used(0x56B)
+
+(PHYSICAL.C:Line 73) set_used(0x56C)
+
+(PHYSICAL.C:Line 73) set_used(0x56D)
+
+(PHYSICAL.C:Line 73) set_used(0x56E)
+
+(PHYSICAL.C:Line 73) set_used(0x56F)
+
+(PHYSICAL.C:Line 73) set_used(0x570)
+
+(PHYSICAL.C:Line 73) set_used(0x571)
+
+(PHYSICAL.C:Line 73) set_used(0x572)
+
+(PHYSICAL.C:Line 73) set_used(0x573)
+
+(PHYSICAL.C:Line 73) set_used(0x574)
+
+(PHYSICAL.C:Line 73) set_used(0x575)
+
+(PHYSICAL.C:Line 73) set_used(0x576)
+
+(PHYSICAL.C:Line 73) set_used(0x577)
+
+(PHYSICAL.C:Line 73) set_used(0x578)
+
+(PHYSICAL.C:Line 73) set_used(0x579)
+
+(PHYSICAL.C:Line 73) set_used(0x57A)
+
+(PHYSICAL.C:Line 73) set_used(0x57B)
+
+(PHYSICAL.C:Line 73) set_used(0x57C)
+
+(PHYSICAL.C:Line 73) set_used(0x57D)
+
+(PHYSICAL.C:Line 73) set_used(0x57E)
+
+(PHYSICAL.C:Line 73) set_used(0x57F)
+
+(PHYSICAL.C:Line 73) set_used(0x580)
+
+(PHYSICAL.C:Line 73) set_used(0x581)
+
+(PHYSICAL.C:Line 73) set_used(0x582)
+
+(PHYSICAL.C:Line 73) set_used(0x583)
+
+(PHYSICAL.C:Line 73) set_used(0x584)
+
+(PHYSICAL.C:Line 73) set_used(0x585)
+
+(PHYSICAL.C:Line 73) set_used(0x586)
+
+(PHYSICAL.C:Line 73) set_used(0x587)
+0x420000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x0)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x9, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x32, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x40, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x41, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x40, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abc
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 10first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free() = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x0)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x60, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1000, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x0, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x1)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x0, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x4, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x40, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x0)
+
+(PHYSICAL.C:Line 200) _PMem_init()
+
+(PHYSICAL.C:Line 20) probeRAM() = 0x4000
+Total RAM:16384KB
+Free RAM:12288KB
+Used RAM:4096KB
+
+(VIRTUAL.C:Line 77) _VMem_init()
+
+(PHYSICAL.C:Line 180) calloc(0x3)
+
+(PHYSICAL.C:Line 149) malloc(0x3) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x3) = 0x400
+
+(PHYSICAL.C:Line 73) set_used(0x400)
+
+(PHYSICAL.C:Line 73) set_used(0x401)
+
+(PHYSICAL.C:Line 73) set_used(0x402)
+0x400000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x403
+
+(PHYSICAL.C:Line 73) set_used(0x403)
+0x403000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x0, 0x403000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x404
+
+(PHYSICAL.C:Line 73) set_used(0x404)
+0x404000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x1, 0x404000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x405
+
+(PHYSICAL.C:Line 73) set_used(0x405)
+0x405000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x2, 0x405000, 0x400000, 0x1, 0x1)
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x406
+
+(PHYSICAL.C:Line 73) set_used(0x406)
+0x406000
+
+(VIRTUAL.C:Line 36) Add_Table_To_Dir(0x3, 0x406000, 0x400000, 0x1, 0x1)
+
+(VIRTUAL.C:Line 61) setPageDirectroy(0x400000)
+
+(VIRTUAL.C:Line 50) setPaging(0x1)
+
+(THREADMAN.C:Line 46) _THREAD_MAN_init()
+
+(THREADMAN.C:Line 119) AddThread(0x1001C0, 0xFF, 0x0) = 0 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x407
+
+(PHYSICAL.C:Line 73) set_used(0x407)
+
+(PHYSICAL.C:Line 73) set_used(0x408)
+0x407000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1001C0
+
+(THREADMAN.C:Line 119) AddThread(0x1004FE, 0x1, 0x0) = 1 
+(PHYSICAL.C:Line 180) calloc(0x2)
+
+(PHYSICAL.C:Line 149) malloc(0x2) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x2) = 0x409
+
+(PHYSICAL.C:Line 73) set_used(0x409)
+
+(PHYSICAL.C:Line 73) set_used(0x40A)
+0x409000
+
+(VIRTUAL.C:Line 69) Kernel_Page_Dir_Address() = 0x400000
+& EIP = 0x1004FE
+
+(THREADMAN.C:Line 60) _THREAD_MAN_enable()
+_IDE_init()
+(COMMAND.C:Line 128) init_cmd()
+
+(PHYSICAL.C:Line 180) calloc(0x4)
+
+(PHYSICAL.C:Line 149) malloc(0x4) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x4) = 0x40B
+
+(PHYSICAL.C:Line 73) set_used(0x40B)
+
+(PHYSICAL.C:Line 73) set_used(0x40C)
+
+(PHYSICAL.C:Line 73) set_used(0x40D)
+
+(PHYSICAL.C:Line 73) set_used(0x40E)
+0x40B000
+
+(PHYSICAL.C:Line 180) calloc(0x1)
+
+(PHYSICAL.C:Line 149) malloc(0x1) = 
+(PHYSICAL.C:Line 105) mmap_first_free_s (0x1) = 
+(PHYSICAL.C:Line 83) mmap_first_free () = 0x40F
+
+(PHYSICAL.C:Line 73) set_used(0x40F)
+0x40F000
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 140) cmd_read(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x0, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abcklm
+(COMMAND.C:Line 53) do_CMD(0x3)
+(COMMAND.C:Line 219) cmd_readIDE(0x1, 0x0)
+(COMMAND.C:Line 115) cmd_handler()
+abc
