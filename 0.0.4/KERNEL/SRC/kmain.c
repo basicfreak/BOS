@@ -28,6 +28,40 @@ int kmain(BootInfo_p BOOTINF)
 	return -1;
 }
 
+size_t strlen(const char *str)
+{
+	size_t ret = 0;
+	while (str[ret++]);
+	return ret;
+}
+
+bool streql( const char *s1, const char *s2 )
+{
+	int temp = strcmp (s1, s2);
+	if (temp == 0) return TRUE;
+	return FALSE;
+}
+
+int strcmp( const char * s1, const char * s2 )
+{
+	int ret = 0;
+	while (!(ret = *(char*)s1 - *(char*)s2) && *s2)
+    {
+        ++s1;
+        ++s2;
+    }
+	if (ret < 0) ret = -1;
+	if (ret > 0) ret = 1;
+    return	ret;
+}
+
+char *strcpy(char *s1, const char *s2)
+{
+	char *s1_p = s1;
+	while ( (*s1++ = *s2++) );
+	return s1_p;
+}
+
 #ifdef DEBUG
 	void DEBUG_printf(const char* Str, ...)
 	{

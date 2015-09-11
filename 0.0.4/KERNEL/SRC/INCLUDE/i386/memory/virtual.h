@@ -27,4 +27,12 @@
 	void _VMM_umapTable(void* Virt);
 	void _VMM_setTable(void *Virt, void *Table, bool User, bool Write);
 
+	void *_VMM_copyPDir(void);
+	void _VMM_setCOW(void);
+	void _VMM_setCOWOther(void* PDIR);
+	void *_VMM_newPDir(void);
+	void _VMM_mapOther(void* PDIR, void* Virt, void* Phys, bool User, bool Write);
+	void _VMM_umapOther(void* PDIR, void* Virt);
+	void *_VMM_getPhysOther(void* PDIR, void* Virt);
+
 #endif

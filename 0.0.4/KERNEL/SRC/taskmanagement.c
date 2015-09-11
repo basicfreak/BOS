@@ -3,15 +3,20 @@
 #include <i386/memory/virtual.h>
 #include <i386/cpu/i686.h>
 
+//User Land References:
+#define MSG_BASE	0xDF000000
+#define CODE_BASE	0x01000000 //16MB
+#define DATA_BASE	0x41000000
+#define BSS_BASE	0x61000000
+#define STACK_TOP	0xCFFFFFFF
+#define STACK_BOT	0xCF800000
+
 typedef struct INTTasks {
 	uint32_t TaskID[256];
 }__attribute__ ((packed)) INTTSK_t, *INTTSK_p; // 1 KB
 
 #define MAX_THREADS 4096
 #define MAX_MSGS 2048
-
-#define MSG_BASE	0xDF000000
-#define PROGRAM_BASE 0x01000000 //16MB
 
 uint32_t CurrentThread;
 
@@ -96,10 +101,11 @@ void _TM_init()
 		MyThreads->Thread[x].Flags = TF_DEAD;
 	CurrentThread = 0;
 	MSGHeap = (void*)MSG_BASE;
+	strcpy(MyThreads->Thread[0].Name, "IDLE THREAD");
 	MyThreads->Thread[0].Flags = 0;
-	MyThreads->Thread[0].CR3 = 0;
+	MyThreads->Thread[0].CR3 = _VMM_copyPDir();
 	MyThreads->Thread[1].Flags = TF_ACTIVE;
-	MyThreads->Thread[1].CR3 = 0;
+	MyThreads->Thread[1].CR3 = (uint32_t)_VMM_newPDir();
 	MyThreads->Thread[1].TRegs.gs = 0x10;
 	MyThreads->Thread[1].TRegs.fs = 0x10;
 	MyThreads->Thread[1].TRegs.es = 0x10;
@@ -332,6 +338,13 @@ void MEM_Handler(regs *r)
 				01h - Un Map Virtual Address And Free Physical
 				80h - Map Physical Address... (SECURITY HOLE I KNOW!)
 				81h - Un Map Virtual Address
+				8Fh - Get Physical Address
+				F0h - New (BLANK) Page Directory
+				F1h - Map Phys To Virtual in PDIR
+				F2h - Request New Page for PDIR
+				F3h - Unmap VAddr in PDIR
+				F4h - unmap and free in PDIR
+				FFh - Get Physical Address in PDIR
 
 	AL = 00h:	EDX = Virtual Address
 				EBX = 0x01 = Write 0x00 = read
@@ -357,6 +370,20 @@ void MEM_Handler(regs *r)
 			break;
 		case 0x80:
 			_VMM_map((void*)r->edx, (void*)r->ecx, TRUE, (bool)r->ebx);
+			break;
+		case 0x8F: //Get Physical Address
+			r->eax = (uint32_t) _VMM_getPhys((void*)r->edx);
+			break;
+		case 0xF0: //New (BLANK) Page Directory
+			break;
+		case 0xF1: //Map Phys To Virtual in PDIR
+			break;
+		case 0xF2: //Request New Page for PDIR
+			break;
+		case 0xF4: //unmap and free in PDIR
+		case 0xF3: //Unmap VAddr in PDIR
+			break;
+		case 0xFF: //Get Physical Address in PDIR
 			break;
 		default:
 			r->eax = 0;
@@ -493,7 +520,7 @@ uint32_t ReserveEmptyThread()
 
 void ForkThread(regs *r, uint32_t NewEIP)
 {
-	uint32_t NewThreadID;
+	/*uint32_t NewThreadID;
 	if(NewThreadID = ReserveEmptyThread()) {
 		uint32_t NewPageDir = (uint32_t) _VMM_CopyDirectory();
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].SSEData)), (void*)((uint32_t)(&MyThreads->Thread[CurrentThread].SSEData)), 512);
@@ -503,14 +530,15 @@ void ForkThread(regs *r, uint32_t NewEIP)
 		MyThreads->Thread[NewThreadID].Flags = MyThreads->Thread[CurrentThread].Flags;
 		LoadThread(r, NewThreadID);
 		_VMM_setUserCopyOnWrite();
-	}
+	}*/
 }
 
 void ExecThread(regs *r)
 {
-	uint32_t NewThreadID;
+	/*uint32_t NewThreadID;
 	if(NewThreadID = ReserveEmptyThread()) {
 		uint32_t NewPageDir = (uint32_t) _VMM_NewDirectory();
+	}*/
 		
 		//....
 		/*
@@ -525,5 +553,4 @@ void ExecThread(regs *r)
 		ESI
 		EDI
 		*/
-	}
 }

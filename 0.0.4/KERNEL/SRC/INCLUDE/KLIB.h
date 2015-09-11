@@ -50,6 +50,11 @@
 	extern void* sys_stack(void);
 	extern void* KVirtBase(void);
 
+	size_t strlen(const char *str);
+	bool streql( const char *s1, const char *s2 );
+	int strcmp( const char * s1, const char * s2 );
+	char *strcpy(char *s1, const char *s2);
+
 	#ifdef DEBUG
 		void DEBUG_printf(const char* Str, ...);
 		void DEBUG_print(const char* Str);
