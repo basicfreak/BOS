@@ -21,6 +21,8 @@ typedef struct INTTasks {
 uint32_t CurrentThread;
 uint32_t LastThread;
 
+uint32_t KernelVMM;
+
 #define TF_ACTIVE	0x00000001
 
 #define TF_WAITINT	0x00000004
@@ -38,11 +40,11 @@ extern void IDTBase(void);
 extern void GDTBase(void);
 
 typedef struct ThreadEntry {
+	uint8_t SSEData[512]; // 512 Bytes
+	regs TRegs; // 76 Bytes
 	char Name[428];
 	uint32_t Flags;
 	uint32_t CR3;
-	regs TRegs; // 76 Bytes
-	uint8_t SSEData[512]; // 512 Bytes
 }__attribute__((packed)) Thread_t, *Thread_p; // 1KB
 
 typedef struct ThreadList {
@@ -123,21 +125,27 @@ void _TM_init()
 	// MyThreads->Thread[1].TRegs.ss = 0x23;
 	MyThreads->Thread[1].TRegs.useresp = 0xFFBFB000;
 	MyThreads->Thread[1].TRegs.eflags = 0x00000200;
-	MyThreads->Thread[1].TRegs.esp = 0xFFBFB000;
+	MyThreads->Thread[1].TRegs.esp = 0xFFB8FFFF;
+	KernelVMM = getPageDir();
 }
 
-void killCurrentThread()
+void killCurrentThread(regs *r)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	MyThreads->Thread[CurrentThread].Flags = TF_DEAD;
+	setPageDir(KernelVMM);
+	ThreadManager(r);
 }
 
 void IDT_HANDLER(regs *r)
 {
-#ifdef DEBUG_EXTREAM
+#ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+#endif
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("Thread In = %i\n", CurrentThread);
 #endif
 	// if(!(r->int_no >= 0xF0))
 	// 	LastThread = CurrentThread;
@@ -164,10 +172,11 @@ void IDT_HANDLER(regs *r)
 		// LastThread = CurrentThread;
 		if(r->int_no == 0x0E) {
 			_VMM_PageFaultManager(r);
-			if(MyThreads->Thread[CurrentThread].Flags == TF_DEAD)
-				LoadThread(r, 0);
 		} else if(r->int_no == 13) {
 			DEBUG_printf("GPF\nSystem Halted\n");
+			DEBUG_printf("EAX %x\tEBX %x\tECX %x\tEDX %x\n", r->eax, r->ebx, r->ecx, r->edx);
+			DEBUG_printf("ESI %x\tEDI %x\tESP %x\tUESP %x\n", r->esi, r->edi, r->esp, r->useresp);
+			DEBUG_printf("CS %x\tDS %x\tSS %x\nERRORCODE %x\n", r->cs, r->ds, r->ss, r->err_code);
 			cli();
 			hlt();
 		}
@@ -176,9 +185,7 @@ void IDT_HANDLER(regs *r)
 #ifdef DEBUG
 	DEBUG_printf("Unhandled CPU INT: %i\nKilling Current Thread\n", r->int_no);
 #endif
-			// killCurrentThread(r);
-			MyThreads->Thread[CurrentThread].Flags = TF_DEAD;
-			ThreadManager(r);
+			killCurrentThread(r);
 		}
 		__asm__ __volatile__("xchg %bx, %bx");
 	} else {
@@ -219,12 +226,15 @@ void IDT_HANDLER(regs *r)
 			if(MyThreads->Thread[CurrentThread].CR3)	// only set CR3 if this is not in shared space.
 				setPageDir(MyThreads->Thread[CurrentThread].CR3);
 			MyThreads->Thread[CurrentThread].Flags &= (uint32_t) (~TF_REGS);
-			return;
+			// return;
 		} else {
 			MyINTTasks->TaskID[r->int_no] = 0xFFFFFFFF; // Mark As Fired (maybe someone will use it later)
 			ThreadManager(r); // Go to another task if we made it here
 		}
 	}
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("Thread Out = %i\n", CurrentThread);
+#endif
 }
 
 void ThreadManager(regs *r)
@@ -274,28 +284,52 @@ void ThreadManager(regs *r)
 void LoadThread(regs *r, uint32_t NextThread)
 {
 #ifdef DEBUG_FULL
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
 #endif
 
 	//Save Current Thread
-	memcpy(&MyThreads->Thread[CurrentThread].TRegs, r, sizeof(regs));
-	if(MyThreads->Thread[CurrentThread].Flags & TF_USESSE)
-		SSE_Save(&MyThreads->Thread[CurrentThread].SSEData);
+	if(!(MyThreads->Thread[CurrentThread].Flags == TF_DEAD)) {
+		memcpy(&MyThreads->Thread[CurrentThread].TRegs, r, sizeof(regs));
+	#ifdef DEBUG_EXTREAM
+		DEBUG_printf("memcpy(0x%x, 0x%x, 0x%x);\n", (uint32_t)&MyThreads->Thread[CurrentThread].TRegs, (uint32_t)r, (uint32_t)(sizeof(regs)));
+		DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+	#endif
+		if(MyThreads->Thread[CurrentThread].Flags & TF_USESSE)
+			SSE_Save(&MyThreads->Thread[CurrentThread].SSEData);
+	}
 
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	//Set New Thread as Current Thread
 	CurrentThread = NextThread;
 
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	if(!(MyThreads->Thread[CurrentThread].Flags & TF_ACTIVE)) {
 		LastThread = 0;
 		CurrentThread = 0;
 	}
-	
+
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	//Load New Thread
 	memcpy(r, &MyThreads->Thread[CurrentThread].TRegs, sizeof(regs));
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	if(MyThreads->Thread[CurrentThread].Flags & TF_USESSE)
 		SSE_Load(&MyThreads->Thread[CurrentThread].SSEData);
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	if(MyThreads->Thread[CurrentThread].CR3)
 		setPageDir(MyThreads->Thread[CurrentThread].CR3);
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 }
 
 void TM_Handler(regs *r)
@@ -549,18 +583,18 @@ void FORK_TEST()
 
 void FORK_TEST2()
 {
-	const char* NewName = "EXECTEST";
-	uint32_t NewPDir = 0;
-	__asm__ __volatile__ ( "int $0xF2" : "=a" (NewPDir) : "a" (0xF0)); // New Page Dir
-	DEBUG_printf("EAX = 0x%x\n", NewPDir);
+	// const char* NewName = "EXECTEST";
+	// uint32_t NewPDir = 0;
+	// __asm__ __volatile__ ( "int $0xF2" : "=a" (NewPDir) : "a" (0xF0)); // New Page Dir
+	// DEBUG_printf("EAX = 0x%x\n", NewPDir);
 
-	if(NewPDir)
-		__asm__ __volatile__ ( "int $0xF1" : : "a" (0x02), "b" ((uint32_t)&EXEC_TEST), "d" (NewPDir), "s" ((uint32_t)&NewName[0])); // Execute Thread
-	else {
-		DEBUG_printf("NewPDir = 0\nERROR\nSystem Halted");
-		cli();
-		hlt();
-	}
+	// if(NewPDir)
+	// 	__asm__ __volatile__ ( "int $0xF1" : : "a" (0x02), "b" ((uint32_t)&EXEC_TEST), "d" (NewPDir), "S" ((uint32_t)&NewName[0])); // Execute Thread
+	// else {
+	// 	DEBUG_printf("NewPDir = 0\nERROR\nSystem Halted");
+	// 	cli();
+	// 	hlt();
+	// }
 	while(TRUE) {
 		DEBUG_printf("Yet another test of FORK\n");
 		__asm__ __volatile__ ( "int $0xF1" : : "a" (0x03)); // Yeild
@@ -632,27 +666,27 @@ void ExecThread(regs *r)
 	uint32_t NewThreadID;
 	if((NewThreadID = ReserveEmptyThread())) {
 		MyThreads->Thread[NewThreadID].CR3 = r->edx;
-		MyThreads->Thread[NewThreadID].Flags = TF_ACTIVE;
 		MyThreads->Thread[NewThreadID].TRegs.eip = r->ebx;
 
-		MyThreads->Thread[NewThreadID].TRegs.gs = 0x10;
-		MyThreads->Thread[NewThreadID].TRegs.fs = 0x10;
-		MyThreads->Thread[NewThreadID].TRegs.es = 0x10;
-		MyThreads->Thread[NewThreadID].TRegs.ds = 0x10;
-		// MyThreads->Thread[NewThreadID].TRegs.gs = 0x23;
-		// MyThreads->Thread[NewThreadID].TRegs.fs = 0x23;
-		// MyThreads->Thread[NewThreadID].TRegs.es = 0x23;
-		// MyThreads->Thread[NewThreadID].TRegs.ds = 0x23;
-		MyThreads->Thread[NewThreadID].TRegs.cs = 0x8;
-		MyThreads->Thread[NewThreadID].TRegs.ss = 0x10;
-		// MyThreads->Thread[NewThreadID].TRegs.cs = 0x1B;
-		// MyThreads->Thread[NewThreadID].TRegs.ss = 0x23;
+		// MyThreads->Thread[NewThreadID].TRegs.gs = 0x10;
+		// MyThreads->Thread[NewThreadID].TRegs.fs = 0x10;
+		// MyThreads->Thread[NewThreadID].TRegs.es = 0x10;
+		// MyThreads->Thread[NewThreadID].TRegs.ds = 0x10;
+		MyThreads->Thread[NewThreadID].TRegs.gs = 0x23;
+		MyThreads->Thread[NewThreadID].TRegs.fs = 0x23;
+		MyThreads->Thread[NewThreadID].TRegs.es = 0x23;
+		MyThreads->Thread[NewThreadID].TRegs.ds = 0x23;
+		// MyThreads->Thread[NewThreadID].TRegs.cs = 0x8;
+		// MyThreads->Thread[NewThreadID].TRegs.ss = 0x10;
+		MyThreads->Thread[NewThreadID].TRegs.cs = 0x1B;
+		MyThreads->Thread[NewThreadID].TRegs.ss = 0x23;
 		MyThreads->Thread[NewThreadID].TRegs.useresp = 0xCFFFFFFF;
 		MyThreads->Thread[NewThreadID].TRegs.eflags = 0x00000200;
-		MyThreads->Thread[NewThreadID].TRegs.esp = 0xFFBFB000;
-		// strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
+		MyThreads->Thread[NewThreadID].TRegs.esp = 0xFFB7FFFF;
+		strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
 		DEBUG_printf("New Thread Added. CR3 = %x, EIP = %x, NAME = \"%s\"\n", MyThreads->Thread[NewThreadID].CR3,
-			MyThreads->Thread[NewThreadID].TRegs.eip, MyThreads->Thread[NewThreadID].Name);
+			MyThreads->Thread[NewThreadID].TRegs.eip, (MyThreads->Thread[NewThreadID].Name));
+		MyThreads->Thread[NewThreadID].Flags = TF_ACTIVE;
 		LoadThread(r, NewThreadID);
 	}
 }

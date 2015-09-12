@@ -12,6 +12,6 @@
 
 	void _TM_init(void);
 	void IDT_HANDLER(regs *r);
-	void killCurrentThread(void);
+	void killCurrentThread(regs *r);
 
 #endif
