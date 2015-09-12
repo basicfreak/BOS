@@ -125,17 +125,16 @@ void *_VMM_getPhys(void* Virt)
 
 void _VMM_PageFaultManager(regs *r)
 {
-#ifdef DEBUG
+
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 	DEBUG_printf("%s Task Attempted to %s a %s page!\nVirtual Address:\t0x%x\n", ((r->err_code & 0x04) ? ("User") : ("Kernel")), ((r->err_code & 0x02) ? ("Write") : ("Read")), ((r->err_code & 0x01) ? ("Present") : ("Non-Present")), (uint32_t)getCR2());
-#endif
+
 	//int 0x0E = page fault
 	if(!(r->err_code & 0x04)) {
 		//KERNEL TASK PAGEFAULTED!!!!
-#ifdef DEBUG_FULL
-	DEBUG_print("System Haulted.\n");
-#endif
-		hlt();
+	DEBUG_print("\n\n\n\nSystem Haulted.\n\n\n\n");
+		//hlt();
+	killCurrentThread();
 	} else if((r->err_code & 0x07) == 0x07) {
 #ifdef DEBUG_FULL
 	DEBUG_print("Copy On Write\n");
@@ -235,8 +234,10 @@ void _VMM_setCOWOther(void* PDIR)
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
+	_VMM_map((void*)0, PDIR, FALSE, TRUE);
 	for(int x = 0; x < 0x380; x++)
-		((uint32_t*)PDIR)[x] &= 0xFFFFF005;
+		((uint32_t*)0)[x] &= 0xFFFFF005;
+	_VMM_umap((void*)0);
 }
 
 void *_VMM_newPDir()

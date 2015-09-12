@@ -62,7 +62,6 @@ char *strcpy(char *s1, const char *s2)
 	return s1_p;
 }
 
-#ifdef DEBUG
 	void DEBUG_printf(const char* Str, ...)
 	{
 		va_list ap;
@@ -169,4 +168,3 @@ char *strcpy(char *s1, const char *s2)
 	   itoa(i,base,buf);
 	   return;
 	}
-#endif

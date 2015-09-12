@@ -55,12 +55,10 @@
 	int strcmp( const char * s1, const char * s2 );
 	char *strcpy(char *s1, const char *s2);
 
-	#ifdef DEBUG
 		void DEBUG_printf(const char* Str, ...);
 		void DEBUG_print(const char* Str);
 		void DEBUG_putch(const char Chr);
 		void itoa(uint32_t i, uint32_t base, uint8_t* buf);
 		void itoa_s(uint32_t i, uint32_t base, uint8_t* buf);
-	#endif
 
 #endif
