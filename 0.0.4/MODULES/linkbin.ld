@@ -1,17 +1,26 @@
 OUTPUT_FORMAT("binary")
 OUTPUT_ARCH(i386)
 ENTRY(start)
+phys = 0x01000000;
 SECTIONS
 {
-  . = 0x01000000;
-  .text :
-  {
+  .text phys : AT(phys) {
     code = .;
     *(.text)
-    *(.data)
     *(.rodata)
+    . = ALIGN(4096);
+  }
+  .data : AT(phys + (data - code))
+  {
+    data = .;
+    *(.data)
+    . = ALIGN(4096);
+  }
+  .bss : AT(phys + (bss - code))
+  {
+    bss = .;
     *(.bss)
-    . = ALIGN(512);
+    . = ALIGN(4096);
   }
   end = .;
 }

@@ -35,11 +35,12 @@ void _VMM_init(BootInfo_p BOOTINF)
 		for(tempVirt = 0x400000; tempVirt < (((uint32_t) &end) - ((uint32_t)&KVirtBase)); tempVirt += PAGESIZE)
 			_VMM_map((void*)(tempVirt + ((uint32_t)KVirtBase)), (void*)tempVirt, FALSE, TRUE);
 
-	if(BOOTINF->ModCount) { // Identity Map Mods!
+	if(BOOTINF->ModCount) { // Map Mods Starting at 0x01000000
 		ModL_p ModList = BOOTINF->ModList;
-		tempVirt = ((ModList[(BOOTINF->ModCount - 1)].ModEnd + 1));
-		for(tempVirt = ((((uint32_t)end) - ((uint32_t)KVirtBase)) & 0xFFFFF000); tempVirt <= ((ModList[(BOOTINF->ModCount - 1)].ModEnd + 0x1001)); tempVirt += PAGESIZE)
-			_VMM_map((void*)tempVirt, (void*)tempVirt, FALSE, TRUE);
+		// tempVirt = ((ModList[(BOOTINF->ModCount - 1)].ModEnd + 1));
+		uint32_t TempVirt = 0x01000000;
+		for(tempVirt = ModList[0].ModStart; tempVirt <= ((ModList[(BOOTINF->ModCount - 1)].ModEnd + 0x1)); tempVirt += PAGESIZE, TempVirt += PAGESIZE)
+			_VMM_map((void*)TempVirt, (void*)tempVirt, TRUE, TRUE);
 	}
 }
 
@@ -58,14 +59,18 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 		PAddr |= I86_USER;
 	if(Write)
 		PAddr |= I86_WRITABLE;
-#ifdef DEBUG_EXTREAM
+#ifdef DEBUG_FULL
 	DEBUG_printf("0x%x\t0x%x\t0x%x\t0x%x\n", PAddr, VAddr, (VAddr / 0x400000), ((VAddr % 0x400000) / PAGESIZE));
 #endif
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
 
 	//Make Sure Table Is Allocatted In The Directory! 
-	if(!(VMM[0].Entry[PageTable] & I86_PRESENT)) {
+	DEBUG_printf("%x\n", VMM[0].Entry[PageTable]);
+	if(!(VMM[1024].Entry[PageTable] & I86_PRESENT)) {
+#ifdef DEBUG_FULL
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 		//Allocate Page For Address
 		// uint32_t PageVirtAddress = (0xFFC00000 + (PAGESIZE * PageTable));
 		uint32_t PagePhysAddress = (uint32_t) _PMM_alloc(PAGESIZE);
@@ -74,10 +79,17 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 		// VMM[1024].Entry[PageTable] = (PagePhysAddress | 0x03);
 		// _VMM_map(PageVirtAddress, PagePhysAddress, FALSE, TRUE);
 		// DEBUG_printf("A");
+#ifdef DEBUG_FULL
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 		memset((void*)(&VMM[PageTable + 1]), 0, PAGESIZE);
+		__asm__ __volatile__ ("invlpg (%0)" : : "a" ((0xFFC00000 + (PAGESIZE * PageTable))));
 
 		// DEBUG_printf("B");
 	}
+#ifdef DEBUG_FULL
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
+#endif
 	if(User && !(VMM[0].Entry[PageTable] & I86_USER))
 		VMM[0].Entry[PageTable] |= I86_USER;
 	//Ok now it is safe to map the page.
@@ -106,7 +118,7 @@ void _VMM_umap(void* Virt)
 
 void *_VMM_getPhys(void* Virt)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG_EXTREAM
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	uint32_t VAddr = (uint32_t) Virt;
@@ -166,13 +178,17 @@ void *_VMM_copyPDir()
 	void* PDirLoc = _VMM_newPDir(); // Make A Blank Page Directory (With Kernel Mapped)
 	_VMM_map((void*)0, PDirLoc, FALSE, TRUE);
 
-	for(uint32_t x = 0xFFC00000; x < 0xFFF80000; x += 0x1000) {
+	for(uint32_t x = 0; x < 0x380; x++) {
 		//Copy User Tables...
-		if(_VMM_getPhys((void*)x)) {
+		if((VMM[0].Entry[x] & 0x01)) {
 			void* NewTable = _PMM_alloc(PAGESIZE);
 			_VMM_map((void*)0x1000, NewTable, FALSE, TRUE);
-			memcpy((void*)0x1000, (void*)x, PAGESIZE);
-			((uint32_t*)0)[((x - 0xFFC00000) / 0x1000)] = (((uint32_t)NewTable) & (VMM[0].Entry[((x - 0xFFC00000) / 0x1000)] & 0x07));
+			memcpy((void*)0x1000, (void*)((x * PAGESIZE) + 0xFFC00000), PAGESIZE);
+			((uint32_t*)0)[x] = (((uint32_t)NewTable) | (I86_USER | I86_PRESENT));
+			for(int y = 0; y < 1024; y++) {
+				((uint32_t*)0x1000)[y] &= 0xFFFFF000;
+				((uint32_t*)0x1000)[y] |= (I86_USER | I86_PRESENT);
+			}
 		}
 	}
 	_VMM_umap((void*)0x1000);
@@ -367,7 +383,7 @@ void _VMM_PageFaultManager(regs *r)
 #endif
 				killCurrentThread(r);
 			}
-		} else if(FaultAddress >= 0xCF800000) { // User Task Faulted In User Stack
+		} else if((FaultAddress >= 0xCF800000) && !(r->err_code & 0x01)) { // User Task Faulted In User Stack
 #ifdef DEBUG
 	DEBUG_printf("User Task Faulted In User Stack\nExpanding Stack\n");
 #endif

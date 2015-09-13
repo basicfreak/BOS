@@ -5,16 +5,19 @@ sleep .10s
 sudo mount /dev/loop0 /mnt2
 sleep .10s
 
-cd MODULES/SVGA
+cd MODULES/ELF
 make
-cd ../CLI
+cd ../TEST
 make
 cd ../../KERNEL
 make
+cd ../BOOT16
+sudo nasm OSLOADER/osloader.s -o /mnt2/osloader.sys
 cd ..
-sudo cp MODULES/CLI/BIN/CLI.DLL /mnt2/bin/cli.dll
-sudo cp MODULES/SVGA/BIN/SVGA.DLL /mnt2/bin/svga.dll
+sudo cp MODULES/ELF/BIN/ELF.BIN /mnt2/bin/elf.bin
+sudo cp MODULES/TEST/BIN/TEST.ELF /mnt2/bin/test.elf
 sudo cp KERNEL/BIN/KERNEL.ELF /mnt2/bin/kernel.elf
+sudo cp BOOT.CFG /mnt2/boot/boot.cfg
 
 sleep .10s
 sudo umount /dev/loop0

@@ -189,6 +189,25 @@ ReadConfig:
 		mov edx, DWORD [es:di + 19]
 		db 0x66, 0x67
 			inc edx
+
+		db 0x66, 0x67
+			push eax
+		db 0x66, 0x67
+			mov eax, edx
+		db 0x66, 0x67
+			and eax, 0xFFFFF000
+		db 0x66, 0x67
+			cmp eax, edx
+		je .aligned
+		db 0x66, 0x67
+			add eax, 0x1000
+		db 0x66, 0x67
+			mov edx, eax
+
+		.aligned:
+		db 0x66, 0x67
+			pop eax
+
 		mov di, 0x2600
 		jmp .ReadTimeMod
 		.NotFirst:

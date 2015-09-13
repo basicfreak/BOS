@@ -5,10 +5,10 @@ CC=gcc
 AS=nasm
 LD=ld
 INCLUDES=../INCLUDE/
-CCFLAGS=-O3 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings \
+CCFLAGS=-O0 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings \
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \
-			-std=gnu99 -nostdinc -fno-builtin -fno-stack-protector -march=i586 -m32 -I $(INCLUDES)
+			-std=gnu99 -nostdinc -fno-builtin -fno-stack-protector -fno-common -march=i586 -m32 -I $(INCLUDES)
 LDFLAGS=-T../linkbin.ld
 ASFLAGS=-felf
 

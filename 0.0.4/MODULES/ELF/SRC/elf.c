@@ -12,12 +12,12 @@ void DEBUG_putch(const char Chr);
 
 extern void outb(uint16_t, uint8_t);
 
-void NewThread(void);
+void NewThreadAA(void);
 
 int init()
 {
-	for(char x = 0; x < 4; x++)
-		__asm__ __volatile__ ( "int $0xF1" : : "a" (0x01), "d" ((uint32_t)(&NewThread))); // Fork Thread
+	// for(char x = 0; x < 4; x++)
+		__asm__ __volatile__ ( "int $0xF1" : : "a" (0x01), "d" ((uint32_t)(&NewThreadAA))); // Fork Thread
 
 	__asm__ __volatile__ ( "int $0xF1" : : "a" (0x81)); // Request I/O Permission
 	while(TRUE) {
@@ -38,9 +38,10 @@ void DEBUG_putch(const char Chr)
 	outb(0xE9, (uint8_t) Chr);
 }
 
-void NewThread()
+void NewThreadAA()
 {
-	__asm__ __volatile__ ( "int $0xF1" : : "a" (0x81)); // Request I/O Permission
+	// __asm__ __volatile__ ( "int $0xF1" : : "a" (0x81)); // Request I/O Permission
+	// __asm__ __volatile__ ("xchg %bx, %bx");
 	while(TRUE) {
 		DEBUG_print("Test Of Fork...\n");
 		__asm__ __volatile__ ( "int $0xF1" : : "a" (0x03)); // Yeild
