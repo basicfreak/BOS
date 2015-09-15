@@ -59,33 +59,18 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 		PAddr |= I86_USER;
 	if(Write)
 		PAddr |= I86_WRITABLE;
-#ifdef DEBUG_FULL
-	DEBUG_printf("0x%x\t0x%x\t0x%x\t0x%x\n", PAddr, VAddr, (VAddr / 0x400000), ((VAddr % 0x400000) / PAGESIZE));
-#endif
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
 
 	//Make Sure Table Is Allocatted In The Directory! 
-	DEBUG_printf("%x\n", VMM[0].Entry[PageTable]);
 	if(!(VMM[1024].Entry[PageTable] & I86_PRESENT)) {
-#ifdef DEBUG_FULL
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
-#endif
 		//Allocate Page For Address
-		// uint32_t PageVirtAddress = (0xFFC00000 + (PAGESIZE * PageTable));
 		uint32_t PagePhysAddress = (uint32_t) _PMM_alloc(PAGESIZE);
 		VMM[0].Entry[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
 		VMM[1024].Entry[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
-		// VMM[1024].Entry[PageTable] = (PagePhysAddress | 0x03);
-		// _VMM_map(PageVirtAddress, PagePhysAddress, FALSE, TRUE);
-		// DEBUG_printf("A");
-#ifdef DEBUG_FULL
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
-#endif
+
 		memset((void*)(&VMM[PageTable + 1]), 0, PAGESIZE);
 		__asm__ __volatile__ ("invlpg (%0)" : : "a" ((0xFFC00000 + (PAGESIZE * PageTable))));
-
-		// DEBUG_printf("B");
 	}
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
@@ -281,17 +266,12 @@ void _VMM_mapOther(void* PDIR, void* Virt, void* Phys, bool User, bool Write)
 	//Make Sure Table Is Allocatted In The Directory! 
 	if(!(((uint32_t*)0)[PageTable] & I86_PRESENT)) {
 		//Allocate Page For Address
-		// uint32_t PageVirtAddress = (0xFFC00000 + (PAGESIZE * PageTable));
 		uint32_t PagePhysAddress = (uint32_t) _PMM_alloc(PAGESIZE);
 		((uint32_t*)0)[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
 		_VMM_map((void*)0x1000, (void*)(((uint32_t*)0)[0x3FF] & 0xFFFFF000), FALSE, TRUE);
 		((uint32_t*)0x1000)[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
-		// VMM[1024].Entry[PageTable] = (PagePhysAddress | 0x03);
-		// _VMM_map(PageVirtAddress, PagePhysAddress, FALSE, TRUE);
-		// DEBUG_printf("A");
 		_VMM_map((void*)0x1000, (void*)(PagePhysAddress), FALSE, TRUE);
 		memset((void*)0x1000, 0, PAGESIZE);
-		// DEBUG_printf("B");
 	}
 	if(User && !(((uint32_t*)0)[PageTable] & I86_USER))
 		((uint32_t*)0)[PageTable] |= I86_USER;
@@ -348,6 +328,8 @@ void *_VMM_getPhysOther(void* PDIR, void* Virt)
 	_VMM_umap((void*)0);
 	return ret;
 }
+
+#define DEBUG
 
 void _VMM_PageFaultManager(regs *r)
 {

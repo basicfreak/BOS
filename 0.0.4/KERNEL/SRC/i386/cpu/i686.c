@@ -83,9 +83,7 @@ void _i686_init()
 	InstallAllGates();
 	_IDT_Load();
 	_PIC_init();
-	// sti(); // BAD IDEA!!!!!
 	_TSS_Flush();
-	DEBUG_printf("DONE!\n");
 }
 
 void InstallGDTRing(uint8_t num, uint32_t base, uint32_t limit, uint8_t access, uint8_t gran)
@@ -93,7 +91,6 @@ void InstallGDTRing(uint8_t num, uint32_t base, uint32_t limit, uint8_t access, 
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
-	DEBUG_printf("GDT = 0x%x, GDT[%i] = 0x%x\n", GDT, num, &GDT[num]);
 	GDT[num].base_low = (base & 0xFFFF);
 	GDT[num].base_middle = (base >> 16) & 0xFF;
 	GDT[num].base_high = (uint8_t) ((base >> 24) & 0xFF);

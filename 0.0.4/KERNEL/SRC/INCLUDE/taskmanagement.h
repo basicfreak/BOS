@@ -2,6 +2,7 @@
 	#define				TASKMANAGEMENT_H_INCLUDED
 
 	#include <KLIB.h>
+	#include <BOSBOOT.h>
 
 	// #define TM_COOPERATIVE // Uncomment for Cooperative Multitasking
 
@@ -12,7 +13,7 @@
 		uint32_t eip, cs, eflags, useresp, ss;    
 	} __attribute__((packed)) regs; //76 Bytes
 
-	void _TM_init(void);
+	void _TM_init(BootInfo_p BOOTINF);
 	void IDT_HANDLER(regs *r);
 	void killCurrentThread(regs *r);
 

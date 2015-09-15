@@ -13,7 +13,7 @@ int kmain(BootInfo_p BOOTINF)
 	_PMM_init(BOOTINF);
 	_VMM_init(BOOTINF);
 	_i686_init();
-	_TM_init();
+	_TM_init(BOOTINF);
 
 	// Do everything the Kernel Needs to do before sti
 	// Note Kernel Thread is Idle Thread once ints are on.

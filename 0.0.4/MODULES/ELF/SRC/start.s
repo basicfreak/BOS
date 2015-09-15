@@ -1,10 +1,11 @@
 [bits 32]
 
 [global start]
-[extern init]
+[extern main]
 
 start:
-	call init
+	push ebx
+	call main
 	.KillTask:
 		mov al, 0
 		int 0xF1

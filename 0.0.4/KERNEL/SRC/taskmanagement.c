@@ -80,7 +80,7 @@ void ExecThread(regs *r);
 
 bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize);
 
-void _TM_init()
+void _TM_init(BootInfo_p BOOTINF)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
@@ -124,6 +124,8 @@ void _TM_init()
 	MyThreads->Thread[1].TRegs.useresp = 0xCFFFFFFF;
 	MyThreads->Thread[1].TRegs.eflags = 0x00000200;
 	MyThreads->Thread[1].TRegs.esp = 0xFFB7FFFF;
+
+	MyThreads->Thread[1].TRegs.ebx = (uint32_t) BOOTINF; // This is a special thread ;)
 }
 
 void killCurrentThread(regs *r)
@@ -308,9 +310,9 @@ void TM_Handler(regs *r)
 
 	AL = 01h:	EDX = EIP of thread
 
-	AL = 02h:	EBX = Start of executable
-				ECX = Size of executable
-				EDX = Start EIP
+	AL = 02h:	EDX = PDir (physical address)
+				EBX = EIP
+				ESI = Name (char*)
 
 	AL = 03h:	No Input Needed
 

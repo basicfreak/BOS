@@ -48,7 +48,9 @@ EDX	Start EIP of new thread
 
 FUNCTION 02h:
 Execute / New Thread
-UNKNOWN....
+EDX	PDir (physical address)
+EBX	EIP
+ESI	Name (char*)
 
 FUNCTION 03h:
 Yield Current Thread
@@ -72,6 +74,13 @@ FUNCTIONS (AL):
 01h	Unmap Page and Free Physical
 80h	Map Physical To Virtual
 81h	Unmap Page
+8Fh	Get Physical Address
+F0h	New Page Dir
+F1h	Map Pysical To Virtual on PDir
+F2h	Request New Page for PDir
+F3h	Unmap Page in PDir
+F4h	Unmap Page and Free Physical in PDir
+FFh	Get Physical Address in PDir
 
 FUNCTION 00h:
 Request New Page, Maps a new page to Virtual Address
@@ -91,6 +100,39 @@ EBX	0 = Read only ELSE Writable
 FUNCTION 81h:
 Unmap page. <- Does what it says
 EDX	Virtual Address
+
+FUNCTION 8Fh:
+Get Physical Address
+EDX	Virtual Address
+
+FUNCTION F0h:
+New Page Directory
+NO INPUT
+OUTPUT:	EAX = Physical Address of New PDir
+
+FUNCTION F1h:
+EDX			Virtual Address
+ECX			Physical Address
+EBX			0x01 = Write 0x00 = read
+EAX (High 20 bits)	Physical Location of PDir
+
+FUNCTION F2h:
+EDX			Virtual Address
+EBX			0x01 = Write 0x00 = read
+EAX (High 20 bits)	Physical Location of PDir
+
+FUNCTION F3h:
+EDX			Virtual Address
+EAX (High 20 bits)	Physical Location of PDir
+
+FUNCTION F4h:
+EDX			Virtual Address
+EAX (High 20 bits)	Physical Location of PDir
+
+FUNCTION FFh:
+EDX			Virtual Address
+EAX (High 20 bits)	Physical Location of PDir
+OUTPUT:	EAX = Physical Address
 
 -----------------------------------------------------------------------
 
