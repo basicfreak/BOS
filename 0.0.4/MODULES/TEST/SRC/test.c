@@ -21,8 +21,8 @@ int init()
 void _PIT_Test()
 {
 	while(TRUE) {
-		// _IPC_WAITINT(0x20);
+		_IPC_WAITINT(0x20);
 		DEBUG_putch('p');
-		_yeild();
+		// _yeild();
 	}
 }

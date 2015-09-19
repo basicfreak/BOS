@@ -124,20 +124,19 @@ INT_HANDLER:
 		je .done								; It already fired once and set.
 		pop ecx									; Pop old return address (another Hack)
 		cmp edx, DWORD [CurrentThread]			; Is this INT going to Current Thread?
-		je .INT_Return								; Yes? We are done here
+		je .INT_Return							; Yes? We are done here
 		push .INT_Return						; Push new return address (tet another Hack)
 		jmp LoadThread							; Lets Load the Thread
 
 		.INT_Return:
-			mov DWORD [INTList + (eax * 4)], 0	; Clear any flag or ID
-
+			mov DWORD [eax], 0					; Clear any flag or ID
 			mov edx, DWORD [CurrentThread]		; CurrentThread ID
 			shl edx, 10							; Multiply by 1KB
 			add edx, DWORD [TaskList]			; Add ThreadList Base
 			and DWORD [edx + 76], 0xFFFFFF7B	; Clear Wait For INT and Regs Flags
 			or DWORD [edx + 76], TF_ACTIVE		; Set Active Flag
-
 			jmp IDT_COMMON.HandlerReturn		; Return to loaded thread
+
 	.setFlag:
 		mov DWORD [eax], INT_FLAGED				; Set Flag
 	.done:
@@ -189,27 +188,12 @@ IPC_Handler:
 		ret
 	.SendMSG:
 		ret
-
-;		case 0x81:
-;			MyThreads->Thread[CurrentThread].Flags |= TF_REGS;
-;		case 0x80:
-;			if(MyINTTasks->TaskID[r->ebx] == 0xFFFFFFFF) {
-;				MyINTTasks->TaskID[r->ebx] = 0;
-;				return;
-;			} else {
-;				MyINTTasks->TaskID[r->ebx] = CurrentThread;
-;				MyThreads->Thread[CurrentThread].Flags &= (uint32_t)(~(TF_ACTIVE));
-;				MyThreads->Thread[CurrentThread].Flags |= TF_WAITINT;
-;			}
-;			break;
-
 	.WaitINTwr:
 		mov edx, DWORD [CurrentThread]			; CurrentThread ID
 		shl edx, 10								; Multiply by 1KB
 		add edx, DWORD [TaskList]				; Add ThreadList Base
 		or DWORD [edx + 76], TF_REGS			; Set Regs Flag
 	.WaitINT:
-;xchg bx, bx
 		mov eax, DWORD [esp + 40]				; Threads EBX (int_no we are waiting for)
 		shl eax, 2								; Multiply int_no by 4 (4 bytes per DWORD)
 		add eax, DWORD [INTList]				; Add base address for int list to int_no
@@ -222,10 +206,10 @@ IPC_Handler:
 		add edx, DWORD [TaskList]				; Add ThreadList Base
 		and DWORD [edx + 76], TF_DEAD			; Clear Active Flag
 		or DWORD [edx + 76], 0x00000004			; Set Wait for INT Flag
-		jmp ThreadManager
+		jmp ThreadManager						; Yeild The Thread if INT not ready.
 	.FiredAlready:
-		mov DWORD [eax], 0
-		ret
+		mov DWORD [eax], 0						; Clear Fired Flag
+		ret										; Return to Thread
 
 
 API_Handler:
