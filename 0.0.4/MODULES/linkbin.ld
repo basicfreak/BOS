@@ -1,7 +1,7 @@
 OUTPUT_FORMAT("binary")
 OUTPUT_ARCH(i386)
 ENTRY(start)
-phys = 0x01000000;
+phys = 0x00000000;
 SECTIONS
 {
   .text phys : AT(phys) {

@@ -6,8 +6,10 @@ sudo mount /dev/loop0 /mnt2
 sleep .10s
 
 cd MODULES/ELF
+make clean
 make
 cd ../TEST
+make clean
 make
 cd ../../KERNEL
 make

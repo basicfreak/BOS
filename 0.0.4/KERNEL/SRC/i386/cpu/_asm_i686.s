@@ -27,6 +27,8 @@
 [global _IDT_Load]
 [global _PIC_init]
 
+[extern IDT_COMMON]
+
 ; -------------------------------
 ;               GDT
 ; -------------------------------
@@ -2061,52 +2063,27 @@ IDT255:
     push dword 0xff
     jmp IDT_COMMON
 
-IDT_COMMON:
-    pusha
-    push ds
-    push es
-    push fs
-    push gs
-    mov ax, 0x10
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    mov eax, esp
-    push eax
-;xchg bx, bx
-    mov eax, IDT_HANDLER
-    call eax
-    pop eax
-    pop gs
-    pop fs
-    pop es
-    pop ds
-    popa
-    add esp, 8
-;xchg bx, bx
-    iretd
-
-;enter_usermode:
-;    cli
-;    mov ax, 0x23    ; user mode data selector is 0x20 (GDT entry 3). Also sets RPL to 3
+;IDT_COMMON:
+;    pusha
+;    push ds
+;    push es
+;    push fs
+;    push gs
+;    mov ax, 0x10
 ;    mov ds, ax
 ;    mov es, ax
 ;    mov fs, ax
 ;    mov gs, ax
-;
-;    push 0x23       ; SS, notice it uses same selector as above
-;    push esp        ; ESP
-;    pushfd          ; EFLAGS
-;
+;    mov eax, esp
+;    push eax
+;xchg bx, bx
+;    mov eax, IDT_HANDLER
+;    call eax
 ;    pop eax
-;    or eax, 0x200   ; enable IF in EFLAGS
-;    push eax
-;
-;    push 0x1b       ; CS, user mode code selector is 0x18. With RPL 3 this is 0x1b
-;    lea eax, [a]    ; EIP first
-;    push eax
+;    pop gs
+;    pop fs
+;    pop es
+;    pop ds
+;    popa
+;    add esp, 8
 ;    iretd
-;    a:
-;        add esp, 4 ; fix stack
-;ret

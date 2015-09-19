@@ -14,7 +14,7 @@
 	} __attribute__((packed)) regs; //76 Bytes
 
 	void _TM_init(BootInfo_p BOOTINF);
-	void IDT_HANDLER(regs *r);
+	// void IDT_HANDLER(regs *r);
 	void killCurrentThread(regs *r);
 
 #endif

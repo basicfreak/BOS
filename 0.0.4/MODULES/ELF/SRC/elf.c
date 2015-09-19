@@ -1,3 +1,13 @@
+/*
+NOTE THIS IS A VERY DELICATE FILE!
+This is part of a shared binary.
+We are linked to 0x00000000
+First Executed at 0x01000000
+Then moved into ABI anywhere from 0xE4200000 to 0xFF000000
+(probably closer to 0xE4200000, as this is the first app)
+*/
+
+
 #include <typedefines.h>
 #include <BOS/BOSBOOT.h>
 #include <systemcalls.h>
@@ -10,16 +20,13 @@ int main(BootInfo_p BOOTINF);
 
 #define DEBUG_putch(x) outb(0xE9, x)
 
-void DEBUG_print(const char* Str);
-// void DEBUG_putch(const char Chr);
-void DEBUG_printf(const char* Str, ...);
-void itoa(uint32_t i, uint32_t base, uint8_t* buf);
-
 void memset(void *dest, uint8_t val, uint32_t count);
 bool ValidELF(void* ELFLocation);
 void* LoadELF(void* ELFLocation);
 void* FindEntryELF(void* ELFLocation);
 void _LoadExecElf(void *ELFPDir, void *ELFLocation);
+void _LoadRelocElf(void* ELFPDir, void* ELFLocation);
+void* ELF_ABI(void* ELFPDir, void* ELFLocation);
 
 // extern void outb(uint16_t, uint8_t);
 
@@ -43,19 +50,20 @@ int main(BootInfo_p BOOTINF)
 	}
 
 	// We know we are the first mod.
-	// We also know we are located at 0x01000000
+	// We also know we are located at 0x01000000 (for now)
 	// So find the difference between 0x01000000 and MyModList[0].ModStart
 	uint32_t ModsPhysicalOffset = (0x01000000 - MyModList[0].ModStart);
 
 	for(uint8_t mod = 1; mod < MyBoot->ModCount; mod++) {
-		DEBUG_printf("TESTING MOD #%i\n", mod);
+		// DEBUG_printf("TESTING MOD #%i\n", mod);
 		if(ValidELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart))) {
-			DEBUG_printf("Prepareing MOD #%i\n", mod);
+			// DEBUG_printf("Prepareing MOD #%i\n", mod);
 			void* ELFPDir = LoadELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart));
 			char *ModName = "COREMOD ";
-			ModName[7] = (char) (mod + 0x20);
-			DEBUG_printf("EXECUTEING MOD #%i\n", mod);
-			_TM_EXEC(ELFPDir, FindEntryELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart)), ModName);
+			char *ModVirt = (char*) ((uint32_t)ModName + 0x01000000); // Fix the pointer
+			ModVirt[7] = (char) (mod + 0x20);
+			// DEBUG_printf("EXECUTEING MOD #%i\n", mod);
+			_TM_EXEC(ELFPDir, FindEntryELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart)), ModVirt);
 		}
 	}
 
@@ -78,18 +86,21 @@ bool ValidELF(void* ELFLocation) // NOTE DOES NOT CHECK EVERYTHING
 void* LoadELF(void* ELFLocation)
 {
 	void* ELFPDir = 0;
-	_VMM_newDIR(ELFPDir);
-	if(ELFPDir) {
-		ELF32_Head_p Head = (ELF32_Head_p) ELFLocation;
-		if(Head->e_type == ET_EXEC) {
-			//EXEC
-			_LoadExecElf(ELFPDir, ELFLocation);
-			//
-		} else if(Head->e_type == ET_REL) {
-			//Relocatable
-		} else {
-			//UNKNOWN
-			return 0;
+	if(ValidELF(ELFLocation)) {
+		_VMM_newDIR(ELFPDir);
+		if(ELFPDir) {
+			ELF32_Head_p Head = (ELF32_Head_p) ELFLocation;
+			if(Head->e_type == ET_EXEC) {
+				//EXEC
+				_LoadExecElf(ELFPDir, ELFLocation);
+				//
+			} else if(Head->e_type == ET_REL) {
+				//Relocatable
+				_LoadRelocElf(ELFPDir, ELFLocation);
+			} else {
+				//UNKNOWN
+				return 0;
+			}
 		}
 	}
 	return ELFPDir;
@@ -107,33 +118,38 @@ void _LoadExecElf(void *ELFPDir, void *ELFLocation)
 	ELF32_PHead_p PHead = (ELF32_PHead_p) ((uint32_t)ELFLocation + Head->e_phoff);
 
 	for(uint16_t Header = 0; Header < Head->e_phnum; Header++) {
-		DEBUG_printf("Header #%i\n", Header);
+		// DEBUG_printf("Header #%i\n", Header);
 		if(PHead[Header].p_memsz) { // If there is any memory here
 			void* startAddress = (void*) PHead[Header].p_vaddr;
 			uint32_t Pages = (PHead[Header].p_memsz / 0x1000);
 			if(PHead[Header].p_memsz % 0x1000)
 				Pages++;
-			DEBUG_printf("Virtual Pages #%i\n", Pages);
+			// DEBUG_printf("Virtual Pages #%i\n", Pages);
 			for(uint32_t page = 0; page < Pages; page++) {
-				DEBUG_printf("ALLOCATE\n");
+				// DEBUG_printf("ALLOCATE\n");
 				 _VMM_allocOther(ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), TRUE);
 				 void* physicalPage = 0;
-				 DEBUG_printf("GetPhys\n");
+				 // DEBUG_printf("GetPhys\n");
 				 _VMM_getPageOther(ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), physicalPage);
-				 DEBUG_printf("MAP\n");
+				 // DEBUG_printf("MAP\n");
 				 _VMM_map((void*)(0x81000000 + (page * 0x1000)), (physicalPage), TRUE);
 			}
-			DEBUG_printf("COPY DATA\n");
+			// DEBUG_printf("COPY DATA\n");
 			memcpy((void*)(0x81000000), ((uint32_t)ELFLocation + PHead[Header].p_offset), (PHead[Header].p_filesz));
-			DEBUG_printf("Zero REMANDER\n");
+			// DEBUG_printf("Zero REMANDER\n");
 			if(PHead[Header].p_memsz > PHead[Header].p_filesz)
 				memset((void*)(0x81000000 + PHead[Header].p_filesz), 0, (uint32_t)(PHead[Header].p_memsz - PHead[Header].p_memsz));
-			DEBUG_printf("UMAP\n");
+			// DEBUG_printf("UMAP\n");
 			for(uint32_t page = 0; page < Pages; page++) {
 				_VMM_umap((0x81000000 + (page * 0x1000)));
 			}
 		}
 	}
+}
+
+void _LoadRelocElf(void* ELFPDir, void* ELFLocation)
+{
+	//
 }
 
 void memset(void *dest, uint8_t val, uint32_t count)
@@ -143,117 +159,22 @@ void memset(void *dest, uint8_t val, uint32_t count)
 		*temp++ = val;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void DEBUG_print(const char* Str)
+void* ELF_ABI(void* ELFPDir, void* ELFLocation)
 {
-	while(*Str)
-		DEBUG_putch(*Str++);
-}
-
-// void DEBUG_putch(const char Chr)
-// {
-// 	outb(0xE9, (uint8_t) Chr);
-// }
-
-void DEBUG_printf(const char* Str, ...)
-{
-	va_list ap;
-	va_start(ap, Str);
-	while(*Str) {
-		if(*Str == '%') {
-			*Str++;
-			switch(*Str) {
-				/*** characters ***/
-				case 'c': {
-					const char c = (const char) va_arg (ap, const char);
-					DEBUG_putch(c);
-					*Str++;
-					break;
-				}
-				/*** integers ***/
-				case 'd':
-				case 'i':
-				{
-					uint32_t c = va_arg (ap, uint32_t);
-					uint8_t s[32]={0};
-					itoa (c, 10, s);
-					DEBUG_print((const char*) s);
-					*Str++;		// go to next character
-					break;
-				}
-				/*** display in hex ***/
-				case 'X':
-				case 'x':
-				{
-					uint32_t c = va_arg (ap, uint32_t);
-					uint8_t s[32]={0};
-					itoa (c,16,s);
-					DEBUG_print((const char*) s);
-					*Str++;		// go to next character
-					break;
-				}
-				/*** strings ***/
-				case 's':
-				{
-					const char *s = va_arg (ap, const char*);
-					DEBUG_print((const char*) s);
-					*Str++;		// go to next character
-					break;
-				}
-				case '%':
-				{
-					DEBUG_putch('%');
-					*Str++;
-					break;
-				}
-			}
+	if(ValidELF(ELFLocation) && ELFPDir) {
+		ELF32_Head_p Head = (ELF32_Head_p) ELFLocation;
+		if(Head->e_type == ET_EXEC) {
+			//EXEC
+			_LoadExecElf(ELFPDir, ELFLocation);
+			//
+		} else if(Head->e_type == ET_REL) {
+			//Relocatable
+			_LoadRelocElf(ELFPDir, ELFLocation);
 		} else {
-			DEBUG_putch(*Str++);
+			//UNKNOWN
+			return 0;
 		}
+		return FindEntryELF(ELFLocation);
 	}
-}
-uint8_t		tbuf[32];
-uint8_t		bchars[] =				{'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-
-void itoa(uint32_t i, uint32_t base, uint8_t* buf)
-{
-   uint32_t pos = 0;
-   uint32_t opos = 0;
-   uint32_t top = 0;
-
-   if (i == 0 || base > 16)
-   {
-      buf[0] = '0';
-      buf[1] = '\0';
-      return;
-   }
-
-   while (i != 0)
-   {
-      tbuf[pos] = bchars[i % base];
-      pos++;
-      i /= base;
-   }
-   top=pos--;
-   for (opos=0; opos<top; pos--,opos++)
-   {
-      buf[opos] = tbuf[pos];
-   }
-   buf[opos] = 0;
-   return;
+	return 0;
 }

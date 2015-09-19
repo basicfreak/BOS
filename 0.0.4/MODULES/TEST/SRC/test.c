@@ -8,6 +8,7 @@ int init(void);
 
 int init()
 {
+	_IOPERM();
 	for(;;) {
 		DEBUG_putch('a');
 		_yeild();

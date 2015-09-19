@@ -39,11 +39,11 @@ extern void IDTBase(void);
 extern void GDTBase(void);
 
 typedef struct ThreadEntry {
-	uint8_t SSEData[512]; // 512 Bytes
 	regs TRegs; // 76 Bytes
-	char Name[428];
 	uint32_t Flags;
 	uint32_t CR3;
+	char Name[428];
+	uint8_t SSEData[512]; // 512 Bytes
 }__attribute__((packed)) Thread_t, *Thread_p; // 1KB
 
 typedef struct ThreadList {
@@ -67,15 +67,15 @@ INTTSK_p MyINTTasks;
 
 void* MSGHeap;
 
-void ThreadManager(regs *r);
-void LoadThread(regs *r, uint32_t NextThread);
+extern void ThreadManager(regs *r);
+extern void LoadThread(regs *r, uint32_t NextThread);
 
-void TM_Handler(regs *r);
+// void TM_Handler(regs *r);
 void MEM_Handler(regs *r);
 void IPC_Handler(regs *r);
 void API_Handler(regs *r);
 uint32_t ReserveEmptyThread(void);
-void ForkThread(regs *r, uint32_t NewEIP);
+void ForkThread(regs *r);
 void ExecThread(regs *r);
 
 bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize);
@@ -100,7 +100,7 @@ void _TM_init(BootInfo_p BOOTINF)
 	for(uint32_t x = 0; x < MAX_THREADS; x++)
 		MyThreads->Thread[x].Flags = TF_DEAD;
 	CurrentThread = 0;
-	CurrentThread = 0;
+	LastThread = 0;
 	MSGHeap = (void*)MSG_BASE;
 	strcpy(MyThreads->Thread[0].Name, "IDLE");
 	MyThreads->Thread[0].Flags = 0;
@@ -137,7 +137,7 @@ void killCurrentThread(regs *r)
 	ThreadManager(r);
 }
 
-void IDT_HANDLER(regs *r)
+/*void IDT_HANDLER(regs *r)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
@@ -235,8 +235,8 @@ void IDT_HANDLER(regs *r)
 #ifdef DEBUG_EXTREAM
 	DEBUG_printf("Thread Out = %i\n", CurrentThread);
 #endif
-}
-
+}*/
+/*
 void ThreadManager(regs *r)
 {
 #ifdef DEBUG_FULL
@@ -292,12 +292,12 @@ void LoadThread(regs *r, uint32_t NextThread)
 	if(MyThreads->Thread[CurrentThread].CR3)
 		setPageDir(MyThreads->Thread[CurrentThread].CR3);
 }
-
-void TM_Handler(regs *r)
+*/
+/*void TM_Handler(regs *r)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
-#endif
+#endif*/
 	/*This will be installed on INT 0xF1
 	INPUT AL:	00h - kill
 				01h - fork
@@ -329,13 +329,13 @@ void TM_Handler(regs *r)
 
 	AL = 80h:	Task Manager Now Saves And Restores SSE/FPU Registers.
 	*/
-	uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
+	/*uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
 	switch(Function_Number) {
 		case 0x00:
 			MyThreads->Thread[CurrentThread].Flags = TF_DEAD;
 			break;
 		case 0x01:	// Fork
-			ForkThread(r, r->edx);
+			ForkThread(r);
 			break;
 		case 0x02:	// EXEC
 			ExecThread(r);
@@ -354,7 +354,7 @@ void TM_Handler(regs *r)
 	}
 	// LastThread = CurrentThread;
 	ThreadManager(r);
-}
+}*/
 
 void MEM_Handler(regs *r)
 {
@@ -570,7 +570,7 @@ uint32_t ReserveEmptyThread()
 	return 0;
 }
 
-void ForkThread(regs *r, uint32_t NewEIP)
+void ForkThread(regs *r)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
@@ -580,7 +580,7 @@ void ForkThread(regs *r, uint32_t NewEIP)
 		uint32_t NewPageDir = (uint32_t) _VMM_copyPDir();
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].SSEData)), (void*)((uint32_t)(&MyThreads->Thread[CurrentThread].SSEData)), 512);
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].TRegs)), (void*)r, sizeof(regs));
-		MyThreads->Thread[NewThreadID].TRegs.eip = NewEIP;
+		MyThreads->Thread[NewThreadID].TRegs.eip = r->edx;
 		MyThreads->Thread[NewThreadID].CR3 = NewPageDir;
 		MyThreads->Thread[NewThreadID].Flags = MyThreads->Thread[CurrentThread].Flags;
 
@@ -588,7 +588,7 @@ void ForkThread(regs *r, uint32_t NewEIP)
 	DEBUG_printf("New Thread Added. CR3 = %x, EIP = %x\n", MyThreads->Thread[NewThreadID].CR3, MyThreads->Thread[NewThreadID].TRegs.eip);
 #endif
 		// _VMM_setCOWOther((void*)NewPageDir);
-		LoadThread(r, NewThreadID);
+		// LoadThread(r, NewThreadID);
 	}
 }
 
@@ -616,6 +616,6 @@ void ExecThread(regs *r)
 		MyThreads->Thread[NewThreadID].TRegs.eip, (MyThreads->Thread[NewThreadID].Name));
 #endif
 		MyThreads->Thread[NewThreadID].Flags = TF_ACTIVE;
-		LoadThread(r, NewThreadID);
+		// LoadThread(r, NewThreadID);
 	}
 }
