@@ -1,7 +1,7 @@
 #ifndef				KLIB_H_INCLUDED
 	#define				KLIB_H_INCLUDED
 
-	// #define DEBUG
+	#define DEBUG
 	// #define DEBUG_FULL
 	// #define DEBUG_EXTREAM
 

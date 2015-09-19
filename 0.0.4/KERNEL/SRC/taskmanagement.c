@@ -67,13 +67,14 @@ INTTSK_p MyINTTasks;
 
 void* MSGHeap;
 
+// NOTE: the following trash all registers
+// ONLY ACTION AFTER CALLING IS RETURN!!!!
 extern void ThreadManager(regs *r);
-extern void LoadThread(regs *r, uint32_t NextThread);
 
 // void TM_Handler(regs *r);
 void MEM_Handler(regs *r);
-void IPC_Handler(regs *r);
-void API_Handler(regs *r);
+// void IPC_Handler(regs *r);
+// void API_Handler(regs *r);
 uint32_t ReserveEmptyThread(void);
 void ForkThread(regs *r);
 void ExecThread(regs *r);
@@ -128,14 +129,14 @@ void _TM_init(BootInfo_p BOOTINF)
 	MyThreads->Thread[1].TRegs.ebx = (uint32_t) BOOTINF; // This is a special thread ;)
 }
 
-void killCurrentThread(regs *r)
+/*void killCurrentThread(regs *r)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	MyThreads->Thread[CurrentThread].Flags = TF_DEAD;
 	ThreadManager(r);
-}
+}*/
 
 /*void IDT_HANDLER(regs *r)
 {
@@ -451,11 +452,11 @@ void MEM_Handler(regs *r)
 	return;
 }
 
-void IPC_Handler(regs *r)
+/*void IPC_Handler(regs *r)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
-#endif
+#endif*/
 	/*This will be installed on INT 0xF0
 	INPUT AL:	01h - wait for messgae
 				02h - send message
@@ -479,7 +480,7 @@ void IPC_Handler(regs *r)
 	AL = 02h:	Thread Stops running
 
 	AL = 80h/81h:Thread starts again on INT or continues if fired but not handled.*/
-	uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
+	/*uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
 	switch(Function_Number) {
 		case 0x01:
 			MyThreads->Thread[CurrentThread].Flags &= (uint32_t)(~(TF_ACTIVE));
@@ -507,18 +508,18 @@ void IPC_Handler(regs *r)
 			r->eax = 0;
 	}
 	ThreadManager(r);
-}
+}*/
 
-void API_Handler(regs *r)
+/*void API_Handler(regs *r)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
-#endif
+#endif*/
 	/*This will be installed on INT 0xF3
 	INPUT AL:	00h - Request API Function Location
 				01h - Add API Function
 	*/
-	uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
+/*	uint8_t Function_Number = (uint8_t) (r->eax & 0xFF);
 	switch(Function_Number) {
 		case 0x00:
 			break;
@@ -527,7 +528,7 @@ void API_Handler(regs *r)
 		default:
 			r->eax = 0;
 	}
-}
+}*/
 
 bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize)
 {
@@ -549,7 +550,7 @@ bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize)
 			TempPageAddress[x] = _VMM_getTable((void*)(0xD0000000 + (x * 0x400000)));
 			_VMM_umapTable((void*)(0xD0000000 + (x * 0x400000)));
 		}
-		LoadThread(r, DestID);
+		// LoadThread(r, DestID);
 		for(uint32_t x = 0; x < Pages; x++)
 			_VMM_setTable((void*)(0xD0000000 + (x * 0x400000)), TempPageAddress[x], TRUE, FALSE);
 		return TRUE;

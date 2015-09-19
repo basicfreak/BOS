@@ -15,6 +15,6 @@
 
 	void _TM_init(BootInfo_p BOOTINF);
 	// void IDT_HANDLER(regs *r);
-	void killCurrentThread(regs *r);
-
+	extern void killCurrentThread(regs *r);
+	
 #endif
