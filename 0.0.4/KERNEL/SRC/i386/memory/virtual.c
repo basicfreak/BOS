@@ -48,6 +48,7 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+	DEBUG_printf("%x\t%x\t%x\t%x\n", (uint32_t) Virt, (uint32_t) Phys, (uint32_t) User, (uint32_t) Write);
 #endif
 	uint32_t VAddr = (uint32_t) Virt;
 	uint32_t PAddr = (uint32_t) Phys;
@@ -72,9 +73,6 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 		memset((void*)(&VMM[PageTable + 1]), 0, PAGESIZE);
 		__asm__ __volatile__ ("invlpg (%0)" : : "a" ((0xFFC00000 + (PAGESIZE * PageTable))));
 	}
-#ifdef DEBUG_FULL
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 2), __func__);
-#endif
 	if(User && !(VMM[0].Entry[PageTable] & I86_USER))
 		VMM[0].Entry[PageTable] |= I86_USER;
 	//Ok now it is safe to map the page.
@@ -88,6 +86,7 @@ void _VMM_umap(void* Virt)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+	DEBUG_printf("%x\n", (uint32_t) Virt);
 #endif
 	uint32_t VAddr = (uint32_t) Virt;
 	if(VAddr % PAGESIZE) {
@@ -96,7 +95,7 @@ void _VMM_umap(void* Virt)
 	}
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
-	if((VMM[0].Entry[PageTable] & 1))
+	if((VMM[0].Entry[PageTable] & 1)) 
 		VMM[PageTable + 1].Entry[PageTableEnt] = 0;
     __asm__ __volatile__ ("invlpg (%0)" : : "a" (VAddr));
 }
@@ -117,6 +116,9 @@ void *_VMM_getPhys(void* Virt)
 	if(!(VMM[0].Entry[PageTable] & I86_PRESENT))
 		return 0;
 
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("%x\t=\t%x\n", (uint32_t) Virt, (uint32_t) (VMM[PageTable + 1].Entry[PageTableEnt] & VMMFRAME));
+#endif
 	return (void*) (VMM[PageTable + 1].Entry[PageTableEnt] & VMMFRAME);
 }
 
@@ -244,6 +246,7 @@ void _VMM_mapOther(void* PDIR, void* Virt, void* Phys, bool User, bool Write)
 {
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+	DEBUG_printf("%x\t%x\t%x\t%x\t%x\n", (uint32_t) PDIR, (uint32_t) Virt, (uint32_t) Phys, (uint32_t) User, (uint32_t) Write);
 #endif
 	uint32_t VAddr = (uint32_t) Virt;
 	uint32_t PAddr = (uint32_t) Phys;
@@ -286,6 +289,7 @@ void _VMM_umapOther(void* PDIR, void* Virt)
 {
 #ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+	DEBUG_printf("%x\t%x\n", (uint32_t) PDIR, (uint32_t) Virt);
 #endif
 	uint32_t VAddr = (uint32_t) Virt;
 	if(VAddr % PAGESIZE) {
@@ -326,6 +330,9 @@ void *_VMM_getPhysOther(void* PDIR, void* Virt)
 		_VMM_umap((void*)0x1000);
 	}
 	_VMM_umap((void*)0);
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("%x\t=\t%x\n", (uint32_t) Virt, (uint32_t) ret);
+#endif
 	return ret;
 }
 
@@ -364,6 +371,7 @@ void _VMM_PageFaultManager(regs *r)
 	DEBUG_printf("Killing Thread - Attempted to read non present message!\n");
 #endif
 				killCurrentThread(r);
+				return;
 			}
 		} else if((FaultAddress >= 0xCF800000) && !(r->err_code & 0x01)) { // User Task Faulted In User Stack
 #ifdef DEBUG
@@ -387,6 +395,7 @@ void _VMM_PageFaultManager(regs *r)
 	DEBUG_printf("Unknown Page Fault\nKilling Thread\n");
 #endif
 				killCurrentThread(r);
+				return;
 			}
 		}
 	} else {// Kernel Task Faulted Kill System.

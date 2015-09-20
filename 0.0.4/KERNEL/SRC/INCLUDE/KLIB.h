@@ -2,8 +2,8 @@
 	#define				KLIB_H_INCLUDED
 
 	#define DEBUG
-	// #define DEBUG_FULL
-	// #define DEBUG_EXTREAM
+	#define DEBUG_FULL
+	#define DEBUG_EXTREAM
 
 	#include <stdarg.h>
 

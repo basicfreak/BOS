@@ -127,15 +127,15 @@ void _LoadExecElf(void *ELFPDir, void *ELFLocation)
 			// DEBUG_printf("Virtual Pages #%i\n", Pages);
 			for(uint32_t page = 0; page < Pages; page++) {
 				// DEBUG_printf("ALLOCATE\n");
-				 _VMM_allocOther(ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), TRUE);
-				 void* physicalPage = 0;
+				 _VMM_allocOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), TRUE);
+				 uint32_t physicalPage = 0;
 				 // DEBUG_printf("GetPhys\n");
-				 _VMM_getPageOther(ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), physicalPage);
+				 _VMM_getPageOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), physicalPage);
 				 // DEBUG_printf("MAP\n");
-				 _VMM_map((void*)(0x81000000 + (page * 0x1000)), (physicalPage), TRUE);
+				 _VMM_map((0x81000000 + (page * 0x1000)), (physicalPage), TRUE);
 			}
 			// DEBUG_printf("COPY DATA\n");
-			memcpy((void*)(0x81000000), ((uint32_t)ELFLocation + PHead[Header].p_offset), (PHead[Header].p_filesz));
+			memcpy((0x81000000), ((uint32_t)ELFLocation + PHead[Header].p_offset), (PHead[Header].p_filesz));
 			// DEBUG_printf("Zero REMANDER\n");
 			if(PHead[Header].p_memsz > PHead[Header].p_filesz)
 				memset((void*)(0x81000000 + PHead[Header].p_filesz), 0, (uint32_t)(PHead[Header].p_memsz - PHead[Header].p_memsz));

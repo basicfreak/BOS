@@ -25,10 +25,19 @@
 [extern CurrentThread]
 [extern LastThread]
 
-[extern MEM_Handler]
 [extern ForkThread]
 [extern ExecThread]
 [extern _VMM_PageFaultManager] ; _VMM_PageFaultManager(regs *r)
+
+[extern _PMM_alloc]
+[extern _VMM_map]
+[extern _VMM_getPhys]
+[extern _VMM_newPDir]
+[extern _VMM_mapOther]
+[extern _VMM_getPhysOther]
+[extern _PMM_free]
+[extern _VMM_umap]
+[extern _VMM_umapOther]
 
 ;-------------------------------------------------------------------------------
 ;                                   Constants
@@ -172,6 +181,114 @@ TM_Handler:
 		or DWORD [esp + 72], 0x00003000			; set eflags to allow io
 		ret										; Return to thread.
 
+MEM_Handler:
+	mov eax, DWORD [esp + 52]					; Grab Function Number (stored in eax of the calling thread)
+	cmp al, 0x00								; Are we requesting new page?
+	je .AllocMap								; Yes? Allocate and Map Page.
+	cmp al, 0x01								; Are we unmapping and freeing page?
+	je .FreeUMap								; Yes? Free And Unmap Page.
+	cmp al, 0x80								; Are We mapping a known address?
+	je .Map										; Yes? Map Page.
+	cmp al, 0x81								; Are we unmapping a page?
+	je .UMap									; Yes? Unmap page.
+	cmp al, 0x8F								; Find Physical Address?
+	je .FindPhys								; Yes? Find Address.
+	cmp al, 0xF0								; Create new Dir?
+	je .NewDir									; Yes? Make Dir.
+	cmp al, 0xF1								; Are We mapping a known address on another pdir?
+	je .MapOther								; Yes? Map page in pdir.
+	cmp al, 0xF2								; Are we requesting new page on another pdir?
+	je .AllocMapOther							; Yes? Allocate and Map page for pdir.
+	cmp al, 0xF3								; Are we unmapping a page in another pdir?
+	je .UMapOther								; Yes? Unamp page in pdir.
+	cmp al, 0xF4								; Are we unmapping and freeing a page in another pdir?
+	je .FreeUMapOther							; Yes? Free and Unmap Page in pdir.
+	cmp al, 0xFF								; Are we requesting physical address in another pdir?
+	je .FindPhysOther							; Yes? Get physical address from pdir.
+	mov DWORD [esp + 52], 0						; ELSE set threads eax to 0
+	ret											; Return to thread
+
+	.AllocMap:
+;	_VMM_map((void*)r->edx, _PMM_alloc(PAGESIZE), TRUE, (bool)r->ebx);
+		push DWORD 0x1000						; Push PAGESIZE
+		call _PMM_alloc							; Call Physical Memory Allocator
+		mov ecx, eax							; Store address in ecx
+		pop eax									; Clean Stack
+	.Map:
+;	_VMM_map((void*)r->edx, (void*)r->ecx, TRUE, (bool)r->ebx);
+		push ebx								; Push Write Flag
+		push DWORD 1							; Push TRUE, this is a user page
+		push ecx								; Push Physical Address
+		push DWORD [esp + 56]					; push r->edx (this is changed if page is allocated)
+		call _VMM_map							; Map Page
+		add esp, 16								; Clean Stack
+		ret										; Return to thread
+
+	.FreeUMap:
+;	_PMM_free(_VMM_getPhys((void*)r->edx), PAGESIZE);
+		push edx								; Push Virutal Address r->edx
+		call _VMM_getPhys						; Call Get Physical Address Function (returns eax)
+		push DWORD 0x1000						; Push PAGESIZE
+		push eax								; Push Physical Address
+		call _PMM_free							; Free The Page
+		add esp, 12								; Clean Stack
+	.UMap:
+;	_VMM_umap((void*)r->edx);
+		push DWORD [esp + 44]					; Push Virutal Address r->edx (changed if we free the page first)
+		call _VMM_umap							; unmap the page.
+		pop eax									; Clean Stack
+		ret										; Return to thread
+
+	.FindPhys:
+;	r->eax = (uint32_t) _VMM_getPhys((void*)r->edx);
+		push edx								; Push Virtual Address r->edx
+		call _VMM_getPhys						; Get Physical Address
+		mov DWORD [esp + 56], eax				; Save Physical Address in r->eax
+		pop eax									; Clean Stack
+		ret										; Return to thread
+
+	.NewDir:
+;	r->eax = (uint32_t) _VMM_newPDir();
+		call _VMM_newPDir						; Get New Page Directory
+		mov DWORD [esp + 52], eax				; Save Page Directory Address in r->eax
+		ret										; Return to thread
+
+	.AllocMapOther:
+;	_VMM_mapOther((void*) (r->eax & 0xFFFFF000), (void*) r->edx, _PMM_alloc(PAGESIZE), TRUE, (bool) r->ebx);
+		push eax								; Save eax
+		push DWORD 0x1000						; Push Page Size
+		call _PMM_alloc							; Allocate Page
+		mov ecx, eax							; Save Page in ecx
+		pop eax									; Clean Stack
+		pop eax									; Restore eax
+	.MapOther:
+;	_VMM_mapOther((void*) (r->eax & 0xFFFFF000), (void*) r->edx, (void*) r->ecx, TRUE, (bool) r->ebx);
+		and eax, 0xFFFFF000						; Remove Function Number From eax
+		push ebx								; Push Write Flag
+		push DWORD 1							; Push TRUE (user flag)
+		push ecx								; Push Physical Address
+		push DWORD [esp + 56]					; Push Virtual Address r->edx ( as this is changed if we allocated )
+		push eax								; Push Page Directory Address
+		call _VMM_mapOther						; Map Page
+		add esp, 20								; Clean Stack
+		ret										; Return to thread
+
+	.FreeUMapOther:
+;	_PMM_free(_VMM_getPhysOther((void*) (r->eax & 0xFFFFF000), (void*) r->edx), PAGESIZE);
+	.UMapOther:
+;	_VMM_umapOther((void*) (r->eax & 0xFFFFF000), (void*) r->edx);
+		ret
+
+	.FindPhysOther:
+;	r->eax = (uint32_t) _VMM_getPhysOther((void*) (r->eax & 0xFFFFF000), (void*) r->edx);
+		and eax, 0xFFFFF000						; Remove Function Number From eax
+		push edx								; Push Virtual Address
+		push eax								; Push Page Directory Address
+		call _VMM_getPhysOther					; Get Physical Address
+		mov DWORD [esp + 60], eax				; Save Physical Address in r->eax
+		add esp, 8								; Clean Stack
+		ret										; Return to thread
+
 IPC_Handler:
 	mov eax, DWORD [esp + 52]					; Grab Function Number (stored in eax of the calling thread)
 	cmp al, 0x00								; Wait for message?
@@ -185,8 +302,14 @@ IPC_Handler:
 	mov DWORD [esp + 52], 0						; ELSE set threads eax to 0
 	ret											; Return to thread
 	.WaitMSG:
+
+; TO DO ADD MESSAGING SYSTEM
+
 		ret
 	.SendMSG:
+
+; TO DO ADD MESSAGING SYSTEM
+
 		ret
 	.WaitINTwr:
 		mov edx, DWORD [CurrentThread]			; CurrentThread ID
@@ -242,8 +365,8 @@ ThreadManager:
 	mov edx, DWORD [LastThread]					; LastThread ID
 
 	; Uncomment next 2 lines for Cooperative Multitasking
-	cmp edx, DWORD [CurrentThread]				; LastThread == CurrentThread?
-	jne .Done									; No? We are done here.
+	;cmp edx, DWORD [CurrentThread]				; LastThread == CurrentThread?
+	;jne .Done									; No? We are done here.
 
 	mov ecx, edx								; Copy Thread ID.
 	shl ecx, 10									; Multiply by 1KB.
@@ -255,6 +378,10 @@ ThreadManager:
 		jge .resetloop							; Yes? Reset The Loop.
 		add ecx, 0x400
 		mov ebx, DWORD [ecx + 76]				; Store Thread Flag.
+
+		cmp ebx, 0xFF00FF00						; Compare Flag to TF_BLANK
+		je .resetloop							; If we are blank then reset loop
+
 		cmp edx, DWORD [LastThread]				; Did we make the loop?
 		je .StartIdle							; Yes? Start Idle or Resume LastThread.
 		and ebx, TF_ACTIVE						; Clear all but Active Flag
@@ -287,10 +414,11 @@ LoadThread:
 
 	cmp DWORD [edi + 76], TF_DEAD				; Is Thread Dead?
 	je .SaveComplete							; Yes? Do not save it.
-
+	
 	mov ecx, 19									; Size of Regs (in DWORDs)
 	rep movsd									; Copy Regs
-	mov ecx, DWORD [esi]						; Grab Thread Flags
+	mov ecx, DWORD [edi]						; Grab Thread Flags
+
 	and ecx, TF_USESSE							; Clear all but SSE/FPU Flag
 	test ecx, ecx								; Do I need to save SSE/FPU?
 	jz .SaveComplete							; No? Save complete.
@@ -300,9 +428,10 @@ LoadThread:
 		mov esi, edx							; Source = New Thread ID (edx)
 		shl esi, 10								;           Multiplied by 1024
 		add esi, DWORD [TaskList]				;       Plus The TaskList Base
-		cmp DWORD [edi + 76], TF_DEAD			; Is New Thread Dead?
+		cmp DWORD [esi + 76], TF_DEAD			; Is New Thread Dead?
 		jne .SetNextThread						; No? Good, Continue.
 		xor edx, edx							; Yes? There is an issue load Idle Thread. (ID 0)
+		mov esi, DWORD [TaskList]
 	.SetNextThread:
 		mov DWORD [CurrentThread], edx			; Save Thread ID in CurrentThread
 
