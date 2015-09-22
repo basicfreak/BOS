@@ -126,7 +126,6 @@ void _TM_init(BootInfo_p BOOTINF)
 	MyThreads->Thread[1].TRegs.useresp = 0xCFFFFFFF;
 	MyThreads->Thread[1].TRegs.eflags = 0x00000200;
 	MyThreads->Thread[1].TRegs.esp = 0xFFB7FFFF;
-
 	MyThreads->Thread[1].TRegs.ebx = (uint32_t) BOOTINF; // This is a special thread ;)
 }
 

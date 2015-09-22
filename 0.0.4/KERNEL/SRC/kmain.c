@@ -18,6 +18,9 @@ int kmain(BootInfo_p BOOTINF)
 	// Do everything the Kernel Needs to do before sti
 	// Note Kernel Thread is Idle Thread once ints are on.
 	_TSS_setESP();
+#ifdef DEBUG
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+#endif
 	sti();
 	while(TRUE) {
 #ifdef DEBUG_FULL

@@ -21,6 +21,7 @@
 [global IDT_COMMON]
 [global ThreadManager]
 [global killCurrentThread]
+[global KILL_SYSTEM]
 
 [extern CurrentThread]
 [extern LastThread]
@@ -28,6 +29,7 @@
 [extern ForkThread]
 [extern ExecThread]
 [extern _VMM_PageFaultManager] ; _VMM_PageFaultManager(regs *r)
+[extern _VMM_PageFaultHandler]
 
 [extern _PMM_alloc]
 [extern _VMM_map]
@@ -38,6 +40,8 @@
 [extern _PMM_free]
 [extern _VMM_umap]
 [extern _VMM_umapOther]
+[extern _VMM_umap_UNSAFE]
+[extern _VMM_map_UNSAFE]
 
 ;-------------------------------------------------------------------------------
 ;                                   Constants
@@ -51,6 +55,7 @@ TF_USESSE equ 0x00000010
 TF_DEAD equ 0xFFFFFFFE
 TF_REGS equ 0x00000080
 TF_LINKF equ 0xFFFFFC00
+TF_BLANK equ 0xFF00FF00
 INT_FLAGED equ 0xFFFFFFFF
 
 ;-------------------------------------------------------------------------------
@@ -101,7 +106,8 @@ IDT_COMMON:
 ;-------------------------------------------------------------------------------
 EXCEPTION_HANDLER:
 	cmp eax, 0x0E								; Is this a Page Fault?
-	je _VMM_PageFaultManager					; Yes? Run Page Fault Manager.
+	;je _VMM_PageFaultManager					; Yes? Run Page Fault Manager.
+	je _VMM_PageFaultHandler
 	cmp eax, 0x0D								; Is this a General Protection Fault?
 	je KILL_SYSTEM								; Yes? Kill The System. (temperary response to GPF)
 	jmp killCurrentThread						; Else? Kill Current Thread.
@@ -216,12 +222,19 @@ MEM_Handler:
 		pop eax									; Clean Stack
 	.Map:
 ;	_VMM_map((void*)r->edx, (void*)r->ecx, TRUE, (bool)r->ebx);
-		push ebx								; Push Write Flag
-		push DWORD 1							; Push TRUE, this is a user page
-		push ecx								; Push Physical Address
-		push DWORD [esp + 56]					; push r->edx (this is changed if page is allocated)
-		call _VMM_map							; Map Page
-		add esp, 16								; Clean Stack
+		;push ebx								; Push Write Flag
+		;push DWORD 1							; Push TRUE, this is a user page
+		;push ecx								; Push Physical Address
+		;push DWORD [esp + 56]					; push r->edx (this is changed if page is allocated)
+		;call _VMM_map							; Map Page
+		;add esp, 16								; Clean Stack
+		;eax KERNEL Flag
+		;ecx Physical
+		;edx Virtual
+		;ebx WriteFlag
+		xor eax, eax
+		mov edx, DWORD [esp + 44]
+		call _VMM_map_UNSAFE
 		ret										; Return to thread
 
 	.FreeUMap:
@@ -231,12 +244,14 @@ MEM_Handler:
 		push DWORD 0x1000						; Push PAGESIZE
 		push eax								; Push Physical Address
 		call _PMM_free							; Free The Page
-		add esp, 12								; Clean Stack
+		add esp, 8								; Clean Stack
+		pop edx
 	.UMap:
 ;	_VMM_umap((void*)r->edx);
-		push DWORD [esp + 44]					; Push Virutal Address r->edx (changed if we free the page first)
-		call _VMM_umap							; unmap the page.
-		pop eax									; Clean Stack
+		;push DWORD [esp + 44]					; Push Virutal Address r->edx (changed if we free the page first)
+		;call _VMM_umap							; unmap the page.
+		;pop eax									; Clean Stack
+		call _VMM_umap_UNSAFE
 		ret										; Return to thread
 
 	.FindPhys:
@@ -379,7 +394,7 @@ ThreadManager:
 		add ecx, 0x400
 		mov ebx, DWORD [ecx + 76]				; Store Thread Flag.
 
-		cmp ebx, 0xFF00FF00						; Compare Flag to TF_BLANK
+		cmp ebx, TF_BLANK						; Compare Flag to TF_BLANK
 		je .resetloop							; If we are blank then reset loop
 
 		cmp edx, DWORD [LastThread]				; Did we make the loop?
