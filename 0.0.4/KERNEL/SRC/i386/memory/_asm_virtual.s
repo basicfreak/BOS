@@ -3,6 +3,7 @@
 [global getPageDir]
 [global setPageDir]
 [global getCR2]
+[global PageDirectoryBase]
 [global _VMM_PageFaultHandler]
 [global _VMM_umap_UNSAFE]
 [global _VMM_map_UNSAFE]
@@ -11,6 +12,7 @@
 [extern KILL_SYSTEM]
 
 [extern _PMM_alloc]
+[extern ClearMessageSystem]
 
 getPageDir:
 	mov eax, cr3
@@ -100,15 +102,39 @@ _VMM_PageFaultHandler:
 		mov edi, edx
 
 		mov ecx, 0x400
+		jmp .clearmem
+
+	.MessageSystem:
+;xchg bx, bx
+;push 0x12345678
+;add esp, 4
+
+		bt eax, 1
+		jnc killCurrentThread					; Thread attempted to read non present message
+
+		bt eax, 0
+		jnc .msgsysmap
+		call ClearMessageSystem
+		.msgsysmap:
+			push edx
+			push 0x1000
+			call _PMM_alloc							; Allocate a new page.
+			mov ecx, eax
+
+			xor eax, eax
+			mov ebx, 1
+			pop edx
+			pop edx
+			call _VMM_map_UNSAFE
+			mov edi, edx
+
+			mov ecx, 0x400
 		.clearmem:
 			mov DWORD [edi], 0
 			add edi, 4
 			dec ecx
 			jnz .clearmem
-		ret										; Return to thread.
-
-	.MessageSystem:
-		jmp killCurrentThread
+		ret	
 
 _VMM_map_UNSAFE:
 	;eax KERNEL Flag

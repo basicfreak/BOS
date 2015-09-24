@@ -60,10 +60,10 @@ int main(BootInfo_p BOOTINF)
 			// DEBUG_printf("Prepareing MOD #%i\n", mod);
 			void* ELFPDir = LoadELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart));
 			char *ModName = "COREMOD ";
-			char *ModVirt = (char*) ((uint32_t)ModName + 0x01000000); // Fix the pointer
-			ModVirt[7] = (char) (mod + 0x20);
+			//char *ModVirt = (char*) ((uint32_t)ModName + 0x01000000); // Fix the pointer
+			ModName[7] = (char) (mod + 0x20);
 			// DEBUG_printf("EXECUTEING MOD #%i\n", mod);
-			_TM_EXEC(ELFPDir, FindEntryELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart)), ModVirt);
+			_TM_EXEC(ELFPDir, FindEntryELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart)), ModName);
 		}
 	}
 

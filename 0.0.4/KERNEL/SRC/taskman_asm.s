@@ -20,9 +20,12 @@
 
 [global IDT_COMMON]
 [global ThreadManager]
+[global LoadThread]
 [global killCurrentThread]
 [global KILL_SYSTEM]
+[global TaskList]
 
+[extern SendMessage]
 [extern CurrentThread]
 [extern LastThread]
 
@@ -174,6 +177,10 @@ TM_Handler:
 	je .ssefpu									; Yes?
 	cmp al, 0x81								; IOPERM?
 	je .ioperm									; Yes?
+	cmp al, 0xF0								; Request thread ID by name?
+	je .RequestID								; Yes?
+	cmp al, 0xFF								; Request Name Change?
+	je .RenameThread							; Yes?
 
 	mov DWORD [esp + 52], 0						; ELSE set threads eax to 0
 	ret											; Return to thread.
@@ -186,6 +193,55 @@ TM_Handler:
 	.ioperm:
 		or DWORD [esp + 72], 0x00003000			; set eflags to allow io
 		ret										; Return to thread.
+	.RequestID:
+;xchg bx, bx
+		mov ebp, esi							; Save Pointer to Name
+		xor ecx, ecx							; Clear Counter Register
+		xor edx, edx							; Clear Data (Thread ID) Register
+		.StrLen:
+			lodsb								; Grab a character from Name Pointer
+			or al, al							; Check for 0
+			jz .FindName						; If 0 we have found length.
+			inc ecx								; Else increment Counter Register
+			jmp .StrLen							; Loop while *Name != 0
+		.FindName:
+			mov ebx, ecx						; Save Count in Base Register
+			.IDLoop:
+				mov esi, ebp					; Restore Name Pointer
+				mov ecx, ebx					; Restore Count Register
+				mov edi, edx					; Calculate Destination (Thread to test in EDX)
+				shl edi, 10						; Multiply Destination by 1024
+				add edi, DWORD [TaskList]		; Add Base of Task List
+				cmp DWORD [edi + 76], TF_BLANK	; Check if we made it threw the list of threads.
+				je .NotFound					; If we do, Fail.
+				add edi, 84						; Add offset to Name in Thread
+				rep cmpsb						; compare Name
+				je .IDDone						; If equal we found a match
+				inc edx							; Else Increment Thread Number
+				jmp .IDLoop						; Loop until complete or Fail
+			.IDDone:
+				mov DWORD [esp + 52], edx		; Store Thread ID in current threads eax
+				ret								; return to current thread
+		.NotFound:
+			mov DWORD [esp + 52], 0				; Store 0 in current threads eax
+			ret									; return to current thread
+	.RenameThread:
+;xchg bx, bx
+		;esi = new name pointer
+		mov edi, DWORD [CurrentThread]			; Calculate Destination: Current Thread ID
+		shl edi, 10								; Multiply by 1024
+		add edi, DWORD [TaskList]				; Add Thread List Base
+		add edi, 84								; Add Name offset
+		.RenameLoop:
+			lodsb								; Grab a character from Name Pointer
+			or al, al							; Check for 0
+			jz .RenameDone						; If 0 we finished the rename.
+			mov BYTE [edi], al					; Else write character
+			inc edi								; Increment Destination
+			jmp .RenameLoop						; Loop until done
+		.RenameDone:
+			mov BYTE [edi + 1], 0				; Set NULL termenator
+			ret									; Return to current thread.
 
 MEM_Handler:
 	mov eax, DWORD [esp + 52]					; Grab Function Number (stored in eax of the calling thread)
@@ -306,10 +362,10 @@ MEM_Handler:
 
 IPC_Handler:
 	mov eax, DWORD [esp + 52]					; Grab Function Number (stored in eax of the calling thread)
-	cmp al, 0x00								; Wait for message?
+	cmp al, 0x01								; Wait for message?
 	je .WaitMSG									; Yes? Handle Flags.
-	cmp al, 0x01								; Send a message?
-	je .SendMSG									; Yes? Send Message.
+	cmp al, 0x02								; Send a message?
+	je SendMessage								; Yes? Send Message.
 	cmp al, 0x80								; Wait for IRQ/INT?
 	je .WaitINT									; Yes? Handle Flags.
 	cmp al, 0x81								; Wait for IRQ/INT with regs?
@@ -317,15 +373,17 @@ IPC_Handler:
 	mov DWORD [esp + 52], 0						; ELSE set threads eax to 0
 	ret											; Return to thread
 	.WaitMSG:
-
-; TO DO ADD MESSAGING SYSTEM
-
-		ret
-	.SendMSG:
-
-; TO DO ADD MESSAGING SYSTEM
-
-		ret
+;xchg bx, bx
+;push 0x01020304
+;add esp, 4
+		shl edx, 10
+		mov ebp, DWORD [CurrentThread]			; CurrentThread ID
+		shl ebp, 10								; Multiply by 1KB
+		add ebp, DWORD [TaskList]				; Add ThreadList Base
+		and DWORD [ebp + 76], TF_DEAD			; Clear Active Flag
+		or DWORD [ebp + 76], TF_WAITMSG			; Set Wait For MSG Flag
+		or DWORD [ebp + 76], edx				; Set Thread ID we are waiting on.
+		jmp ThreadManager
 	.WaitINTwr:
 		mov edx, DWORD [CurrentThread]			; CurrentThread ID
 		shl edx, 10								; Multiply by 1KB

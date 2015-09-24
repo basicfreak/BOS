@@ -264,25 +264,25 @@ void _VMM_mapOther(void* PDIR, void* Virt, void* Phys, bool User, bool Write)
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
 
-	_VMM_map((void*)0, PDIR, FALSE, TRUE);
+	_VMM_map((void*)0x1000, PDIR, FALSE, TRUE);
 
 	//Make Sure Table Is Allocatted In The Directory! 
-	if(!(((uint32_t*)0)[PageTable] & I86_PRESENT)) {
+	if(!(((uint32_t*)0x1000)[PageTable] & I86_PRESENT)) {
 		//Allocate Page For Address
 		uint32_t PagePhysAddress = (uint32_t) _PMM_alloc(PAGESIZE);
-		((uint32_t*)0)[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
-		_VMM_map((void*)0x1000, (void*)(((uint32_t*)0)[0x3FF] & 0xFFFFF000), FALSE, TRUE);
 		((uint32_t*)0x1000)[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
-		_VMM_map((void*)0x1000, (void*)(PagePhysAddress), FALSE, TRUE);
-		memset((void*)0x1000, 0, PAGESIZE);
+		_VMM_map((void*)0x2000, (void*)(((uint32_t*)0x1000)[0x3FF] & 0xFFFFF000), FALSE, TRUE);
+		((uint32_t*)0x2000)[PageTable] = (PagePhysAddress | I86_WRITABLE | I86_PRESENT);
+		_VMM_map((void*)0x2000, (void*)(PagePhysAddress), FALSE, TRUE);
+		memset((void*)0x2000, 0, PAGESIZE);
 	}
-	if(User && !(((uint32_t*)0)[PageTable] & I86_USER))
-		((uint32_t*)0)[PageTable] |= I86_USER;
+	if(User && !(((uint32_t*)0x1000)[PageTable] & I86_USER))
+		((uint32_t*)0x1000)[PageTable] |= I86_USER;
 	//Ok now it is safe to map the page.
-	_VMM_map((void*)0x1000, (void*)(((uint32_t*)0)[PageTable] & 0xFFFFF000), FALSE, TRUE);
-	((uint32_t*)0x1000)[PageTableEnt] = (PAddr | I86_PRESENT);
+	_VMM_map((void*)0x2000, (void*)(((uint32_t*)0x1000)[PageTable] & 0xFFFFF000), FALSE, TRUE);
+	((uint32_t*)0x2000)[PageTableEnt] = (PAddr | I86_PRESENT);
+	_VMM_umap((void*)0x2000);
 	_VMM_umap((void*)0x1000);
-	_VMM_umap((void*)0);
 }
 
 void _VMM_umapOther(void* PDIR, void* Virt)
@@ -299,14 +299,14 @@ void _VMM_umapOther(void* PDIR, void* Virt)
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
 
-	_VMM_map((void*)0, PDIR, FALSE, TRUE);
+	_VMM_map((void*)0x1000, PDIR, FALSE, TRUE);
 
-	if((((uint32_t*)0)[PageTable] & 1)) {
-		_VMM_map((void*)0x1000, (void*)(((uint32_t*)0)[PageTable] & 0xFFFFF000), FALSE, TRUE);
-		((uint32_t*)0x1000)[PageTableEnt] = 0;
-		_VMM_umap((void*)0x1000);
+	if((((uint32_t*)0x1000)[PageTable] & 1)) {
+		_VMM_map((void*)0x2000, (void*)(((uint32_t*)0x1000)[PageTable] & 0xFFFFF000), FALSE, TRUE);
+		((uint32_t*)0x2000)[PageTableEnt] = 0;
+		_VMM_umap((void*)0x2000);
 	}
-	_VMM_umap((void*)0);
+	_VMM_umap((void*)0x1000);
 }
 
 void *_VMM_getPhysOther(void* PDIR, void* Virt)
@@ -322,14 +322,14 @@ void *_VMM_getPhysOther(void* PDIR, void* Virt)
 	uint32_t PageTable = (VAddr / 0x400000);
 	uint32_t PageTableEnt = ((VAddr % 0x400000) / PAGESIZE);
 	void* ret = 0;
-	_VMM_map((void*)0, PDIR, FALSE, TRUE);
+	_VMM_map((void*)0x1000, PDIR, FALSE, TRUE);
 
-	if((((uint32_t*)0)[PageTable] & 1)) {
-		_VMM_map((void*)0x1000, (void*)(((uint32_t*)0)[PageTable] & 0xFFFFF000), FALSE, TRUE);
-		ret = (void*) (((uint32_t*)0x1000)[PageTableEnt] & 0xFFFFF000);
-		_VMM_umap((void*)0x1000);
+	if((((uint32_t*)0x1000)[PageTable] & 1)) {
+		_VMM_map((void*)0x2000, (void*)(((uint32_t*)0x1000)[PageTable] & 0xFFFFF000), FALSE, TRUE);
+		ret = (void*) (((uint32_t*)0x2000)[PageTableEnt] & 0xFFFFF000);
+		_VMM_umap((void*)0x2000);
 	}
-	_VMM_umap((void*)0);
+	_VMM_umap((void*)0x1000);
 #ifdef DEBUG_EXTREAM
 	DEBUG_printf("%x\t=\t%x\n", (uint32_t) Virt, (uint32_t) ret);
 #endif

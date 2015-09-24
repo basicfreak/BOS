@@ -118,7 +118,7 @@ void _PMM_defrag()
 #ifdef DEBUG_EXTREAM
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
-	for (int x = 0; x < 2; x++) // Do this twice to make sure we get most of them.
+	//for (int x = 0; x < 2; x++) // Do this twice to make sure we get most of them.
 		for (uint32_t e = 0; e < PMM_Entries; e++) {
 			if(PMM[e].Length) {
 				for (uint32_t t = 0; t < PMM_Entries; t++)
@@ -131,7 +131,7 @@ void _PMM_defrag()
 					}
 			} else {
 				// Physically Move Entries
-				memcpyd((void*) (&PMM[e]), (void*) (&PMM[e+1]), ((PMM_Entries - e) * 2));
+				memcpy((void*) (&PMM[e]), (void*) (&PMM[e+1]), ((PMM_Entries - e) * 8));
 				// Drop Entry Count
 				PMM_Entries--;
 				// This entry changed, dec e so we re-read it.
