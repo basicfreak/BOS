@@ -75,13 +75,26 @@ void _PMM_free(void* Base, uint32_t Length)
 		DEBUG_printf("ERROR FUNCTION \"%s\" Line %i", __func__, __LINE__);
 		hlt();
 	}
-
+	for(uint32_t ent = 0; ent < PMM_Entries; ent++) {
+		if(PMM[ent].Base == ((uint32_t)Base + Length)) {
+			PMM[ent].Base -= Length;
+			PMM[ent].Length += Length;
+			FreeRam += Length;
+			UsedRam -= Length;
+			return;
+		} else if((PMM[ent].Base + PMM[ent].Length) == ((uint32_t) Base)) {
+			PMM[ent].Length += Length;
+			FreeRam += Length;
+			UsedRam -= Length;
+			return;
+		}
+	}
 	PMM[PMM_Entries].Base = (uint32_t) Base;
 	PMM[PMM_Entries].Length = Length;
 	PMM_Entries++;
 	FreeRam += Length;
 	UsedRam -= Length;
-	_PMM_defrag();
+	// _PMM_defrag();
 #ifdef DEBUG
 	DEBUG_printf("\n\tTotal Ram %i KB\n\tFree  Ram %i KB\n\tUsed  Ram %i KB\n", (TotalRam / 1024), (FreeRam / 1024), (UsedRam / 1024));
 #endif

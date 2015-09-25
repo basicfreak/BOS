@@ -1,7 +1,7 @@
 OBJDIR=SRC
 OBJECTS=$(addprefix $(OBJDIR)/,start.o kmain.o i386/io.o i386/memory/memlib.o i386/memory/physical.o \
 	i386/memory/virtual.o i386/memory/_asm_virtual.o i386/cpu/i686.o i386/cpu/_asm_i686.o \
-	taskmanagement.o taskman_asm.o ipc.o)
+	taskmanagement.o taskman_asm.o ipc.o api.o)
 OUTPUT=BIN/KERNEL.ELF
 CC=gcc
 AS=nasm

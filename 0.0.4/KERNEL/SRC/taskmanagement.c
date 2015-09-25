@@ -183,6 +183,8 @@ void ForkThread(regs *r)
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].TRegs)), (void*)r, sizeof(regs));
 		MyThreads->Thread[NewThreadID].TRegs.eip = r->edx;
 		MyThreads->Thread[NewThreadID].CR3 = NewPageDir;
+		if(r->esi)
+			strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
 		MyThreads->Thread[NewThreadID].Flags = MyThreads->Thread[CurrentThread].Flags;
 
 #ifdef DEBUG_EXTREAM
@@ -211,7 +213,8 @@ void ExecThread(regs *r)
 		MyThreads->Thread[NewThreadID].TRegs.useresp = 0xCFFFFFFF;
 		MyThreads->Thread[NewThreadID].TRegs.eflags = 0x00000200;
 		MyThreads->Thread[NewThreadID].TRegs.esp = 0xFFB7FFFF;
-		// strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
+		if(r->esi)
+			strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
 #ifdef DEBUG
 	DEBUG_printf("New Thread Added. CR3 = %x, EIP = %x, NAME = \"%s\"\n", MyThreads->Thread[NewThreadID].CR3,
 		MyThreads->Thread[NewThreadID].TRegs.eip, (MyThreads->Thread[NewThreadID].Name));

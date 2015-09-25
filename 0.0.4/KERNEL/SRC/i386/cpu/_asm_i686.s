@@ -4,30 +4,25 @@
 
 [bits 32]
 
-[extern KVirtBase]
-[extern IDT_HANDLER]
-
 [global GDTBase]
 [global _GDT_Load]
 [global _GDT_SwitchSegmentKernel]
 [global _GDT_SwitchSegmentUser]
-
 [global _TSS_setESP]
 [global _TSS_Flush]
 [global TSSBase]
 [global TSS_END]
-
 [global _SSE_init]
 [global SSE_Save]
 [global SSE_Load]
-
 [global _FPU_init]
-
 [global IDTBase]
 [global _IDT_Load]
 [global _PIC_init]
 
 [extern IDT_COMMON]
+[extern KVirtBase]
+[extern IDT_HANDLER]
 
 ; -------------------------------
 ;               GDT
