@@ -4,7 +4,7 @@
 #include <i386/cpu/i686.h>
 
 //User Land References:
-#define MSG_BASE	0xDF000000
+// #define MSG_BASE	0xDF000000
 #define CODE_BASE	0x01000000 //16MB
 #define DATA_BASE	0x41000000
 #define BSS_BASE	0x61000000
@@ -15,8 +15,8 @@ typedef struct INTTasks {
 	uint32_t TaskID[256];
 }__attribute__ ((packed)) INTTSK_t, *INTTSK_p; // 1 KB
 
-#define MAX_THREADS 4096
-#define MAX_MSGS 2048
+#define MAX_THREADS (0x1043C) //66620
+// #define MAX_MSGS 2048
 
 uint32_t CurrentThread;
 uint32_t LastThread;
@@ -51,22 +51,22 @@ typedef struct ThreadList {
 	Thread_t Thread[MAX_THREADS];
 }__attribute__((packed)) ThreadMan_t, *ThreadMan_p; // 4MB
 
-typedef struct MSGEntry {
-	uint32_t SrcID;
-	uint32_t DestID;
-	uint32_t DataPages;
-	void* Data;
-}__attribute__((packed)) MSG_t, *MSG_p; // 32 Bytes
+// typedef struct MSGEntry {
+// 	uint32_t SrcID;
+// 	uint32_t DestID;
+// 	uint32_t DataPages;
+// 	void* Data;
+// }__attribute__((packed)) MSG_t, *MSG_p; // 32 Bytes
 
-typedef struct MSGList {
-	MSG_t MSG[MAX_MSGS];
-}__attribute__((packed)) MSGMan_t, *MSGMan_p; // 64KB
+// typedef struct MSGList {
+// 	MSG_t MSG[MAX_MSGS];
+// }__attribute__((packed)) MSGMan_t, *MSGMan_p; // 64KB
 
 ThreadMan_p MyThreads;
-MSGMan_p MyMSGs;
+// MSGMan_p MyMSGs;
 INTTSK_p MyINTTasks;
 
-void* MSGHeap;
+// void* MSGHeap;
 
 // NOTE: the following trash all registers
 // ONLY ACTION AFTER CALLING IS RETURN!!!!
@@ -80,7 +80,7 @@ uint32_t ReserveEmptyThread(void);
 void ForkThread(regs *r);
 void ExecThread(regs *r);
 
-bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize);
+// bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize);
 
 void _TM_init(BootInfo_p BOOTINF)
 {
@@ -88,22 +88,33 @@ void _TM_init(BootInfo_p BOOTINF)
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	MyThreads = (ThreadMan_p) 0xE0001000;
-	MyMSGs = (MSGMan_p) 0xE0401000;
+
+	// MyMSGs = (MSGMan_p) 0xE0401000;
+
 	MyINTTasks = (INTTSK_p) 0xE0000000;
-	void* ThreadLoc = _PMM_alloc(0x400000);
-	void* MSGLoc = _PMM_alloc(0x10000);
+	// void* ThreadLoc = _PMM_alloc(0x410F00);
+	void* ThreadLoc = _PMM_alloc(0x4000);
+	void* APIList = _PMM_alloc(0xF0000);
+	for(uint32_t x = 0; x < 0xF0000; x += 0x1000)
+		_VMM_map((void*) (0xE4110000 + x), (void*)(((uint32_t)APIList) + x), FALSE, TRUE);
+	memset((void*)0xE4110000, 0, 0xF0000);
+
+	// void* MSGLoc = _PMM_alloc(0x10000);
+
 	void* INTLoc = _PMM_alloc(0x1000);
 	_VMM_map((void*)0xE0000000, INTLoc, FALSE, TRUE);
-	for(uint32_t x = 0; x < 0x400000; x += 0x1000)
+	for(uint32_t x = 0; x < 0x4000; x += 0x1000)
 		_VMM_map((void*) (0xE0001000 + x), (void*)(((uint32_t)ThreadLoc) + x), FALSE, TRUE);
-	for(uint32_t x = 0; x < 0x10000; x += 0x1000)
-		_VMM_map((void*) (0xE0401000 + x), (void*)(((uint32_t)MSGLoc) + x), FALSE, TRUE);
-	memsetd((void*)0xE0000000, 0, 0x0000104400);
-	for(uint32_t x = 0; x < MAX_THREADS; x++)
+
+	// for(uint32_t x = 0; x < 0x10000; x += 0x1000)
+	// 	_VMM_map((void*) (0xE0401000 + x), (void*)(((uint32_t)MSGLoc) + x), FALSE, TRUE);
+	memset((void*)0xE0000000, 0, 0x5000);
+
+	for(uint32_t x = 0; x < 16; x++)
 		MyThreads->Thread[x].Flags = TF_BLANK;
 	CurrentThread = 0;
 	LastThread = 0;
-	MSGHeap = (void*)MSG_BASE;
+	// MSGHeap = (void*)MSG_BASE;
 	strcpy(MyThreads->Thread[0].Name, "IDLE");
 	MyThreads->Thread[0].Flags = 0;
 	MyThreads->Thread[0].CR3 = 0;
@@ -130,33 +141,33 @@ void _TM_init(BootInfo_p BOOTINF)
 }
 
 
-bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize)
-{
-#ifdef DEBUG_FULL
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
-#endif
-	if(MSGSize > 0x10000000)
-		return FALSE; //ERROR
-	if((MyThreads->Thread[DestID].Flags & TF_WAITMSG) &&
-		(((MyThreads->Thread[DestID].Flags >> 10) == CurrentThread) || (!(MyThreads->Thread[DestID].Flags >> 10)))) {
+// bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize)
+// {
+// #ifdef DEBUG_FULL
+// 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+// #endif
+// 	if(MSGSize > 0x10000000)
+// 		return FALSE; //ERROR
+// 	if((MyThreads->Thread[DestID].Flags & TF_WAITMSG) &&
+// 		(((MyThreads->Thread[DestID].Flags >> 10) == CurrentThread) || (!(MyThreads->Thread[DestID].Flags >> 10)))) {
 		
-		uint32_t Pages = (MSGSize / 0x400000);
-		if(MSGSize % 0x400000)
-			Pages++;
+// 		uint32_t Pages = (MSGSize / 0x400000);
+// 		if(MSGSize % 0x400000)
+// 			Pages++;
 
-		void* TempPageAddress[Pages];
+// 		void* TempPageAddress[Pages];
 
-		for(uint32_t x = 0; x < Pages; x++) {
-			TempPageAddress[x] = _VMM_getTable((void*)(0xD0000000 + (x * 0x400000)));
-			_VMM_umapTable((void*)(0xD0000000 + (x * 0x400000)));
-		}
-		// LoadThread(r, DestID);
-		for(uint32_t x = 0; x < Pages; x++)
-			_VMM_setTable((void*)(0xD0000000 + (x * 0x400000)), TempPageAddress[x], TRUE, FALSE);
-		return TRUE;
-	}
-	return FALSE;
-}
+// 		for(uint32_t x = 0; x < Pages; x++) {
+// 			TempPageAddress[x] = _VMM_getTable((void*)(0xD0000000 + (x * 0x400000)));
+// 			_VMM_umapTable((void*)(0xD0000000 + (x * 0x400000)));
+// 		}
+// 		// LoadThread(r, DestID);
+// 		for(uint32_t x = 0; x < Pages; x++)
+// 			_VMM_setTable((void*)(0xD0000000 + (x * 0x400000)), TempPageAddress[x], TRUE, FALSE);
+// 		return TRUE;
+// 	}
+// 	return FALSE;
+// }
 
 uint32_t ReserveEmptyThread()
 {

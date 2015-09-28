@@ -12,7 +12,6 @@ API_CODE_TLB equ 0xFFF90800
 
 API_Handler:
 	mov eax, DWORD [esp + 52]					; Grab Function Number (stored in eax of the calling thread)
-xchg bx, bx
 
 	cmp al, 0x01
 	je .FindAPI
@@ -25,12 +24,11 @@ xchg bx, bx
 	ret											; Return to thread.
 
 	.FindAPI:
-xchg bx, bx
 		; esi = function name pointer
 		; RETURN eax = function location
 		mov ebp, esi							; Save Pointer to Name
 		xor ecx, ecx							; Clear Counter Register
-		xor edx, edx							; Clear Data (Thread ID) Register
+		xor edx, edx							; Clear Data Register
 		.StrLen:
 			lodsb								; Grab a character from Name Pointer
 			or al, al							; Check for 0
@@ -39,21 +37,20 @@ xchg bx, bx
 			jmp .StrLen							; Loop while *Name != 0
 		.FindName:
 			mov ebx, ecx						; Save Count in Base Register
+			mov edi, API_LIST_BASE				; Set Destination Pointer
+			add edi, 4							; Set Destination Offset
 			.IDLoop:
 				mov esi, ebp					; Restore Name Pointer
 				mov ecx, ebx					; Restore Count Register
-				mov edi, edx					; Calculate Destination (Thread to test in EDX)
-				shl edi, 9
-				add edi, 4
-				cmp DWORD [edi - 4], 0		; Check if we made it threw the list of threads.
+				mov edx, DWORD [edi - 4]		; Save function pointer
+				cmp edx, 0						; Check if we made it threw the list of APIs.
 				je .NotFound					; If we do, Fail.
 				rep cmpsb						; compare Name
 				je .IDDone						; If equal we found a match
-				inc edx							; Else Increment Thread Number
+				add edi, 0x20					; Else Destination Pointer
 				jmp .IDLoop						; Loop until complete or Fail
 			.IDDone:
-				mov edx, DWORD [esp - 4]
-				mov DWORD [esp + 52], edx		; Store Thread ID in current threads eax
+				mov DWORD [esp + 52], edx		; Store API Function Pointer in current threads eax
 				ret								; return to current thread
 		.NotFound:
 			mov DWORD [esp + 52], 0				; Store 0 in current threads eax
@@ -61,18 +58,17 @@ xchg bx, bx
 		ret
 
 	.AddAPI:
-xchg bx, bx
 		; esi = function name pointer
 		; ebx = function location
-		mov edi, API_LIST_BASE
+		mov edi, API_LIST_BASE					; Set Destination Pointer
 		.searchForOpening:
-			cmp DWORD [edi], 0
+			cmp DWORD [edi], 0					; Check for blank spot in API List
 			je .FoundOpening
-			add edi, 0x200
+			add edi, 0x20						; Increment Destination Pointer
 			jmp .searchForOpening
 		.FoundOpening:
-			mov DWORD [edi], ebx
-			add edi, 4
+			mov DWORD [edi], ebx				; Store Function Pointer in API List
+			add edi, 4							; Add offset to name in API List
 			.copyName:
 				lodsb
 				test al, al
@@ -81,11 +77,10 @@ xchg bx, bx
 				inc edi
 				jmp .copyName
 		.Done:
-			mov BYTE [edi + 1], 0
+			mov BYTE [edi + 1], 0				; NULL Terminate Name
 			ret
 
 	.InatallAPI:
-xchg bx, bx
 		; ecx = size in bytes
 		; edi = Where To Make Buffer (in threads virutal space)
 		; RETURN eax = Actual Virtual Address (API Base Location)
@@ -110,13 +105,24 @@ xchg bx, bx
 			mov [esp + 52], eax
 
 			.AllocateArea:
+				pusha
+				push edi
+				; push esi
 				push 0x1000
 				call _PMM_alloc
-				or eax, 5
-				mov DWORD [esi], eax
 				add esp, 4
+				; pop esi
 
-				pusha
+
+				mov edx, [esp+88]
+				push eax
+				mov ecx, eax
+				xor eax, eax
+				xor ebx, ebx
+				call _VMM_map_UNSAFE
+				pop eax
+
+				pop edi
 				mov ecx, eax
 				mov edx, edi
 				xor eax, eax

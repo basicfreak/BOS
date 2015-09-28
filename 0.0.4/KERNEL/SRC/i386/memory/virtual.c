@@ -219,7 +219,7 @@ void *_VMM_newPDir()
 
 
 	for(int x = 0; x < 0x400; x++)
-		(((uint32_t*)0)[x]) &= 0xFFFFF003;
+		(((uint32_t*)0)[x]) &= 0xFFFFF007;
 
 	void* TempTableA = _PMM_alloc(PAGESIZE);
 	_VMM_map((void*)0x1000, TempTableA, FALSE, TRUE);
@@ -230,7 +230,7 @@ void *_VMM_newPDir()
 
 
 	for(int x = 0; x < 0x400; x++)
-		(((uint32_t*)0x1000)[x]) &= 0xFFFFF003;
+		(((uint32_t*)0x1000)[x]) &= 0xFFFFF007;
 
 	void* TempTableB = _PMM_alloc(PAGESIZE);
 	_VMM_map((void*)0x1000, TempTableB, FALSE, TRUE);

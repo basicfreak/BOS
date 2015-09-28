@@ -176,8 +176,14 @@ _VMM_PageFaultHandler:
 	bt eax, 2									; Is User Bit Set?
 	jnc KILL_SYSTEM								; No? Kernel Page Fault, Kill System.
 
-	cmp edx, 0xE0000000							; Is the fault in Kernel Space?
+	cmp edx, 0xFF000000							; Is the fault in Kernel Space?
 	jge killCurrentThread						; Yes? Kill Current Thread
+
+	cmp edx, 0xE4110000							; API ISSUE
+	jge killCurrentThread
+
+	cmp edx, 0xE0000000							; ThreadMan ISSUE
+	jge .expandThreadMan
 
 	cmp edx, 0xD0000000							; Is the fault in IPC Message Area?
 	jge .MessageSystem							; Yes? Go to Message Area Handler
@@ -266,7 +272,34 @@ _VMM_PageFaultHandler:
 			add edi, 4
 			dec ecx
 			jnz .clearmem
-		ret	
+		ret
+
+	.expandThreadMan:
+		bt eax, 0
+		jc KILL_SYSTEM
+		
+		push edx
+		push 0x1000
+		call _PMM_alloc
+		
+		test eax, eax
+		jz KILL_SYSTEM
+
+		mov ecx, eax
+		mov eax, 1
+		mov ebx, 1
+		pop edx
+		pop edx
+		call _VMM_map_UNSAFE
+		add edx, 76
+		mov DWORD [edx], 0xFF00FF00
+		add edx, 0x400
+		mov DWORD [edx], 0xFF00FF00
+		add edx, 0x400
+		mov DWORD [edx], 0xFF00FF00
+		add edx, 0x400
+		mov DWORD [edx], 0xFF00FF00
+		ret
 
 _VMM_map_UNSAFE:
 	;eax KERNEL Flag

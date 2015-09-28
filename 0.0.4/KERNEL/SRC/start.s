@@ -39,12 +39,12 @@ _start:
         cmp ecx, 0xE40
         jl .DIRLoop
     or eax, 4
-    .MSGTblLoop:
+    .APITblLoop:
         mov DWORD [edi + ecx], eax
         add ecx, 4
         add eax, 0x1000
         cmp ecx, 0xFF0
-        jl .MSGTblLoop
+        jl .APITblLoop
     and eax, 0xFFFFF003
     .MoreKernelArea:
         mov DWORD [edi + ecx], eax

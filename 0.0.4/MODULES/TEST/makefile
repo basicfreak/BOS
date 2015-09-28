@@ -9,7 +9,7 @@ CCFLAGS=-O0 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrit
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \
 			-std=gnu99 -nostdinc -fno-builtin -fno-stack-protector -fno-common -march=i686 -m32 -I $(INCLUDES)
-LDFLAGS=-melf_i386 -T../link.ld
+LDFLAGS=-melf_i386 -q --noinhibit-exec -T../link.ld
 ASFLAGS=-felf
 
 all: $(OBJECTS) link

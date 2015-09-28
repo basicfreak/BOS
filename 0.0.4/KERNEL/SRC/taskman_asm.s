@@ -47,8 +47,7 @@
 ;-------------------------------------------------------------------------------
 ;                                   Constants
 ;-------------------------------------------------------------------------------
-MAX_THREADS equ 0x1000
-MAX_MSGS equ 0x800
+MAX_THREADS equ 0x1043C
 TF_ACTIVE equ 0x00000001
 TF_WAITINT equ 0x00000004
 TF_WAITMSG equ 0x00000008
@@ -262,7 +261,7 @@ ThreadManager:
 
 	.loop:
 		inc edx									; Increment Thread ID
-		cmp edx, 0x1000							; Have we passed max IDs?
+		cmp edx, MAX_THREADS					; Have we passed max IDs?
 		jge .resetloop							; Yes? Reset The Loop.
 		add ecx, 0x400
 		mov ebx, DWORD [ecx + 76]				; Store Thread Flag.

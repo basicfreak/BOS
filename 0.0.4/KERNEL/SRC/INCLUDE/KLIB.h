@@ -1,9 +1,9 @@
 #ifndef				KLIB_H_INCLUDED
 	#define				KLIB_H_INCLUDED
 
-	// #define DEBUG
-	// #define DEBUG_FULL
-	// #define DEBUG_EXTREAM
+	#define DEBUG
+	#define DEBUG_FULL
+	#define DEBUG_EXTREAM
 
 	#include <stdarg.h>
 
