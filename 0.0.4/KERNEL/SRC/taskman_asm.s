@@ -122,6 +122,8 @@ INT_HANDLER:
 		out 0x20, al							; ACK Master PIC
 		pop eax									; restore int_no
 
+; NOTE TO SELF: You frogot the INT waiting for regs...
+
 	.HandlerStart:
 		shl eax, 2								; Multiply int_no by 4 (4 bytes per DWORD)
 		add eax, DWORD [INTList]				; Add base address for int list to int_no

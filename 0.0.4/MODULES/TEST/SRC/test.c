@@ -55,7 +55,7 @@ void _JustATest()
 	API[10] = 0xEE;
 	API[11] = 0xC3;
 	// void (*apitest)(void) = ret;
-	__asm__ __volatile__ ("int $0xF3" : : "a" (0x02), "b" (0xE4200000), "S" ("TestAPI"));
+	__asm__ __volatile__ ("int $0xF3" : : "a" (0x02), "b" (ret), "S" ("TestAPI"));
 	while (1) {
 		DEBUG_putch('A');
 	// __asm__ __volatile__ ("xchg %bx, %bx");

@@ -57,6 +57,9 @@ IPC_Handler:
 		or DWORD [ebp + 76], edx				; Set Thread ID we are waiting on.
 		jmp ThreadManager
 	.WaitINTwr:
+
+; NOTE TO SELF: This is not done in taskman...
+
 		mov edx, DWORD [CurrentThread]			; CurrentThread ID
 		shl edx, 10								; Multiply by 1KB
 		add edx, DWORD [TaskList]				; Add ThreadList Base

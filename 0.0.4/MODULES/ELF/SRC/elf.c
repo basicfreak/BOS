@@ -26,11 +26,8 @@ void* LoadELF(void* ELFLocation);
 void* FindEntryELF(void* ELFLocation);
 void _LoadExecElf(void *ELFPDir, void *ELFLocation);
 void _LoadRelocElf(void* ELFPDir, void* ELFLocation);
-void* ELF_ABI(void* ELFPDir, void* ELFLocation);
 
 // extern void outb(uint16_t, uint8_t);
-
-void NewThreadAA(void);
 
 int main(BootInfo_p BOOTINF)
 {
@@ -54,6 +51,14 @@ int main(BootInfo_p BOOTINF)
 	// So find the difference between 0x01000000 and MyModList[0].ModStart
 	uint32_t ModsPhysicalOffset = (0x01000000 - MyModList[0].ModStart);
 
+	// We need to load this mod into API so it is accessable to load ELF at any time.
+	uint32_t NewBase = 0;
+	void* TempLocation = (void*) 0xF0000;
+
+	_API_INSTALL(NewBase, TempLocation, ((MyModList[0].ModEnd+1)-MyModList[0].ModStart));
+	memcpy(TempLocation, 0x01000000, ((MyModList[0].ModEnd+1)-MyModList[0].ModStart));
+	_API_ADD((NewBase + (((uint32_t)&LoadELF) - 0x01000000)), "LoadELF");
+
 	for(uint8_t mod = 1; mod < MyBoot->ModCount; mod++) {
 		// DEBUG_printf("TESTING MOD #%i\n", mod);
 		if(ValidELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart))) {
@@ -66,6 +71,11 @@ int main(BootInfo_p BOOTINF)
 			_TM_EXEC(ELFPDir, FindEntryELF((void*)(ModsPhysicalOffset + MyModList[mod].ModStart)), ModName);
 		}
 	}
+	uint32_t PhysMemEnd = (MyModList[(MyBoot->ModCount - 1)].ModEnd + 1);
+	if(PhysMemEnd % 0x1000)
+		PhysMemEnd = (PhysMemEnd + (0x1000 - (PhysMemEnd % 0x1000)));
+	for(uint32_t VirtMem = (ModsPhysicalOffset + MyModList[1].ModStart); VirtMem < (ModsPhysicalOffset + PhysMemEnd); VirtMem += 0x1000)
+		_VMM_umapFree(VirtMem);
 
 	return TRUE;
 }
@@ -127,22 +137,31 @@ void _LoadExecElf(void *ELFPDir, void *ELFLocation)
 			// DEBUG_printf("Virtual Pages #%i\n", Pages);
 			for(uint32_t page = 0; page < Pages; page++) {
 				// DEBUG_printf("ALLOCATE\n");
-				 _VMM_allocOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), TRUE);
-				 uint32_t physicalPage = 0;
-				 // DEBUG_printf("GetPhys\n");
-				 _VMM_getPageOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), physicalPage);
-				 // DEBUG_printf("MAP\n");
-				 _VMM_map((0x81000000 + (page * 0x1000)), (physicalPage), TRUE);
+				_VMM_allocOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), TRUE);
+				uint32_t physicalPage = 0;
+				// DEBUG_printf("GetPhys\n");
+				_VMM_getPageOther((uint32_t)ELFPDir, ((uint32_t)startAddress + (page * 0x1000)), physicalPage);
+				// DEBUG_printf("MAP\n");
+				_VMM_map(0xC000, (physicalPage), TRUE);
+				if((((int)PHead[Header].p_filesz) - (int)(page * 0x1000)) >= 0x1000) {
+					memcpy(0xC000, (((uint32_t)ELFLocation + PHead[Header].p_offset) + (page * 0x1000)), 0x1000);
+				} else if((((int)PHead[Header].p_filesz) - (int)(page * 0x1000)) > 0) {
+					memcpy(0xC000, (((uint32_t)ELFLocation + PHead[Header].p_offset) + (page * 0x1000)), ((PHead[Header].p_filesz) - (page * 0x1000)));
+					memset((0xC000 + ((PHead[Header].p_filesz) - (page * 0x1000))), 0, (0x1000 - ((PHead[Header].p_filesz) - (page * 0x1000))));
+				} else {
+					memset(0xC000, 0, 0x1000);
+				}
 			}
+			_VMM_umap(0xC000);
 			// DEBUG_printf("COPY DATA\n");
-			memcpy((0x81000000), ((uint32_t)ELFLocation + PHead[Header].p_offset), (PHead[Header].p_filesz));
+			// memcpy((0x81000000), ((uint32_t)ELFLocation + PHead[Header].p_offset), (PHead[Header].p_filesz));
 			// DEBUG_printf("Zero REMANDER\n");
-			if(PHead[Header].p_memsz > PHead[Header].p_filesz)
-				memset((void*)(0x81000000 + PHead[Header].p_filesz), 0, (uint32_t)(PHead[Header].p_memsz - PHead[Header].p_memsz));
+			// if(PHead[Header].p_memsz > PHead[Header].p_filesz)
+				// memset((void*)(0x81000000 + PHead[Header].p_filesz), 0, (uint32_t)(PHead[Header].p_memsz - PHead[Header].p_memsz));
 			// DEBUG_printf("UMAP\n");
-			for(uint32_t page = 0; page < Pages; page++) {
-				_VMM_umap((0x81000000 + (page * 0x1000)));
-			}
+			// for(uint32_t page = 0; page < Pages; page++) {
+				// _VMM_umap((0x81000000 + (page * 0x1000)));
+			// }
 		}
 	}
 }
@@ -157,24 +176,4 @@ void memset(void *dest, uint8_t val, uint32_t count)
 	uint8_t *temp = (uint8_t *)dest;
 	for ( ; count != 0; count--)
 		*temp++ = val;
-}
-
-void* ELF_ABI(void* ELFPDir, void* ELFLocation)
-{
-	if(ValidELF(ELFLocation) && ELFPDir) {
-		ELF32_Head_p Head = (ELF32_Head_p) ELFLocation;
-		if(Head->e_type == ET_EXEC) {
-			//EXEC
-			_LoadExecElf(ELFPDir, ELFLocation);
-			//
-		} else if(Head->e_type == ET_REL) {
-			//Relocatable
-			_LoadRelocElf(ELFPDir, ELFLocation);
-		} else {
-			//UNKNOWN
-			return 0;
-		}
-		return FindEntryELF(ELFLocation);
-	}
-	return 0;
 }

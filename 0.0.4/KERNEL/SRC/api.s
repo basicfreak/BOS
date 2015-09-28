@@ -24,6 +24,9 @@ API_Handler:
 	ret											; Return to thread.
 
 	.FindAPI:
+xchg bx, bx
+push 0x22222222
+add esp, 4
 		; esi = function name pointer
 		; RETURN eax = function location
 		mov ebp, esi							; Save Pointer to Name
@@ -45,7 +48,9 @@ API_Handler:
 				mov edx, DWORD [edi - 4]		; Save function pointer
 				cmp edx, 0						; Check if we made it threw the list of APIs.
 				je .NotFound					; If we do, Fail.
+				push edi
 				rep cmpsb						; compare Name
+				pop edi
 				je .IDDone						; If equal we found a match
 				add edi, 0x20					; Else Destination Pointer
 				jmp .IDLoop						; Loop until complete or Fail
@@ -58,6 +63,9 @@ API_Handler:
 		ret
 
 	.AddAPI:
+xchg bx, bx
+push 0x11111111
+add esp, 4
 		; esi = function name pointer
 		; ebx = function location
 		mov edi, API_LIST_BASE					; Set Destination Pointer
@@ -85,7 +93,9 @@ API_Handler:
 		; edi = Where To Make Buffer (in threads virutal space)
 		; RETURN eax = Actual Virtual Address (API Base Location)
 		;              So we know where to relocate it to.
-
+xchg bx, bx
+push 0x00000000
+add esp, 4
 		mov ebp, ecx
 		shr ebp, 12
 		test ecx, 0x00000FFF
@@ -93,10 +103,11 @@ API_Handler:
 		inc ebp
 		.PageCountDone:
 			mov esi, API_CODE_TLB
-			bt DWORD [esi], 0
-			jnc .FoundBlankArea
-			add esi, 4
-			jmp .PageCountDone
+			.FindBlank:
+				bt DWORD [esi], 0
+				jnc .FoundBlankArea
+				add esi, 4
+				jmp .FindBlank
 		.FoundBlankArea:
 			mov eax, esi ; store TLB Entry
 			sub eax, DWORD [PageDirectoryBase] ; Subtract TLB Base
@@ -131,8 +142,9 @@ API_Handler:
 				popa
 
 				dec ebp
-				jz .Done
+				jz .Allocated
 				add edi, 0x1000
 				add esi, 4
 				jmp .AllocateArea
+	.Allocated:
 		ret
