@@ -9,7 +9,7 @@ int init(void);
 void _JustATest(void);
 void _AnotherThread(void);
 void _PIT_Test(void);
-extern void printf(const char* str, ...);
+extern void puts(const char* str);
 
 int init()
 {
@@ -39,9 +39,9 @@ void _JustATest()
 	// ; RETURN eax = Actual Virtual Address (API Base Location)
 	// ;              So we know where to relocate it to.
 	uint32_t ret = 0;
-	__asm__ __volatile__ ("xchg %bx, %bx");
+	// __asm__ __volatile__ ("xchg %bx, %bx");
 	__asm__ __volatile__ ("int $0xF3" : "=a" (ret) : "a" (0xF0), "c" (1024), "D" (0x10000));
-	__asm__ __volatile__ ("xchg %bx, %bx");
+	// __asm__ __volatile__ ("xchg %bx, %bx");
 	API[0] = 0xBA;
 	API[1] = 0xE9;
 	API[2] = 0x00;
@@ -58,10 +58,10 @@ void _JustATest()
 	__asm__ __volatile__ ("int $0xF3" : : "a" (0x02), "b" (ret), "S" ("TestAPI"));
 	while (1) {
 		DEBUG_putch('A');
-	// __asm__ __volatile__ ("xchg %bx, %bx");
+	 // __asm__ __volatile__ ("xchg %bx, %bx");
 		// apitest();
+		puts("Hello\n");
 		_yeild();
-		// printf("Hello\n");
 	}
 }
 

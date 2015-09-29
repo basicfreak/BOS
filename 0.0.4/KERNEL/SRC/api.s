@@ -24,9 +24,6 @@ API_Handler:
 	ret											; Return to thread.
 
 	.FindAPI:
-xchg bx, bx
-push 0x22222222
-add esp, 4
 		; esi = function name pointer
 		; RETURN eax = function location
 		mov ebp, esi							; Save Pointer to Name
@@ -63,9 +60,6 @@ add esp, 4
 		ret
 
 	.AddAPI:
-xchg bx, bx
-push 0x11111111
-add esp, 4
 		; esi = function name pointer
 		; ebx = function location
 		mov edi, API_LIST_BASE					; Set Destination Pointer
@@ -93,9 +87,6 @@ add esp, 4
 		; edi = Where To Make Buffer (in threads virutal space)
 		; RETURN eax = Actual Virtual Address (API Base Location)
 		;              So we know where to relocate it to.
-xchg bx, bx
-push 0x00000000
-add esp, 4
 		mov ebp, ecx
 		shr ebp, 12
 		test ecx, 0x00000FFF

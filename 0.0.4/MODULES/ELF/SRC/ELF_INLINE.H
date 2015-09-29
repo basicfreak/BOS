@@ -5,7 +5,8 @@
 #ifndef				ELF_INLINE_H_INCLUDED
 	#define				ELF_INLINE_H_INCLUDED
 
-	#include "ELF_DATA.h"
+	#include "ELF_DATA.H"
+	#include <systemcalls.h>
 
 	// INLINE FUNCTIONS:
 
@@ -75,40 +76,34 @@
 		return (char *) ( (StrTbl) ? ((uint32_t) ELF_Section(Head, StrTbl) + offset) : (NULL) );
 	}
 
-	static inline int ELF_Get_SymVal(ELF32_Head_p Head, Elf32_Word Section, Elf32_Word offset) {
-// DEBUG_printf("ELF_GET_SYSVAL...");
+	static inline bool ELF_IsSymUNDEF(ELF32_Head_p Head, Elf32_Word Section, Elf32_Word offset) {
 		ELF32_SHead_p symtab = ELF_SHead(Head, Section);
-// DEBUG_printf("A");
 		uint32_t symaddr = (uint32_t)Head + (uint32_t)symtab->sh_offset;
-// DEBUG_printf("B");
 		ELF32_SymTbl_p symbol = &(((ELF32_SymTbl_p)symaddr)[offset]);
-// DEBUG_printf("C (0x%x)(0x%x)", (uint32_t) symbol, (uint32_t)symbol->st_shndx);
+		if(symbol->st_shndx == SHN_UNDEF)
+			return TRUE;
+		return FALSE;
+	}
+
+	static inline int ELF_Get_SymVal(ELF32_Head_p Head, Elf32_Word Section, Elf32_Word offset) {
+		ELF32_SHead_p symtab = ELF_SHead(Head, Section);
+		uint32_t symaddr = (uint32_t)Head + (uint32_t)symtab->sh_offset;
+		ELF32_SymTbl_p symbol = &(((ELF32_SymTbl_p)symaddr)[offset]);
 		if(symbol->st_shndx == SHN_UNDEF) {
-// DEBUG_printf("D");
 			ELF32_SHead_p strtab = ELF_SHead(Head, symtab->sh_link);
 			const char *name = (const char *)Head + strtab->sh_offset + symbol->st_name;
-// DEBUG_printf("SHN_UNDEF \"%s\"(0x%x)...", name, _API_Get_Symbol(name));
-			void *target = (void*)_API_Get_Symbol(name);
+			//void *target = (void*)_API_Get_Symbol(name);
+			void* target = 0;
+			_API_FIND(target, name);
 			if(target)
 				return (int)target;
-#ifdef DEBUG
-	DEBUG_printf("\nERROR Locating Function \"%s\"\n", name);
-#endif
 			return 0;
 		} else if(symbol->st_shndx == SHN_ABS) {
-// DEBUG_printf("E");
-// DEBUG_printf("SHN_ABS (0x%x)...", (int) symbol->st_value);
 			return (int) symbol->st_value;
 		} else if(symbol->st_shndx == SHN_COMMON) {
-#ifdef DEBUG
-	DEBUG_printf("\nSHN_COMMON Entry Found... ERROR!\n");
-#endif
 			return 0;
 		} else {
-// DEBUG_printf("F");
 			ELF32_SHead_p target = ELF_SHead(Head, symbol->st_shndx);
-// DEBUG_printf("target = 0x%x...", (uint32_t) target);
-// DEBUG_printf("ELSE (0x%x)...", ((int)Head + (int)symbol->st_value + (int)target->sh_offset));
 			return ((int)Head + (int)symbol->st_value + (int)target->sh_offset);
 		}
 	}
@@ -139,48 +134,4 @@
 		}
 
 	}
-
-
-/*
-	static inline uint32_t ELF_SHead_Type(ELF32_SHead_p SHead) {
-		return SHead->sh_type;
-	}
-
-	static inline uint32_t ELF_SHead_Name(ELF32_SHead_p SHead) {
-		return SHead->sh_name;
-	}
-
-	static inline uint32_t ELF_SHead_Flags(ELF32_SHead_p SHead) {
-		return SHead->sh_flags;
-	}
-
-	static inline uint32_t ELF_SHead_Address(ELF32_SHead_p SHead) {
-		return SHead->sh_addr;
-	}
-
-	static inline uint32_t ELF_SHead_Offset(ELF32_SHead_p SHead) {
-		return SHead->sh_offset;
-	}
-
-	static inline uint32_t ELF_SHead_Size(ELF32_SHead_p SHead) {
-		return SHead->sh_size;
-	}
-
-	static inline uint32_t ELF_SHead_link(ELF32_SHead_p SHead) {
-		return SHead->sh_link;
-	}
-
-	static inline uint32_t ELF_SHead_info(ELF32_SHead_p SHead) {
-		return SHead->sh_info;
-	}
-
-	static inline uint32_t ELF_SHead_AddrAlign(ELF32_SHead_p SHead) {
-		return SHead->sh_addralign;
-	}
-
-	static inline uint32_t ELF_SHead_EntSize(ELF32_SHead_p SHead) {
-		return SHead->sh_entsize;
-	}
-*/
-
 #endif

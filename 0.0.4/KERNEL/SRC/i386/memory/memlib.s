@@ -9,10 +9,12 @@
 memcpy:
 	push esi
 	push edi
-	mov edi, [esp + 12]
-	mov esi, [esp + 16]
-	mov ecx, [esp + 20]
+	push ecx
+	mov edi, [esp + 16]
+	mov esi, [esp + 20]
+	mov ecx, [esp + 24]
 	rep movsb
+	pop ecx
 	pop edi
 	pop esi
 	ret
@@ -20,10 +22,12 @@ memcpy:
 memcpyw:
 	push esi
 	push edi
-	mov edi, [esp + 12]
-	mov esi, [esp + 16]
-	mov ecx, [esp + 20]
+	push ecx
+	mov edi, [esp + 16]
+	mov esi, [esp + 20]
+	mov ecx, [esp + 24]
 	rep movsw
+	pop ecx
 	pop edi
 	pop esi
 	ret
@@ -31,10 +35,12 @@ memcpyw:
 memcpyd:
 	push esi
 	push edi
-	mov edi, [ebp + 12]
-	mov esi, [ebp + 16]
-	mov ecx, [ebp + 20]
+	push ecx
+	mov edi, [ebp + 16]
+	mov esi, [ebp + 20]
+	mov ecx, [ebp + 24]
 	rep movsd
+	pop ecx
 	pop edi
 	pop esi
 	ret

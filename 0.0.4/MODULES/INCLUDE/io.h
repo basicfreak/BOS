@@ -8,8 +8,8 @@
 	#define outl(p, v) __asm__ __volatile__ ("outl %1, %0" : : "dN" (p), "aL" (v))
 	#define inl(p, v) __asm__ __volatile__ ("inl %1, %0" : "=aL" (v) : "dN" (p))
 
-	#define memcpy(d, s, l) __asm__ __volatile__ ("rep movsb" :  : "S" (s), "D" (d), "c" (l))
-	#define memcpyw(d, s, l) __asm__ __volatile__ ("rep movsw" :  : "S" (s), "D" (d), "c" (l))
-	#define memcpyd(d, s, l) __asm__ __volatile__ ("rep movsd" :  : "S" (s), "D" (d), "c" (l))
+	#define memcpy(d, s, l) __asm__ __volatile__ ("rep movsb" :  : "S" (s), "D" (d), "c" (l) : "memory")
+	#define memcpyw(d, s, l) __asm__ __volatile__ ("rep movsw" :  : "S" (s), "D" (d), "c" (l) : "memory")
+	#define memcpyd(d, s, l) __asm__ __volatile__ ("rep movsd" :  : "S" (s), "D" (d), "c" (l) : "memory")
 
 #endif
