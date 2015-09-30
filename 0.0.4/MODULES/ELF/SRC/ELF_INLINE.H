@@ -103,8 +103,9 @@
 		} else if(symbol->st_shndx == SHN_COMMON) {
 			return 0;
 		} else {
+//__asm__ __volatile__("xchg %bx, %bx");
 			ELF32_SHead_p target = ELF_SHead(Head, symbol->st_shndx);
-			return ((int)Head + (int)symbol->st_value + (int)target->sh_offset);
+			return ((int)target->sh_addr + (int)symbol->st_value);// + (int)target->sh_offset);
 		}
 	}
 

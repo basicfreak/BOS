@@ -1,4 +1,5 @@
 #include <typedefines.h>
+#include <stdarg.h>
 #include <io.h>
 #include <systemcalls.h>
 
@@ -9,7 +10,7 @@ int init(void);
 void _JustATest(void);
 void _AnotherThread(void);
 void _PIT_Test(void);
-extern void puts(const char* str);
+extern void printf(const char* str, ...);
 
 int init()
 {
@@ -56,11 +57,12 @@ void _JustATest()
 	API[11] = 0xC3;
 	// void (*apitest)(void) = ret;
 	__asm__ __volatile__ ("int $0xF3" : : "a" (0x02), "b" (ret), "S" ("TestAPI"));
+	__asm__ __volatile__ ("xchg %bx, %bx");
 	while (1) {
 		DEBUG_putch('A');
 	 // __asm__ __volatile__ ("xchg %bx, %bx");
 		// apitest();
-		puts("Hello\n");
+		printf("Hello\t0x%x\n", 0x1337FADE);
 		_yeild();
 	}
 }
