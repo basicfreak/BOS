@@ -1,25 +1,22 @@
-#include <typedefines.h>
+#include <stdlib.h>
 #include <stdarg.h>
 
-void putch(const char);
-void puts(const char*);
-void printf(const char*, ...);
 void _itoa(uint32_t, uint32_t, uint8_t*);
 void _itoa_s(uint32_t, uint32_t, uint8_t*);
 
-void putch(const char chr)
+void Bochs_putch(const char chr)
 {
 	__asm__ __volatile__("outb %0, %1" : : "a"(chr), "Nd"(0xE9));
 }
 
-void puts(const char* Str)
+void Bochs_puts(const char* Str)
 {
 	while(*Str) {
 		__asm__ __volatile__("outb %0, %1" : : "a"(*Str++), "Nd"(0xE9));
 	}
 }
 
-void printf(const char* Str, ...)
+void Bochs_printf(const char* Str, ...)
 {
 	va_list ap;
 	va_start(ap, Str);
@@ -30,7 +27,7 @@ void printf(const char* Str, ...)
 				/*** characters ***/
 				case 'c': {
 					const char c = (const char) va_arg (ap, const char);
-					putch(c);
+					Bochs_putch(c);
 					*Str++;
 					break;
 				}
@@ -41,7 +38,7 @@ void printf(const char* Str, ...)
 					uint32_t c = va_arg (ap, uint32_t);
 					uint8_t s[32]={0};
 					_itoa_s (c, 10, s);
-					puts((const char*) s);
+					Bochs_puts((const char*) s);
 					*Str++;		// go to next character
 					break;
 				}
@@ -52,7 +49,7 @@ void printf(const char* Str, ...)
 					uint32_t c = va_arg (ap, uint32_t);
 					uint8_t s[32]={0};
 					_itoa_s (c,16,s);
-					puts((const char*) s);
+					Bochs_puts((const char*) s);
 					*Str++;		// go to next character
 					break;
 				}
@@ -60,19 +57,19 @@ void printf(const char* Str, ...)
 				case 's':
 				{
 					const char *s = va_arg (ap, const char*);
-					puts((const char*) s);
+					Bochs_puts((const char*) s);
 					*Str++;		// go to next character
 					break;
 				}
 				case '%':
 				{
-					putch('%');
+					Bochs_putch('%');
 					*Str++;
 					break;
 				}
 			}
 		} else {
-			putch(*Str++);
+			Bochs_putch(*Str++);
 		}
 	}
 }
@@ -112,4 +109,22 @@ void _itoa_s(uint32_t i, uint32_t base, uint8_t* buf)
    if (base > 16) return;
    _itoa(i,base,buf);
    return;
+}
+
+void memset(void* Destination, uint8_t Data, uint32_t Length)
+{
+	while(Length)
+		((uint8_t*)Destination)[Length--] = Data;
+}
+
+void memsetw(void* Destination, uint16_t Data, uint32_t Length)
+{
+	while(Length)
+		((uint16_t*)Destination)[Length--] = Data;
+}
+
+void memsetd(void* Destination, uint32_t Data, uint32_t Length)
+{
+	while(Length)
+		((uint32_t*)Destination)[Length--] = Data;
 }

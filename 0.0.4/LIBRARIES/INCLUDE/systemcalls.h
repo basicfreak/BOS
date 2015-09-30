@@ -1,6 +1,7 @@
 #ifndef _SYSTEMCALLS_H_INCLUDE
 	#define _SYSTEMCALLS_H_INCLUDE
 
+	#define _VMM_alloc(v, w) __asm__ __volatile__("int $0xF2" : : "a" (0x00), "d" (v), "b" (w))
 	#define _VMM_map(v, p, w) __asm__ __volatile__("int $0xF2" : : "a" (0x80), "d" (v), "c" (p), "b" (w))
 	#define _VMM_umap(v) __asm__ __volatile__("int $0xF2" : : "a" (0x81), "d" (v))
 	#define _VMM_umapFree(v) __asm__ __volatile__("int $0xF2" : : "a" (0x01), "d" (v))

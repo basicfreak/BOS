@@ -5,8 +5,6 @@ PMMENT_p PMM = (PMMENT_p) ((uint32_t)&PMMBase);
 
 uint32_t PMM_Entries;
 
-void _PMM_defrag(void);
-
 void _PMM_init(BootInfo_p BOOTINF)
 {
 #ifdef DEBUG
@@ -46,14 +44,14 @@ void _PMM_init(BootInfo_p BOOTINF)
 			uint32_t PageAddr = (uint32_t) (AlignedAddr & 0xFFFFFFFF);
 			uint32_t PageLen = (uint32_t) (AlignedLen & 0xFFFFFFFF);
 
-			if(PageAddr < 0x10000) {
-				uint32_t PageOff = 0x10000 - PageAddr;
+			if(PageAddr < 0x80000) { // Do Not allow First 512KB to be allocated.
+				uint32_t PageOff = 0x80000 - PageAddr;
 				PageAddr += PageOff;
 				if(PageLen > PageOff) {
 					PageLen = PageLen - PageOff;
 					_PMM_free(PageAddr, PageLen);
 				}
-			} else if(PageAddr > 0xFF000 && PageAddr < EndOfKernelData) {
+			} else if(PageAddr > 0xFF000 && PageAddr < EndOfKernelData) { // Do Not allow our Kernel and Modules to be allocated.
 				uint32_t PageOff = EndOfKernelData - PageAddr;
 				PageAddr += PageOff;
 				if(PageLen > PageOff) {
@@ -124,31 +122,4 @@ void *_PMM_alloc(uint32_t Length)
 			return ret;
 		}
 	return ret;
-}
-
-void _PMM_defrag()
-{
-#ifdef DEBUG_EXTREAM
-	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
-#endif
-	//for (int x = 0; x < 2; x++) // Do this twice to make sure we get most of them.
-		for (uint32_t e = 0; e < PMM_Entries; e++) {
-			if(PMM[e].Length) {
-				for (uint32_t t = 0; t < PMM_Entries; t++)
-					if((PMM[t].Base + PMM[t].Length) == PMM[e].Base) {
-						//Murge Entries
-						PMM[e].Base = PMM[t].Base;
-						PMM[e].Length += PMM[t].Length;
-						PMM[t].Base = 0;
-						PMM[t].Length = 0;
-					}
-			} else {
-				// Physically Move Entries
-				memcpy((void*) (&PMM[e]), (void*) (&PMM[e+1]), ((PMM_Entries - e) * 8));
-				// Drop Entry Count
-				PMM_Entries--;
-				// This entry changed, dec e so we re-read it.
-				e--;
-			}
-		}
 }

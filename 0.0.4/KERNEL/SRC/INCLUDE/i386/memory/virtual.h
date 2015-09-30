@@ -20,7 +20,6 @@
 	void *_VMM_getPhys(void*);
 	extern uint32_t getPageDir(void);
 	extern void setPageDir(uint32_t);
-	void _VMM_PageFaultManager(regs *r);
 	void *getCR2(void);
 
 	void *_VMM_getTable(void* Virt);

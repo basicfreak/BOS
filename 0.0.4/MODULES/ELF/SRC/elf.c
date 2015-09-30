@@ -181,7 +181,7 @@ void _LoadRelocElf(void* ELFLocation)
 
 	if(APISize <= 0xFF4000) {
 		APILocation = 0xC000;
-	} else if(APISize <= 0xF800000) {
+	} else if(APISize <= 0xF700000) {
 		APILocation = 0xC0000000;
 	} else {
 		for(;;);
