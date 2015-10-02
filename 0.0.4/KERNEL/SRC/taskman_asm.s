@@ -105,7 +105,7 @@ EXCEPTION_HANDLER:
 	je _VMM_PageFaultHandler					; Yes? Run Page Fault Manager.
 	cmp eax, 0x0D								; Is this a General Protection Fault?
 	je KILL_SYSTEM								; Yes? Kill The System. (temperary response to GPF)
-	jmp killCurrentThread						; Else? Kill Current Thread.
+	jmp KILL_SYSTEM						; Else? Kill Current Thread.
 
 ;-------------------------------------------------------------------------------
 ;                            Normal IRQ/INT Handling
@@ -185,7 +185,7 @@ TM_Handler:
 		ret										; Return to thread.
 	.RequestID:
 		mov ebp, esi							; Save Pointer to Name
-		xor ecx, ecx							; Clear Counter Register
+		mov ecx, 1							; Clear Counter Register
 		xor edx, edx							; Clear Data (Thread ID) Register
 		.StrLen:
 			lodsb								; Grab a character from Name Pointer
@@ -228,7 +228,7 @@ TM_Handler:
 			inc edi								; Increment Destination
 			jmp .RenameLoop						; Loop until done
 		.RenameDone:
-			mov BYTE [edi + 1], 0				; Set NULL termenator
+			mov BYTE [edi], 0				; Set NULL termenator
 			ret									; Return to current thread.
 
 ;-------------------------------------------------------------------------------

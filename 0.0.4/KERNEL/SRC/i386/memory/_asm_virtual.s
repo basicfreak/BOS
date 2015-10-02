@@ -77,6 +77,9 @@ MEM_Handler:
 	ret											; Return to thread
 
 	.AllocMap:
+	;xchg bx, bx
+	;push 0x000a110c
+	;add esp, 4
 ;	_VMM_map((void*)r->edx, _PMM_alloc(PAGESIZE), TRUE, (bool)r->ebx);
 		push DWORD 0x1000						; Push PAGESIZE
 		call _PMM_alloc							; Call Physical Memory Allocator
@@ -166,11 +169,20 @@ MEM_Handler:
 		add esp, 8								; Clean Stack
 		ret										; Return to thread
 
+[extern DEBUG_printf]
+
 _VMM_PageFaultHandler:
 ;xchg bx, bx
 	; Should only get here in user mode.
-	mov eax, DWORD [esp + 60]					; Store Error Code r->err_code
 	mov edx, cr2								; Store Fault Address cr2
+
+	push edx
+	push TextOut
+	call DEBUG_printf
+	add esp, 4
+	pop edx
+
+	mov eax, DWORD [esp + 60]					; Store Error Code r->err_code
 	and edx, 0xFFFFF000							; Change to beginning of page.
 
 	bt eax, 2									; Is User Bit Set?
@@ -396,3 +408,5 @@ _VMM_umap_UNSAFE:
 	ret
 
 PageDirectoryBase dd 0xFFBFF000
+
+TextOut db "Page Fault at 0x%x\n", 0

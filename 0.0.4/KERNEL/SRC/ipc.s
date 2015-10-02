@@ -146,7 +146,7 @@ SendMessage:
 	test edx, edx
 	jnz .HaveThreadID
 		mov ebp, esi							; Save Pointer to Name
-		xor ecx, ecx							; Clear Counter Register
+		mov ecx, 1							; Clear Counter Register
 		xor edx, edx							; Clear Data (Thread ID) Register
 		.StrLen:
 			lodsb								; Grab a character from Name Pointer

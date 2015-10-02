@@ -1,17 +1,24 @@
-floppy is the current floppy image
-floppy .his .my .grub are backup images for boot sectors
+Just realized I had a README here...
 
-compiled kernel = SRC/KERNEL.ELF
+Welcome to BOS v 0.0.4
 
-makefile = SRC/makefile
+This software is provided AS-IS.
 
-bochs setup (must be root):
-floppy = floppy
-COM1 = /dev/tty9
-mouse = disabled (but driver is there)
-
+Bochs Config (included):
+MUST BE ROOT FOR INCLUDED CONFIG
+	Boot Image = HDD.img
+	COM1 = /dev/tty9
 
 
-Kernel Info:
-COM1 Tx = DEBUG Out
-COM1 Rx = Keyboard Buffer ;)
+Included Files:
+HDD.img					BOS HDD Image
+BOOT16/MBR/mbr				BOS Master Boot Record.
+BOOT16/VBR/vbr				BOS Volume Boot Record.
+BOOT16/OSLOADER/osloader		BOS OSLoader (Boot Loader)
+BOOT.CFG				BOS Boot Config
+KERNEL/BIN/KERNEL.ELF			BOS Kernel
+USERLAND/EXEC/ELF/BIN/ELF.BIN		Standard ELF loader.
+USERLAND/DLL/STDLIB/BIN/STDLIB.DLL	A very simple (incomplete) standard library.
+USERLAND/DLL/STDLIB/BIN/MEMLIB.DLL	A very simple heap manager.
+USERLAND/DLL/STDLIB/BIN/PCILIB.DLL	A very simple PCI library.
+USERLAND/EXEC/TEST/BIN/TEST.ELF		My current test executable. For Testing purposes only.

@@ -27,7 +27,7 @@ API_Handler:
 		; esi = function name pointer
 		; RETURN eax = function location
 		mov ebp, esi							; Save Pointer to Name
-		xor ecx, ecx							; Clear Counter Register
+		mov ecx, 1								; Clear Counter Register (Leave a count for Null Termination)
 		xor edx, edx							; Clear Data Register
 		.StrLen:
 			lodsb								; Grab a character from Name Pointer
@@ -79,7 +79,7 @@ API_Handler:
 				inc edi
 				jmp .copyName
 		.Done:
-			mov BYTE [edi + 1], 0				; NULL Terminate Name
+			mov BYTE [edi], 0				; NULL Terminate Name
 			ret
 
 	.InatallAPI:
