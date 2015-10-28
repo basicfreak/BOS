@@ -10,17 +10,17 @@
 
 [bits 16]
 
-enable_A20:
+init_A20:
         pusha
         cli
         call check_A20
         test ax, ax
         jnz .Enabled
-        call A20_BIOS
+        call A20_Fast
         call check_A20
         test ax, ax
         jnz .Enabled
-        call A20_Fast
+        call A20_BIOS
         call check_A20
         test ax, ax
         jnz .Enabled

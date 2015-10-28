@@ -37,13 +37,13 @@
 		uint8_t ColorModeInfo;
 	}__attribute__((packed)) VideoInfo_t, *VideoInfo_p;
 
-	typedef struct VideoPModeInterface {
+	/*typedef struct VideoPModeInterface {
 		uint16_t SetWindowOffset;
 		uint16_t SetDispStartOffset;
 		uint16_t SetPrimPalOffset;
 		uint16_t IOMEMTableOffset;
 		uint8_t CODEDATA[0x1F8];
-	}__attribute__((packed)) VidInt_t, *VidInt_p;
+	}__attribute__((packed)) VidInt_t, *VidInt_p;*/
 
 	typedef struct MMap_Str {
 		uint64_t Base; // base address uint64_t
@@ -62,7 +62,6 @@
 		uint8_t BootDevice;
 		MMap_p MMapAddr;
 		uint16_t MMapEnts;
-		uint32_t VBEInfo;
 		VideoInfo_p CurVBEInfo;
 		uint32_t KernelStart;
 		uint32_t KernelEnd;
@@ -71,7 +70,6 @@
 		uint32_t FrameBuffer;
 		uint32_t Mem_Low;
 		uint32_t Mem_High;
-		VidInt_p PModeINT;
 	}__attribute__((packed)) BootInfo_t, *BootInfo_p;
 
 #endif

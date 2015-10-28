@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-void _itoa(uint32_t, uint32_t, uint8_t*);
-void _itoa_s(uint32_t, uint32_t, uint8_t*);
 
 void Bochs_putch(const char chr)
 {
@@ -37,7 +35,7 @@ void Bochs_printf(const char* Str, ...)
 				{
 					uint32_t c = va_arg (ap, uint32_t);
 					uint8_t s[32]={0};
-					_itoa_s (c, 10, s);
+					itoa_s (c, 10, s);
 					Bochs_puts((const char*) s);
 					*Str++;		// go to next character
 					break;
@@ -48,7 +46,7 @@ void Bochs_printf(const char* Str, ...)
 				{
 					uint32_t c = va_arg (ap, uint32_t);
 					uint8_t s[32]={0};
-					_itoa_s (c,16,s);
+					itoa_s (c,16,s);
 					Bochs_puts((const char*) s);
 					*Str++;		// go to next character
 					break;
@@ -76,7 +74,7 @@ void Bochs_printf(const char* Str, ...)
 
 const uint8_t		bchars[] =				{'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
-void _itoa(uint32_t i, uint32_t base, uint8_t* buf)
+void itoa(uint32_t i, uint32_t base, uint8_t* buf)
 {
    uint32_t pos = 0;
    uint32_t opos = 0;
@@ -104,10 +102,10 @@ void _itoa(uint32_t i, uint32_t base, uint8_t* buf)
    return;
 }
 
-void _itoa_s(uint32_t i, uint32_t base, uint8_t* buf)
+void itoa_s(uint32_t i, uint32_t base, uint8_t* buf)
 {
    if (base > 16) return;
-   _itoa(i,base,buf);
+   itoa(i,base,buf);
    return;
 }
 

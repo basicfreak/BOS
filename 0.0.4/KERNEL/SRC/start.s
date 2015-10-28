@@ -86,6 +86,8 @@ _start:
 
  
 startstub:
+    mov ax, 0x10
+    mov ss, ax
     mov esp, sysstack          ; This points the stack to our new stack area
     push ebx                    ; Our Boot Infomation pointer is stored in ebx
     call kmain

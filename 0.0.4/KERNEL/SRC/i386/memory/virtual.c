@@ -25,8 +25,8 @@ void _VMM_init(BootInfo_p BOOTINF)
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	uint32_t tempVirt;
-	for(tempVirt = 0x10000; tempVirt < 0x100000; tempVirt += PAGESIZE)
-		_VMM_umap((void*)tempVirt);
+	//for(tempVirt = 0x10000; tempVirt < 0x100000; tempVirt += PAGESIZE)
+	//	_VMM_umap((void*)tempVirt);
 // DEBUG_printf("END = 0x%x KVirtBase = 0x%x END-KVirtBase = 0x%x\n", (uint32_t)end, (uint32_t)KVirtBase, (((uint32_t)end) - ((uint32_t)KVirtBase)) );
 	if((((uint32_t) end) - ((uint32_t)KVirtBase)) < 0x400000)
 		for(tempVirt = 0x400000; tempVirt > (((uint32_t) &end) - ((uint32_t)&KVirtBase)); tempVirt -= PAGESIZE)
@@ -50,8 +50,8 @@ void _VMM_map(void* Virt, void* Phys, bool User, bool Write)
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 	DEBUG_printf("%x\t%x\t%x\t%x\n", (uint32_t) Virt, (uint32_t) Phys, (uint32_t) User, (uint32_t) Write);
 #endif
-	uint32_t VAddr = (uint32_t) Virt;
-	uint32_t PAddr = (uint32_t) Phys;
+	uint32_t VAddr = (((uint32_t) Virt) & 0xFFFFF000);
+	uint32_t PAddr = (((uint32_t) Phys) & 0xFFFFF000);
 	if((VAddr % PAGESIZE) || (PAddr % PAGESIZE)) {
 		DEBUG_printf("ERROR FUNCTION \"%s\" Line %i Virt = 0x%x, Phys = 0x%x\n", __func__, __LINE__, VAddr, PAddr);
 		hlt();
@@ -105,7 +105,7 @@ void *_VMM_getPhys(void* Virt)
 #ifdef DEBUG_EXTREAM
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
-	uint32_t VAddr = (uint32_t) Virt;
+	uint32_t VAddr = (((uint32_t) Virt) & 0xFFFFF000);
 	if((VAddr % PAGESIZE)) {
 		DEBUG_printf("ERROR FUNCTION \"%s\" Line %i", __func__, __LINE__);
 		hlt();

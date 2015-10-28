@@ -1,0 +1,5 @@
+vnet packetmover readable log file
+TFTP root = xl0
+host MAC address = b0:c4:20:00:00:03
+guest MAC address = b0:c4:20:00:00:00
+--

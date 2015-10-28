@@ -27,6 +27,7 @@ int kmain(BootInfo_p BOOTINF)
 	DEBUG_print("Idle Thread\n");
 #endif
 		hlt();
+	DEBUG_print("DONE\n");
 	}
 	return -1;
 }
@@ -128,10 +129,18 @@ char *strcpy(char *s1, const char *s2)
 		while(*Str)
 			DEBUG_putch(*Str++);
 	}
-	
+	int vpos = 2;
+	char color = 0x07;
 	void DEBUG_putch(const char Chr)
 	{
-		outb(0xE9, (uint8_t) Chr);
+		char* VGAMEM = (char*)(0xB8000 + 0xFF000000);
+		VGAMEM[vpos++] = (char) Chr;
+		VGAMEM[vpos++] = color;
+		if(vpos >= 0xFA0) {
+			vpos = 0;
+			color ^= (char) 0x40;
+		}
+		//outb(0xE9, (uint8_t) Chr);
 	}
 
 	uint8_t		tbuf[32];

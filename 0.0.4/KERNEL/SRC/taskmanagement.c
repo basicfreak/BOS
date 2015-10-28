@@ -78,6 +78,7 @@ extern void ThreadManager(regs *r);
 // void API_Handler(regs *r);
 uint32_t ReserveEmptyThread(void);
 void ForkThread(regs *r);
+void ForkThreadNOCOW(regs *r);
 void ExecThread(regs *r);
 
 // bool SendMSG(regs *r, uint32_t DestID, uint32_t MSGSize);
@@ -190,6 +191,30 @@ void ForkThread(regs *r)
 	uint32_t NewThreadID;
 	if((NewThreadID = ReserveEmptyThread())) {
 		uint32_t NewPageDir = (uint32_t) _VMM_copyPDir();
+		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].SSEData)), (void*)((uint32_t)(&MyThreads->Thread[CurrentThread].SSEData)), 512);
+		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].TRegs)), (void*)r, sizeof(regs));
+		MyThreads->Thread[NewThreadID].TRegs.eip = r->edx;
+		MyThreads->Thread[NewThreadID].CR3 = NewPageDir;
+		if(r->esi)
+			strcpy(MyThreads->Thread[NewThreadID].Name, (const char*) r->esi);
+		MyThreads->Thread[NewThreadID].Flags = MyThreads->Thread[CurrentThread].Flags;
+
+#ifdef DEBUG_EXTREAM
+	DEBUG_printf("New Thread Added. CR3 = %x, EIP = %x\n", MyThreads->Thread[NewThreadID].CR3, MyThreads->Thread[NewThreadID].TRegs.eip);
+#endif
+		// _VMM_setCOWOther((void*)NewPageDir);
+		// LoadThread(r, NewThreadID);
+	}
+}
+
+void ForkThreadNOCOW(regs *r)
+{
+#ifdef DEBUG
+	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
+#endif
+	uint32_t NewThreadID;
+	if((NewThreadID = ReserveEmptyThread())) {
+		uint32_t NewPageDir = (uint32_t) MyThreads->Thread[CurrentThread].CR3;
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].SSEData)), (void*)((uint32_t)(&MyThreads->Thread[CurrentThread].SSEData)), 512);
 		memcpy((void*)((uint32_t)(&MyThreads->Thread[NewThreadID].TRegs)), (void*)r, sizeof(regs));
 		MyThreads->Thread[NewThreadID].TRegs.eip = r->edx;

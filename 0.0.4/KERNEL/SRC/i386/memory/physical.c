@@ -39,7 +39,7 @@ void _PMM_init(BootInfo_p BOOTINF)
 			}
 
 			if(AlignedLen % PAGESIZE)
-				AlignedLen -= (PAGESIZE - (AlignedLen % PAGESIZE));
+				AlignedLen -= (AlignedLen % PAGESIZE);
 
 			uint32_t PageAddr = (uint32_t) (AlignedAddr & 0xFFFFFFFF);
 			uint32_t PageLen = (uint32_t) (AlignedLen & 0xFFFFFFFF);
@@ -70,7 +70,7 @@ void _PMM_free(void* Base, uint32_t Length)
 	DEBUG_printf("BOS v. 0.0.4\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if((((uint32_t)Base) % PAGESIZE) || (Length % PAGESIZE)) {
-		DEBUG_printf("ERROR FUNCTION \"%s\" Line %i", __func__, __LINE__);
+		DEBUG_printf("ERROR FUNCTION \"%s\" Line %i\n%x %x     ", __func__, __LINE__, (uint32_t) Base, Length);
 		hlt();
 	}
 	for(uint32_t ent = 0; ent < PMM_Entries; ent++) {

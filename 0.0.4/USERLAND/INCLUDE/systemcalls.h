@@ -10,6 +10,9 @@
 	#define _VMM_allocOther(d, v, w) __asm__ __volatile__ ( "int $0xF2" : : "a" (((unsigned)d & 0xFFFFF000) | 0xF2), "d" (v), "b" (w))
 	#define _TM_EXEC(p, i, n) __asm__ __volatile__ ("int $0xF1" : : "a" (0x02), "d" (p), "b" (i), "S" (n))
 	#define _TM_FORK(i, n) __asm__ __volatile__ ("int $0xF1" : : "a" (0x01), "d" (i), "S" (n))
+
+	#define _TM_FORK_NOCOW(i, n) __asm__ __volatile__ ("int $0xF1" : : "a" (0xF1), "d" (i), "S" (n))
+
 	#define _IPC_WAITINT(i) __asm__ __volatile__ ("int $0xF0" : : "a" (0x80), "b" (i))
 	#define _VMM_getPageOther(d, v, ret) __asm__ __volatile__ ("int $0xF2" : "=a" (ret) : "a" (((unsigned)d & 0xFFFFF000) | 0xFF), "d" (v))
 	#define _yeild() __asm__ __volatile__ ("int $0xF1" : : "a" (0x03))

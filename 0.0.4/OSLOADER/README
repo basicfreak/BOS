@@ -1,0 +1,44 @@
+These are my two OSLoaders, one for a FAT16 HDD and one for PXE TFTP
+
+The FAT16 HDD includes MBR and VBR.
+
+PXE loader requires /pxeboot.cfg
+FAT16 loader requires /boot/boot.cfg
+
+Both of these configs are Identical!
+
+The Config file is as follows:
+
+[ASCII_CODE][INFORMATION]
+FilePaths end in a ';'
+
+The availible ASCII_CODEs are:
+K - Load ELF Kernel
+k - Load BIN Kernel (will load to 0x00100000)
+M - Load Module
+V - Video Mode Request
+B - Boot Kernel
+
+NOTE a Kernel MUST be loaded before any modules!
+
+after the ASCII_CODE to load a file there are NO spaces just a FilePath ending with a ';'
+E.G.
+kbos/kernel.bin
+Kbos/kernel.elf
+Mbos/mods/mymod.dll
+
+The Video Mode Request is in the following format
+
+V[WIDTH][HEIGHT][LFB][DEPTH]
+
+WIDTH = 4 ASCII Hex
+HEIGHT = 4 ASCII Hex
+LFB = 2 ASCII Hex (01 = LFB, 00 = no LFB)
+DEPTH = 2 ASCII Hex (bit depth)
+
+E.G.
+Video mode 640X480X32bpp with LFB would be
+V028001E00120
+
+The Boot Kernel Code is the last thing to get processed,
+upon recieving it will switch to 32-bit protected mode and jump to the kernel.

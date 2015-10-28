@@ -41,6 +41,7 @@
 [extern IPC_Handler]
 [extern MEM_Handler]
 [extern ForkThread]
+[extern ForkThreadNOCOW]
 [extern ExecThread]
 [extern _VMM_PageFaultHandler]
 
@@ -169,6 +170,8 @@ TM_Handler:
 	je .ioperm									; Yes?
 	cmp al, 0xF0								; Request thread ID by name?
 	je .RequestID								; Yes?
+	cmp al, 0xF1
+	je ForkThreadNOCOW
 	cmp al, 0xFF								; Request Name Change?
 	je .RenameThread							; Yes?
 
