@@ -89,7 +89,11 @@ startstub:
     mov ax, 0x10
     mov ss, ax
     mov esp, sysstack          ; This points the stack to our new stack area
+    add ebx, KVirtBase
     push ebx                    ; Our Boot Infomation pointer is stored in ebx
+    mov edi, KernelPageDirectory
+    mov DWORD [edi], 0
+    invlpg 0
     call kmain
     .done:
         cli

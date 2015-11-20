@@ -1,0 +1,37 @@
+OUTPUT_FORMAT(elf32-i386)
+OUTPUT_ARCH(i386)
+TARGET(elf32-i386)
+ENTRY(start)
+SECTIONS
+{
+  . = 0xFF100000;
+  .text : AT(ADDR(.text) - 0xFF000000)
+  {
+    code = .; _code = .; __code = .;
+    *(.text)
+    . = ALIGN(4096);
+  }
+
+  .rodata : AT(ADDR(.rodata) - 0xFF000000)
+  {
+    rodata = .; _rodata = .; __rodata = .;
+    *(.rodata)
+    . = ALIGN(4096);
+  }
+
+  .data : AT(ADDR(.data) - 0xFF000000)
+  {
+     data = .; _data = .; __data = .;
+     *(.data)
+     . = ALIGN(4096);
+  }
+
+  .bss  : AT(ADDR(.bss) - 0xFF000000)
+  {
+    bss = .; _bss = .; __bss = .;
+    *(.bss)
+    . = ALIGN(4096);
+  }
+
+  end = .; _end = .; __end = .;
+}

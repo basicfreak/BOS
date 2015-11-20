@@ -33,7 +33,6 @@ memset:
 ;   NOTE: This counts in BYTES (1 Bytes per count)
 ;----------------------------------------------------
 memcpy:
-xchg bx, bx
 	cli							; We CANNOT be interrupted here
 	push ds						; Save Real Mode Data Segments
 	push es

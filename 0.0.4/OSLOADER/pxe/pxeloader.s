@@ -18,7 +18,12 @@ start:
 	mov BYTE [BOOTINF.BootDevice], dl ; PXE should be 0x70
 	call init_PXE
 	xor ax, ax
-	mov es, ax
+;	mov es, ax
+	
+	mov di, 0x7000
+	mov cx, 0x100
+	stosd
+
 	call init_A20
 	call init_GDT
 	sti
@@ -26,10 +31,10 @@ start:
 ;                       memset
 ;   INPUT: EDI - destination ECX - count AL - value
 ;----------------------------------------------------
-	mov edi, DWORD 0x7000
-	mov ecx, DWORD 0x400
-	xor ax, ax
-	call memset
+;	mov edi, DWORD 0x7000
+;	mov ecx, DWORD 0x400
+;	xor ax, ax
+;	call memset
 
 	call init_MEMINF
 	call init_Config

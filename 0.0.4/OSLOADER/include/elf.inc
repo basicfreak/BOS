@@ -8,7 +8,6 @@
 ; output ecx = Memory Size
 ; output edx = Entry Point
 ProcessElf:
-xchg bx, bx
 	pushad
 	push esi
 	mov EDI, DWORD 0x2000

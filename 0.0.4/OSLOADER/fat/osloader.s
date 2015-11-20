@@ -2,7 +2,8 @@
 [org 0x7E00]
 
 start:
-	pop DWORD [PartitionOffset]
+	mov eax, DWORD [0x7C1C]
+	mov DWORD [PartitionOffset], eax
 	mov BYTE [bootDrive], dl
 	mov BYTE [BOOTINF.BootDevice], dl ; PXE should be 0x70
 	mov si, DONEMSG

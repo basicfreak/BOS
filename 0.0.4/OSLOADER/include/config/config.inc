@@ -124,11 +124,13 @@ int 0x16
 		mov bx, 10h
 		mov ds, bx
 		mov es, bx
+		mov gs, bx
+		mov fs, bx
+		mov ss, bx
 		jmp DWORD 18h:.pmodeboot
 [bits 32]
 		.pmodeboot:
 			mov ebx, BOOTINF
-xchg bx, bx
 			jmp DWORD [BOOTINF.KernelStart]
 			hlt
 [bits 16]

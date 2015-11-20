@@ -82,24 +82,17 @@ MemSize:
 		; CONTIGUOUS ONLY!
 		; AX = KBs 1MB to 16MB
 		; BX = 64KBs 16MB to 4GB
-		mov edx, DWORD 0
-		mov dx, ax
-		db 0x66
-			shl edx, 10
-		mov DWORD [BOOTINF.Mem_High], edx
-		mov edx, DWORD 0
-		mov dx, bx
-		db 0x66
-			shl edx, 16
+		mov WORD [BOOTINF.Mem_High], ax
+		movzx edx, bx
+		shl edx, 6
 		add DWORD [BOOTINF.Mem_High], edx
 
-	mov eax, DWORD 0
+	mov ax, 0
 	int 0x12
 	jc ERROR
 	test ax, ax
 	jz ERROR
-	shl eax, 10
-	mov DWORD [BOOTINF.Mem_Low], eax
+	mov WORD [BOOTINF.Mem_Low], ax
 	popa
 	ret
 

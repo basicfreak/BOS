@@ -70,6 +70,14 @@ ERROR:
 %include "./include/stdio/basic_stdio.inc"
 %include "./include/stdio/hdd.inc"
 
+times (218 - ($-$$)) nop      ; Pad for disk timestamp
+DiskTimeStamp:
+    .zero dw 0
+    .OriginalPhysDrive db 0
+    .Seconds db 0
+    .Minutes db 0
+    .Hours db 0
+
 bootDrive db 0
 PToff dw 0
 BootMSG db "Searching for an Active Partition...", 0
