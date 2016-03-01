@@ -135,6 +135,7 @@ void _DMA_outb(uint16_t port, uint8_t data)
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
+	DEBUG_printf("\t\t\tISA DMA: out(0x%x, 0x%x)\n", port, data);
 	outb(port, data);
 }
 
@@ -143,7 +144,9 @@ uint8_t _DMA_inb(uint16_t port)
 #ifdef DEBUG_FULL
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
-	return inb(port);
+	uint8_t ret = inb(port);
+	DEBUG_printf("\t\t\tISA DMA: in(0x%x) = 0x%x\n", port, ret);
+	return ret;
 }
 
 bool _DMA_set_Addr(uint8_t channel, uint32_t addr)		//Sets all address data

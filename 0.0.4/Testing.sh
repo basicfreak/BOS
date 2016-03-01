@@ -23,7 +23,7 @@ make
 cd ../VFS
 #make clean
 #make
-cd ../../../x86/KERNEL
+cd ../../../KERNEL
 make
 cd ../..
 sudo cp USERLAND/EXEC/ELF/BIN/ELF.BIN /mnt2/bin/elf.bin
@@ -32,7 +32,7 @@ sudo cp USERLAND/EXEC/TEST/BIN/TEST.ELF /mnt2/bin/test.elf
 sudo cp USERLAND/DLL/STDLIB/BIN/STDLIB.DLL /mnt2/bin/stdlib.dll
 sudo cp USERLAND/DLL/MEMLIB/BIN/MEMLIB.DLL /mnt2/bin/memlib.dll
 sudo cp USERLAND/DLL/PCILIB/BIN/PCILIB.DLL /mnt2/bin/pcilib.dll
-sudo cp x86/KERNEL/BIN/KERNEL.ELF /mnt2/bos/kernel.elf
+sudo cp KERNEL/BIN/KERNEL.ELF /mnt2/bos/kernel.elf
 sudo cp OSLOADER/boot.cfg /mnt2/boot/boot.cfg
 
 sleep .10s

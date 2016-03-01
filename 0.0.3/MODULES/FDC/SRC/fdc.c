@@ -124,6 +124,15 @@ int init()
 	MyPart->PrivateID = 0;
 	uint32_t MyPartID = mkPartition(MyPart);
 	fmount(MyPartID);
+	DEBUG_printf("Sector 0 Read Start!\t\tSTART\t\tSTART\t\tSTART\n");
+	_FDC_RESET_REQUIRED = TRUE;
+	Read(0, 0, 0x1000, 1);
+	DEBUG_printf("Sector 0: Data:\n");
+	for(int x = 0; x < 0x200; x++)
+		DEBUG_printf("%x ", (uint8_t)((uint8_t*)0x1000)[x]);
+	for(;;)
+		__asm__ __volatile__("xchg %bx, %bx");
+
 	return 0;
 }
 
@@ -161,7 +170,7 @@ void readCMOS()
 
 void _DMA_Setup(uint8_t channel, bool write, uint32_t addr, uint16_t count)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(write)
@@ -175,7 +184,7 @@ void _DMA_Setup(uint8_t channel, bool write, uint32_t addr, uint16_t count)
 
 bool _FDC_SENSEINT(uint8_t *st0, uint8_t *cyl)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(!_FDC_Write(_FDC_BASE[0], DATA, _FDC_GETINT))
@@ -187,7 +196,7 @@ bool _FDC_SENSEINT(uint8_t *st0, uint8_t *cyl)
 
 bool _FDC_WAIT_IR()
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	uint16_t i = timeout;
@@ -203,7 +212,7 @@ bool _FDC_WAIT_IR()
 
 void _FDC_IR(regs *r)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(r->eax) {}
@@ -217,8 +226,10 @@ bool _FDC_Write(uint16_t FDC, uint8_t OFF, uint8_t Data)
 #endif
 	if((FDC != 0x370 && FDC != 0x3F0) || OFF>CCR)
 		return FALSE;
-	if(OFF != DATA)
+	if(OFF != DATA) {
+		DEBUG_printf("\tout(0x%x, 0x%x)\n", (FDC+OFF), Data);
 		outb((uint16_t)(FDC+(uint16_t)OFF), Data);
+	}
 	else {
 		uint16_t i = timeout;
 		while(!FDC_Ready() && i--)
@@ -227,6 +238,7 @@ bool _FDC_Write(uint16_t FDC, uint8_t OFF, uint8_t Data)
 				__asm__ __volatile__("nop");*/
 		if(!i)
 			return FALSE;
+		DEBUG_printf("\tout(0x%x, 0x%x)\n", (FDC+OFF), Data);
 		outb((uint16_t)(FDC+(uint16_t)OFF), Data);
 	}
 	return TRUE;
@@ -253,12 +265,13 @@ uint8_t _FDC_Read(uint16_t FDC, uint8_t OFF)
 		else
 			return 0;
 	}
+	DEBUG_printf("\tin(0x%x) = 0x%x\n", (FDC+OFF), mydata);
 	return mydata;
 }
 
 bool DOR_Handler(uint8_t drive, bool motor, bool reset)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(drive>3)
@@ -297,7 +310,7 @@ bool FDC_Ready()
 
 bool FDC_Specify(uint8_t drive, bool dma, uint8_t steprate, uint8_t loadtime, uint8_t unloadtime)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(drive>3)
@@ -313,7 +326,7 @@ bool FDC_Specify(uint8_t drive, bool dma, uint8_t steprate, uint8_t loadtime, ui
 
 bool FDC_Configure(uint8_t drive, bool impSeek, bool fifo, bool polling, uint8_t threshold)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(drive>3 || threshold>15)
@@ -336,7 +349,7 @@ bool FDC_Configure(uint8_t drive, bool impSeek, bool fifo, bool polling, uint8_t
 
 bool FDC_Calibrate(uint8_t drive)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(drive>3)
@@ -366,7 +379,7 @@ bool FDC_Calibrate(uint8_t drive)
 
 bool FDC_Speed(uint8_t drive, uint8_t speed)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if((speed<=3 || drive<=3) && (_FDC_Write(_FDC_BASE[drive], CCR, speed)))
@@ -376,7 +389,7 @@ bool FDC_Speed(uint8_t drive, uint8_t speed)
 
 bool FDC_Reset(uint8_t drive)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	if(drive>3)
@@ -405,7 +418,7 @@ bool FDC_Reset(uint8_t drive)
 
 bool FDC_Seek(uint8_t drive, uint8_t head, uint8_t cylinder)
 {
-#ifdef DEBUG_FULL
+#ifdef DEBUG
 	DEBUG_printf("BOS v. 0.0.3\t%s\tCompiled at %s on %s Line %i\tFunction \"%s\"\n", __FILE__, __TIME__, __DATE__, (__LINE__ - 3), __func__);
 #endif
 	uint8_t st0, cyl = 0;

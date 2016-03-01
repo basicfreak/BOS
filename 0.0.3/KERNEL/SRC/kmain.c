@@ -101,7 +101,7 @@ int kmain(BootInfo_p BOOTINF)
 	DEBUG_print(".DONE!\n");
 #endif
 
-void *NEWBS = calloc(512);
+/*void *NEWBS = calloc(512);
 void *HDDBS = calloc(512);
 uint32_t HDDPID = GetPartByName("BOSHDD     ");
 FILE *F16BS = fopen("/BOS v 0.0.3/vbr.bin");
@@ -117,7 +117,7 @@ if(F16BS->Length == 0x200 && HDDPID != 0xFFFFFFFF) {
 }
 fclose(F16BS);
 free(HDDBS, 512);
-free(NEWBS, 512);
+free(NEWBS, 512);*/
 
 /*FILE *StageTwo = fopen("/BOS v 0.0.3/oslder.sys");
 if(StageTwo->Length) {
