@@ -1,5 +1,14 @@
+; -------------------------------------- --------------------------------------
+;                                   BOS 0.0.5
+;                                  BUILD: 0004
+;                             System Initialization
+;                          17/02/2016 - Brian T Hoover
+; -----------------------------------------------------------------------------
+
+; This is mostly test code ATM
+
 bits 16
-;org 0x8000
+
 section .text
 global start
 
@@ -20,36 +29,6 @@ bootInfo			equ 0x7B82
 bits 16
 	
 start:
-cli
-; PIC INIT
-mov dx, 0x20
-mov al, 0x11 ; INIT
-out dx, al
-mov dx, 0xA0
-out dx, al
-mov dx, 0x21 ; MAP
-mov al, 0x20
-out dx, al ; First PIC at int 0x20
-mov dx, 0xA1
-mov al, 0x28
-out dx, al ; Second PIC at int 0x28
-mov dx, 0x21 ; ICW3
-mov al, 0x04
-out dx, al ; First PIC uses 0x4 to talk to second
-mov dx, 0xA1
-mov al, 0x02 ; Second PIC uses 0x2 to talk to first
-out dx, al
-mov dx, 0x21 ; ICW4
-mov al, 0x01
-out dx, al
-mov dx, 0xA1
-out dx, al
-; Mask All INTs
-mov al, 0xFF
-out dx, al
-mov dx, 0x21
-out dx, al
-sti
 	mov ax, 0x0012
 	int 0x10
 

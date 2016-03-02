@@ -11,7 +11,7 @@ CC32FLAGS=-O3 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwr
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \
 			-Wno-unused-parameter -std=gnu99 -fno-builtin -fno-stack-protector -ffreestanding \
-				-fno-asynchronous-unwind-tables -march=i686 -m32
+				-fno-asynchronous-unwind-tables -march=i686 -m32 -x c
 CCFLAGS=-O3 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings \
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \

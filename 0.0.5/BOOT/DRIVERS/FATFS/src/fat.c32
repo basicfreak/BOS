@@ -1,3 +1,7 @@
+/*
+NOTE: This driver is not finished and is only a simi-functional place holder!
+*/
+
 #include "fat.h"
 
 static BPB_p BPB = (BPB_p) 0x7C00;
