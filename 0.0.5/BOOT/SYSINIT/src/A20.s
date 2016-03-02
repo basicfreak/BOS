@@ -25,7 +25,7 @@ global Enable_A20
 ; conditional jumps e.g. jc's throughout the A20_KBRDCTRL function)
 
 Enable_A20:
-	pushad								; Save registers
+	pusha								; Save registers
 	cli									; IF = 0
 	call check_A20						; Check if A20 is enabled
 	jnc .Return							; Return if enabled.
@@ -40,7 +40,7 @@ Enable_A20:
 	stc									; Set carry flag we failed to enable A20
 	.Return:
 		sti								; IF = 1
-		popad							; Restore registers
+		popa							; Restore registers
 		ret								; Return to caller
 
 
@@ -70,15 +70,17 @@ check_A20:
 	pop ax								; Pop old es:di Value
 	stosb 								; Restore es:di to original Value
 
+	pop ds								; Pop Data Segment
+	pop es								; Pop Extra Segment
+
 	jne .Pass							; If es:di != ds:si We have A20
+	popf								; Pop CPU Flags
 	stc									; Set carry flag
-	jmp .Return							; Skip next instruction
+	jmp .Return							; Skip next 2 instruction
 	.Pass:
+		popf							; Pop CPU Flags
 		clc								; Clear carry flag
 	.Return:
-		pop ds							; Pop Data Segment
-		pop es							; Pop Extra Segment
-		popf							; Pop CPU Flags
 		ret								; Return to caller
 
 

@@ -27,8 +27,12 @@ bootDrive			equ 0x7B81
 bootInfo			equ 0x7B82
 
 bits 16
+
+extern INIT_PIC
 	
 start:
+	call INIT_PIC
+
 	mov ax, 0x0012
 	int 0x10
 
