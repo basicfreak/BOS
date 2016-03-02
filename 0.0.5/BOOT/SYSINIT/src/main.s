@@ -29,10 +29,12 @@ bootInfo			equ 0x7B82
 bits 16
 
 extern INIT_PIC
+extern INIT_MMAP
 	
 start:
 	call INIT_PIC
-
+	call INIT_MMAP
+xchg bx, bx
 	mov ax, 0x0012
 	int 0x10
 

@@ -1,7 +1,7 @@
 OBJDIR=obj
 SRCDIR=src
 OUTPUT=../SYSINIT.BIN
-OBJECTS=main.o AP_Modes.o GDT.o A20.o PIC.o
+OBJECTS=main.o AP_Modes.o GDT.o A20.o PIC.o MMAP.o
 
 CC=gcc
 AS=nasm

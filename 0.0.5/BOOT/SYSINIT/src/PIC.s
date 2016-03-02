@@ -5,7 +5,7 @@
 ;                          01/03/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
-; This is only ment to remap the PIC to 0x40 - 0x4F and copy the IVT entries to
+; This is only ment to remap the PIC to 0x80 - 0x8F and copy the IVT entries to
 ; the new INTs. And set / restore masks on CPU mode changes.
 
 bits 16
@@ -33,10 +33,10 @@ INIT_PIC:
 	out dx, al							; Send ICW1 to PIC2
 
 	xor dl, 0x81						; Port = 0x21, PIC1 Data
-	mov al, 0x40						; Data = PIC1 INT Offset
+	mov al, 0x80						; Data = PIC1 INT Offset
 	out dx, al							; Set PIC1 INT Offset
 	xor dl, 0x80						; Port = 0xA1, PIC2 Data
-	mov al, 0x48						; Data = PIC2 INT Offset
+	mov al, 0x88						; Data = PIC2 INT Offset
 	out dx, al							; Set PIC2 INT Offset
 
 	xor dl, 0x80						; Port = 0x21, PIC1 Data
@@ -67,7 +67,7 @@ INIT_PIC:
 	stosb								; Store PIC2 PMs Mask
 
 	mov si, 0x20						; Source = INT 8 Offset
-	mov di, 0x100						; Destination = INT 40h Offset
+	mov di, 0x200						; Destination = INT 80h Offset
 	mov cx, 8							; Count = 8
 	rep movsd							; Copy Source to Destination * Count DW
 	mov si, 0x1C0						; Source = INT 70h Offset

@@ -9,10 +9,11 @@ bits 16
 
 section .CPUSection
 global AP_Strap
+extern PIC_ReMask
 
 ; AL = Function
 ; (E/R)DX = Destination
-; EBX = Page Dir (0 for none)
+; EBX = Page Dir (Long Mode Only)
 
 ; AL
 ; 0 = RM to PM
@@ -39,12 +40,14 @@ AP_Strap:
 
 	.RMtoPM:
 		cli
+		call PIC_ReMask
 		mov eax, cr0
 		or al, 1
 		mov cr0, eax
 		jmp 0x18:.inPM
 	.RMtoLM:
 		cli
+		call PIC_ReMask
 		mov cr3, ebx
 		xchg ebx, edx
 		mov ecx, 0xC0000080
@@ -64,11 +67,13 @@ AP_Strap:
 
 bits 64
 	.LMtoPM:
+		cli
 		push 0x18
 		mov eax, .inCapMode
 		push rax
 		retf
 	.LMtoRM:
+		cli
 		push 0x18
 		mov eax, .inCapModeToRM
 		push rax
@@ -78,11 +83,14 @@ bits 64
 		mov ds, ax
 		mov es, ax
 		mov ss, ax
+		sti
 		jmp rdx
 bits 32
 	.PMtoRM:
+		cli
 		jmp 0x08:.inPRM
 	.PMtoLM:
+		cli
 		mov cr3, ebx
 		xchg ebx, edx
 		mov ecx, 0xC0000080
@@ -104,6 +112,8 @@ bits 32
 		mov ds, ax
 		mov es, ax
 		mov ss, ax
+
+		sti
 		jmp edx
 	.inCapMode:
 		mov ax, 0x20
@@ -155,5 +165,6 @@ bits 16
 		mov ds, ax
 		mov es, ax
 		mov ss, ax
+		call PIC_ReMask
 		sti
 		jmp DWORD edx
