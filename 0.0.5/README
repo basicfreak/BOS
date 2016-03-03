@@ -1,0 +1,28 @@
+BOS 0.0.5.0004
+This code is all a work in progress!
+
+
+
+
+This code DOES NOT WORK AS-IS!
+DO NOT USE ON REAL HARDWARE!
+
+
+
+
+Bochs breakpoints are set to keep from executing RAM!
+
+Any code that is not commented should be considered highly volatile!
+
+Code that is commented should not be considered static, as bugs fixes and
+optimizations may still remain; but this code *should* function from the
+outside with the same matter as before.
+
+./Test.sh - requires root, and only tested under Ubuntu based distros.
+
+
+
+
+This code DOES NOT WORK AS-IS!
+DO NOT USE ON REAL HARDWARE!
+

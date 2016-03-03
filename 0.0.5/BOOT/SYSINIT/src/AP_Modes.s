@@ -23,148 +23,142 @@ extern PIC_ReMask
 ; 4 = LM to PM
 ; 5 = LM to RM
 AP_Strap:
-	cmp al, 0
+	cli									; These Functions CANNOT be interrupted
+	cmp al, 0							; Real Mode to Protected Mode
 	je short .RMtoPM
-	cmp al, 1
+	cmp al, 1							; Protected Mode to Real Mode
 	je short .PMtoRM
-	cmp al, 2
+	cmp al, 2							; Real Mode to Long Mode
 	je short .RMtoLM
-	cmp al, 3
+	cmp al, 3							; Protected Mode to Long Mode
 	je short .PMtoLM
-	cmp al, 4
+	cmp al, 4							; Long Mode to Protected Mode
 	je short .LMtoPM
-	cmp al, 5
+	cmp al, 5 							; Long Mode to Real Mode
 	je short .LMtoRM
-	hlt
-	jmp -2
+										; If you have an invalid function,
+	hlt									; we just lock up your computer ;)
+	jmp $								; Have a nice and productive day.
 
 	.RMtoPM:
-		cli
-		call PIC_ReMask
-		mov eax, cr0
+		call PIC_ReMask					; Setup PIC Masks
+		mov eax, cr0					; Set PM Bit in CR0
 		or al, 1
 		mov cr0, eax
-		jmp 0x18:.inPM
+		jmp 0x18:.inPM					; Long jump into Protected Mode
 	.RMtoLM:
-		cli
-		call PIC_ReMask
-		mov cr3, ebx
-		xchg ebx, edx
-		mov ecx, 0xC0000080
+		call PIC_ReMask					; Setup PIC Masks
+		mov cr3, ebx					; Set Page Dir (CR3)
+		xchg ebx, edx					; Save Destination
+		mov ecx, 0xC0000080				; Set Long Mode Bit in MSR
 		rdmsr
 		or ax, 0x100
 		wrmsr
-		xchg ebx, edx
-		mov eax, cr4
+		xchg ebx, edx					; Restore Destination
+		mov eax, cr4					; Set PSE and PAE bits in CR4
 		or eax, 0x30
 		mov cr4, eax
-		mov eax, cr0
+		mov eax, cr0					; Set PM and PG bits in CR0
 		or eax, 0x80000001
 		mov cr0, eax
-		jmp 0x38:.inLM
-		ret
-
+		jmp 0x38:.inLM					; Long jump into Long Mode
 
 bits 64
 	.LMtoPM:
-		cli
-		push 0x18
-		mov eax, .inCapMode
-		push rax
-		retf
+		push 0x18						; Push Protected Mode Code GDT Offset
+		mov eax, .inCapMode				; Get Address of inCapMode
+		push rax						; Push Address of inCapMode
+		retf							; Far return to Compatibility Mode
 	.LMtoRM:
-		cli
-		push 0x18
-		mov eax, .inCapModeToRM
-		push rax
-		retf
+		push 0x18						; Push Protected Mode Code GDT Offset
+		mov eax, .inCapModeToRM			; Get Address of inCapModeToRM
+		push rax						; Push Address of inCapModeToRM
+		retf							; Far return to Compatibility Mode
 	.inLM:
-		mov ax, 0x40
-		mov ds, ax
+		mov ax, 0x40					; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To Long Mode Data GDT Offset
 		mov es, ax
 		mov ss, ax
-		sti
-		jmp rdx
+		sti								; IF = 1
+		jmp rdx							; Jump to Destination
+
 bits 32
 	.PMtoRM:
-		cli
-		jmp 0x08:.inPRM
+		jmp 0x08:.inPRM					; Far jump to 16-Bit Protected Mode
 	.PMtoLM:
-		cli
-		mov cr3, ebx
-		xchg ebx, edx
-		mov ecx, 0xC0000080
+		mov cr3, ebx					; Set Page Dir (CR3)
+		xchg ebx, edx					; Save Destination
+		mov ecx, 0xC0000080				; Set Long Mode Bit in MSR
 		rdmsr
 		or ax, 0x100
 		wrmsr
-		xchg ebx, edx
-		mov eax, cr4
+		xchg ebx, edx					; Restore Destination
+		mov eax, cr4					; Set PSE and PAE bits in CR4
 		or eax, 0x30
 		mov cr4, eax
-		mov eax, cr0
+		mov eax, cr0					; Set PM and PG bits in CR0
 		or eax, 0x80000001
 		mov cr0, eax
 		jmp 0x38:.inLM
 		
 bits 32
 	.inPM:
-		mov ax, 0x20
-		mov ds, ax
+		mov ax, 0x20					; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To Protected Mode Data DST Offset
 		mov es, ax
 		mov ss, ax
-
-		sti
-		jmp edx
+		sti								; IF = 1
+		jmp edx							; Jump to Destination
 	.inCapMode:
-		mov ax, 0x20
-		mov ds, ax
+		mov ax, 0x20					; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To Protected Mode Data DST Offset
 		mov es, ax
 		mov ss, ax
-		xchg ebx, edx
-		mov ecx, 0xC0000080
+		xchg ebx, edx					; Save Destination
+		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
 		rdmsr
 		and ax, 0xFEFF
 		wrmsr
-		xchg ebx, edx
-		mov eax, cr0
+		xchg ebx, edx					; Restore Destination
+		mov eax, cr0					; Clear PG bit in CR0
 		and eax, 0x7FFFFFFF
 		mov cr0, eax
-		xor eax, eax
+		xor eax, eax					; Clear CR3 (Page Dir)
 		mov cr3, eax
-		jmp edx
+		jmp edx							; Jump to Destination
 	.inCapModeToRM:
-		mov ax, 0x20
-		mov ds, ax
+		mov ax, 0x20					; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To Protected Mode Data DST Offset
 		mov es, ax
 		mov ss, ax
-		xchg ebx, edx
-		mov ecx, 0xC0000080
+		xchg ebx, edx					; Save Destination
+		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
 		rdmsr
 		and ax, 0xFEFF
 		wrmsr
-		xchg ebx, edx
-		mov eax, cr0
+		xchg ebx, edx					; Restore Destination
+		mov eax, cr0					; Clear PG bit in CR0
 		and eax, 0x7FFFFFFF
 		mov cr0, eax
-		xor eax, eax
+		xor eax, eax					; Clear CR3 (Page Dir)
 		mov cr3, eax
-		jmp 0x08:.inPRM
+		jmp 0x08:.inPRM					; Far jump to 16-Bit Protected Mode
 
 bits 16
 	.inPRM:
-		mov ax, 0x10
-		mov ds, ax
+		mov ax, 0x10					; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To 16-Bit Protected Mode Data Offset
 		mov es, ax
 		mov ss, ax
-		mov eax, cr0
+		mov eax, cr0					; Clear PE and PG bit in CR0
 		and eax, 0x7FFFFFFE
 		mov cr0, eax
-		jmp 0:.inRM
+		jmp 0:.inRM						; Far jump to Real Mode
 	.inRM:
-		xor ax, ax
-		mov ds, ax
+		xor ax, ax						; Set Data, Extra, and Stack Segments
+		mov ds, ax						; To Null GDT Segment
 		mov es, ax
 		mov ss, ax
-		call PIC_ReMask
-		sti
-		jmp DWORD edx
+		call PIC_ReMask					; Setup PIC Masks
+		sti								; IF = 1
+		jmp DWORD edx					; Far jump to Destination
