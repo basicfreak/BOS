@@ -100,8 +100,6 @@ bits 32
 		or eax, 0x80000001
 		mov cr0, eax
 		jmp 0x38:.inLM
-		
-bits 32
 	.inPM:
 		mov ax, 0x20					; Set Data, Extra, and Stack Segments
 		mov ds, ax						; To Protected Mode Data DST Offset

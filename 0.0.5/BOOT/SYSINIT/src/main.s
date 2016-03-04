@@ -33,6 +33,7 @@ extern INIT_MMAP
 	
 start:
 	call INIT_PIC
+xchg bx, bx
 	call INIT_MMAP
 xchg bx, bx
 	mov ax, 0x0012
