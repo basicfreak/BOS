@@ -115,7 +115,7 @@ A20_KBRDCTRL:
 	ret									; Return to caller
 
 	.InputWait_8042:
-		in al, dx						; Read Controler Status Byte
+		in al, dx						; Read Controller Status Byte
 		test al, 2						; Is it ready for input?
 		jnz .InputWait_8042				; If not loop.
 		ret								; Return

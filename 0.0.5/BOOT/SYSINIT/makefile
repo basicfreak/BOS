@@ -1,7 +1,9 @@
 OBJDIR=obj
 SRCDIR=src
+INCDIR=./include/
 OUTPUT=../SYSINIT.BIN
-OBJECTS=main.o AP_Modes.o GDT.o A20.o PIC.o MMAP.o
+OBJECTS=main.o AP_Modes.o GDT.o A20.o PIC.o MMAP.o CPUID.o term.o init/common.o \
+	data/rodata.o
 
 CC=gcc
 AS=nasm
@@ -11,14 +13,14 @@ CC32FLAGS=-O3 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwr
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \
 			-Wno-unused-parameter -std=gnu99 -fno-builtin -fno-stack-protector -ffreestanding \
-				-fno-asynchronous-unwind-tables -march=i686 -m32 -x c
+				-fno-asynchronous-unwind-tables -march=i686 -m32 -x c -I $(INCDIR)
 CCFLAGS=-O3 -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings \
 	-Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline \
 		-Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wunsafe-loop-optimizations \
 			-Wno-unused-parameter -std=gnu99 -fno-builtin -fno-stack-protector -ffreestanding \
-				-fno-asynchronous-unwind-tables -m64
+				-fno-asynchronous-unwind-tables -m64 -I $(INCDIR)
 LDFLAGS=-Tlink.ld
-ASFLAGS=-felf64
+ASFLAGS=-felf64 -i$(INCDIR)
 
 all: $(addprefix $(OBJDIR)/,$(OBJECTS)) link
 

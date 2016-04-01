@@ -7,9 +7,10 @@
 
 bits 16
 
+%include 'PIC.inc'
+
 section .CPUSection
 global AP_Strap
-extern PIC_ReMask
 
 ; AL = Function
 ; (E/R)DX = Destination
