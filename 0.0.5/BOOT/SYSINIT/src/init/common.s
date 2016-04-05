@@ -2,7 +2,7 @@
 ;                                   BOS 0.0.5
 ;                                  BUILD: 0005
 ;                         System Initialization Common
-;                          01/04/2016 - Brian T Hoover
+;                          03/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
 global init_16
@@ -19,6 +19,15 @@ bits 16
 %include 'PIC.inc'
 %include 'MMAP.inc'
 %include 'term.inc'
+%include 'linker.inc'
+
+VAR:
+	.bootDrive		equ -127			; BYTE
+	.bootInfo		equ -126			; BitField
+		; 13/42 | 13/02 | PXE | ? | TFTP | ? | ExtFS | FATFS
+
+bootDrive			equ 0x7B81
+bootInfo			equ 0x7B82
 
 init_16:
 	mov ax, 0x0012						; Set video mode to 0x0012
@@ -63,4 +72,42 @@ init_16:
 	jc ERROR
 	mov si, MSG.Done
 	call puts
+	mov si, MSG.BootDevice
+	call puts
+
+	mov cx, 3
+	mov di, 0xA000						; Driver Address = 0:A000
+	mov al, BYTE [bp + VAR.bootInfo]	; Determine Boot Device
+	bt ax, 0
+	jc .FatDisk
+	bt ax, 1
+	jc .ExtDisk
+	bt ax, 3
+	jc .TftpPxe
+	jmp ERROR
+	.FatDisk:
+		mov si, Files.FATDisk
+		jmp .ReadDiskDriver
+	.ExtDisk:
+		mov si, Files.ExtDisk
+		jmp .ReadDiskDriver
+	.TftpPxe:
+		mov si, Files.TFTPPXE
+	.ReadDiskDriver:
+		call BS_ReadFile
+		jc ERROR
+	mov si, MSG.Done
+	call puts
+
+	mov si, MSG.PM32
+	call puts
+	xor al, al
+	mov edx, init_32
+	jmp AP_Strap
+
+bits 32
+
+init_32:
+	mov si, MSG.Done
+	call puts32
 	ret

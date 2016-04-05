@@ -13,8 +13,11 @@ global MSG.BootDevice
 global MSG.GDT
 global MSG.A20
 global MSG.PM32
+global MSG.LM64
 global MSG.PDIR
-global MSG.LOADBUILD
+global MSG.PMM
+global MSG.VMM
+global MSG.Linker
 global MSG.PIC
 global MSG.MMAP
 global MSG.Done
@@ -25,8 +28,12 @@ global MSG.Error
 global Files.FATDisk
 global Files.ExtDisk
 global Files.TFTPPXE
-global Files.BUILD86
-global Files.BUILD64
+global Files.PM_PMM
+global Files.PM_VMM
+global Files.PM_Link
+global Files.LM_PMM
+global Files.LM_VMM
+global Files.LM_Link
 
 MSG:
 	.Identify		db 0x7, "Getting CPUID                 ", 0
@@ -35,8 +42,11 @@ MSG:
 	.GDT			db 0x7, "Installing GDT                ", 0
 	.A20			db 0x7, "Enableing Address Line 20     ", 0
 	.PM32			db 0x7, "Entering 32-bit Protected Mode", 0
+	.LM64			db 0x7, "Entering 64-bit Long Mode     ", 0
 	.PDIR			db 0x7, "Creating Temporary Page Dir   ", 0
-	.LOADBUILD		db 0x7, "Loading BOS Builder           ", 0
+	.PMM			db 0x7, "Loading Pysical Memory Manager", 0
+	.VMM			db 0x7, "Loading Virtual Memory Manager", 0
+	.Linker			db 0x7, "Loading BOS Linker / Builder  ", 0
 	.PIC            db 0x7, "Remapping PIC                 ", 0
 	.MMAP			db 0x7, "Initilizing Memory Map        ", 0
 	.Done			db 0x2, "                     [ DONE! ]", 0xA, 0xD, 0
@@ -49,5 +59,9 @@ Files:
 	.FATDisk db "BOOT       ", "DRIVERS    ", "FATFS   BIN"
 	.ExtDisk db "/boot/drivers/extdisk.bin", 0
 	.TFTPPXE db "/boot/drivers/tftppxe.bin", 0
-	.BUILD86 db "/boot/x86/build.bin", 0
-	.BUILD64 db "/boot/x64/build.bin", 0
+	.PM_PMM  db "/boot/x86/pmm.bin", 0
+	.PM_VMM  db "/boot/x86/vmm.bin", 0
+	.PM_Link db "/boot/x86/build.bin", 0
+	.LM_PMM  db "/boot/x64/pmm.bin", 0
+	.LM_VMM  db "/boot/x64/vmm.bin", 0
+	.LM_Link db "/boot/x64/build.bin", 0

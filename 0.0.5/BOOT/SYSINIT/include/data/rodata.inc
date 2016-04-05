@@ -11,8 +11,11 @@ extern MSG.BootDevice
 extern MSG.GDT
 extern MSG.A20
 extern MSG.PM32
+extern MSG.LM64
 extern MSG.PDIR
-extern MSG.LOADBUILD
+extern MSG.PMM
+extern MSG.VMM
+extern MSG.Linker
 extern MSG.PIC
 extern MSG.MMAP
 extern MSG.Done
@@ -23,5 +26,9 @@ extern MSG.Error
 extern Files.FATDisk
 extern Files.ExtDisk
 extern Files.TFTPPXE
-extern Files.BUILD86
-extern Files.BUILD64
+extern Files.PM_PMM
+extern Files.PM_VMM
+extern Files.PM_Link
+extern Files.LM_PMM
+extern Files.LM_VMM
+extern Files.LM_Link

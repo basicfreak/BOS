@@ -5,6 +5,7 @@ SECTIONS
 {
   BS_ReadFile = 0x7D00;
   FILE_IO = 0xA000;
+  SVGA_puts = 0x31000;
 
   .text phys : AT(phys) {
     FILL(0x90)

@@ -69,12 +69,13 @@ bits 64
 		push 0x18						; Push Protected Mode Code GDT Offset
 		mov eax, .inCapMode				; Get Address of inCapMode
 		push rax						; Push Address of inCapMode
-		retf							; Far return to Compatibility Mode
+		o64 retf						; Far return to Compatibility Mode
 	.LMtoRM:
 		push 0x18						; Push Protected Mode Code GDT Offset
 		mov eax, .inCapModeToRM			; Get Address of inCapModeToRM
 		push rax						; Push Address of inCapModeToRM
-		retf							; Far return to Compatibility Mode
+	; WHY?!? I told you we are in "bits 64" why do I have to tell you "o64"?!?
+		o64 retf						; Far return to Compatibility Mode
 	.inLM:
 		mov ax, 0x40					; Set Data, Extra, and Stack Segments
 		mov ds, ax						; To Long Mode Data GDT Offset
@@ -114,14 +115,14 @@ bits 32
 		mov es, ax
 		mov ss, ax
 		xchg ebx, edx					; Save Destination
-		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
-		rdmsr
-		and ax, 0xFEFF
-		wrmsr
-		xchg ebx, edx					; Restore Destination
 		mov eax, cr0					; Clear PG bit in CR0
 		and eax, 0x7FFFFFFF
 		mov cr0, eax
+		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
+		rdmsr
+		btc eax, 8
+		wrmsr
+		xchg ebx, edx					; Restore Destination
 		xor eax, eax					; Clear CR3 (Page Dir)
 		mov cr3, eax
 		jmp edx							; Jump to Destination
@@ -131,14 +132,14 @@ bits 32
 		mov es, ax
 		mov ss, ax
 		xchg ebx, edx					; Save Destination
-		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
-		rdmsr
-		and ax, 0xFEFF
-		wrmsr
-		xchg ebx, edx					; Restore Destination
 		mov eax, cr0					; Clear PG bit in CR0
 		and eax, 0x7FFFFFFF
 		mov cr0, eax
+		mov ecx, 0xC0000080				; Unset Long Mode Bit in MSR
+		rdmsr
+		btc eax, 8
+		wrmsr
+		xchg ebx, edx					; Restore Destination
 		xor eax, eax					; Clear CR3 (Page Dir)
 		mov cr3, eax
 		jmp 0x08:.inPRM					; Far jump to 16-Bit Protected Mode

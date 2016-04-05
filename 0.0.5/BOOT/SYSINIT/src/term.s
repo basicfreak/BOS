@@ -7,8 +7,33 @@
 
 %include 'linker.inc'
 
+global puts64
 global puts32
 global puts
+
+bits 64
+puts64:
+	push rax
+	push rdx
+	push rbx
+	push rcx
+	mov al, 5
+	mov edx, .RMEnt
+	jmp AP_Strap
+bits 16
+	.RMEnt:
+		call puts
+		mov al, 2
+		mov edx, .LMEnt
+		mov ebx, 0x200000
+		jmp AP_Strap
+bits 64
+	.LMEnt:
+		pop rcx
+		pop rbx
+		pop rdx
+		pop rax
+		ret
 
 bits 32
 puts32:
