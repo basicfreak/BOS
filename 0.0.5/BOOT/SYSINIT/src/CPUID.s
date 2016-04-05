@@ -18,60 +18,60 @@ ID_FLAG equ 0x00200000
 
 INIT_CPUID:
 	.DoesCPUIDExist:
-		pushfd								;Save EFLAGS
-	    pushfd								;Store EFLAGS
-	    pop eax
-	    xor eax, ID_FLAG					;Invert the ID bit in stored EFLAGS
-	    push eax
-	    popfd								;Load stored EFLAGS (with ID bit inverted)
-	    pushfd								;Store EFLAGS again (ID bit may or may not be inverted)
-	    pop eax								;eax = modified EFLAGS (ID bit may or may not be inverted)
-	    pop ebx
-	    push ebx
-	    xor eax,ebx							;eax = whichever bits were changed
-	    popfd								;Restore original EFLAGS
-	    test eax, ID_FLAG					;eax = zero if ID bit can't be changed, else non-zero
+		pushfd							; Save Original EFLAGS
+	    pushfd							; Save Original EFLAGS
+	    pop eax							; EAX = Original EFLAGS
+	    xor eax, ID_FLAG				; Invert the ID bit in stored EFLAGS
+	    push eax						; Save Modified EFLAGS
+	    popfd							; Restore Modified EFLAGS
+	    pushfd							; Save New EFLAGS
+	    pop eax							; Get New EFLAGS
+	    pop ebx							; Get Modified EFLAGS
+	    push ebx						; Save Modified EFLAGS
+	    xor eax,ebx						; EAX = New EFLAGS XOR Modified EFLAGS
+	    popfd							; Restore original EFLAGS
+	    test eax, ID_FLAG				; IF EAX != 0 Continue
 	    jnz .GetVendor
-	    stc
-	    ret
+	    stc								; Else Error (set CF)
+	    ret								; Return
 	.GetVendor:
-		xor eax, eax
+		xor eax, eax					; CPUID, EAX = 0
 		cpuid
-		push eax
-		mov [BSP.Vendor], ebx
+		push eax						; Save CPUID Max Standard ID
+		mov [BSP.Vendor], ebx			; Save Vendor String
 		mov [BSP.Vendor + 4], edx
 		mov [BSP.Vendor + 8], ecx
 	pop eax
 	push eax
-	cmp eax, 1
-	jb .ExtendedCPUID
+	cmp eax, 1							; Is CPUID Max Standard ID >= 1?
+	jb .ExtendedCPUID					; If Not, Skip this
 	.GetFeatures:
-		mov eax, 1
+		mov eax, 1						; CPUID, EAX = 1
 		cpuid
-		mov [BSP.Info], eax
-		mov [BSP.Features], edx
+		mov [BSP.Info], eax				; Save CPU Info
+		mov [BSP.Features], edx			; Save CPU Features
 		mov [BSP.Features + 4], ecx
 	pop eax
-	cmp eax, 7
-	jb .ExtendedCPUID
+	cmp eax, 7							; Is CPUID Max Standard ID >= 7
+	jb .ExtendedCPUID					; If Not, Skip this
 	.GetExtFeatures:
-		mov eax, 7
+		mov eax, 7						; CPUID, EAX = 7, ECX = 0
 		xor ecx, ecx
 		cpuid
-		mov [BSP.ExtendedFeatures], ebx
+		mov [BSP.ExtendedFeatures], ebx	; Save Extended Features
 		mov [BSP.ExtendedFeatures + 4], ecx
 	.ExtendedCPUID:
-		mov eax, 0x80000000
+		mov eax, 0x80000000				; Get CPUID Max Extended ID
+		cpuid							; CPUID, EAX = 0x80000000
+		cmp eax, 0x80000001				; Is CPUID Max Extended ID >= 0x80000001
+		jb .Return						; If not, Skip this
+		mov eax, 0x80000001				; CPUID, EAX = 0x80000001
 		cpuid
-		cmp eax, 0x80000001
-		jb .Return
-		mov eax, 0x80000001
-		cpuid
-		mov [BSP.ExtendedInfo], edx
+		mov [BSP.ExtendedInfo], edx		; Save Extended Info
 		mov [BSP.ExtendedInfo + 4], ecx
 	.Return:
-		clc
-		ret
+		clc								; Make sure CF = 0
+		ret								; Return
 
 section .data
 

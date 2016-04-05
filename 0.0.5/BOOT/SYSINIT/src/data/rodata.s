@@ -5,6 +5,8 @@
 ;                          01/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
+; If you need an explanation of what this is, then you are in the wrong place...
+
 section .rodata
 
 global MSG.Identify

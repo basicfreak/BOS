@@ -86,22 +86,23 @@ init_16:
 	jc .TftpPxe
 	jmp ERROR
 	.FatDisk:
-		mov si, Files.FATDisk
+		mov si, Files.FATDisk			; The Boot Device is a FAT Disk
 		jmp .ReadDiskDriver
 	.ExtDisk:
-		mov si, Files.ExtDisk
+		mov si, Files.ExtDisk			; The Boot Device is an EXT Disk
 		jmp .ReadDiskDriver
 	.TftpPxe:
-		mov si, Files.TFTPPXE
+		mov si, Files.TFTPPXE			; The Boot Device is PXE/TFTP
 	.ReadDiskDriver:
-		call BS_ReadFile
-		jc ERROR
+		call BS_ReadFile				; Read Boot Device Driver
+		jc ERROR						; Error if CF = 1
 	mov si, MSG.Done
 	call puts
 
 	mov si, MSG.PM32
 	call puts
-	xor al, al
+	xor al, al							; RM to PM
+	xor ebx, ebx
 	mov edx, init_32
 	jmp AP_Strap
 
@@ -110,4 +111,4 @@ bits 32
 init_32:
 	mov si, MSG.Done
 	call puts32
-	ret
+	ret									; Return to Protected Mode Address

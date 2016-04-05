@@ -19,7 +19,7 @@ init_x64:
 	mov si, MSG.PDIR
 	call puts32
 
-	mov eax, 0x20100B
+	mov eax, 0x20100B					; Setup Temporary Page Directory
 	mov edi, 0x200000
 	stosd
 	add eax, 0x1000
@@ -44,7 +44,7 @@ init_x64:
 	call puts32
 	mov si, MSG.LM64
 	call puts32
-	mov edx, LM_Entry
+	mov edx, LM_Entry					; PM to LM
 	mov ebx, 0x200000
 	mov al, 3
 	jmp AP_Strap
@@ -57,7 +57,7 @@ LM_Entry:
 	mov si, MSG.PMM
 	call puts64
 
-	mov esi, Files.LM_PMM
+	mov esi, Files.LM_PMM				; Load Physical Memory Manager
 	mov edi, 0x100000
 	call FILE_IO_WRAP
 	jc .Error
@@ -67,7 +67,7 @@ LM_Entry:
 	mov si, MSG.VMM
 	call puts64
 
-	mov esi, Files.LM_VMM
+	mov esi, Files.LM_VMM				; Load Virtual Memory Manager
 	mov edi, 0x108000
 	call FILE_IO_WRAP
 	jc .Error
@@ -77,7 +77,7 @@ LM_Entry:
 	mov si, MSG.Linker
 	call puts64
 
-	mov esi, Files.LM_Link
+	mov esi, Files.LM_Link				; Load BOS Linker / Builder
 	mov edx, 0x110000
 	call FILE_IO_WRAP
 	jc .Error
@@ -85,10 +85,10 @@ LM_Entry:
 	mov si, MSG.Done
 	call puts64
 
-	mov rax, 0xFFFFFF8000110000
+	mov rax, 0xFFFFFF8000110000			; Call BOS Linker / Builder
 	mov rbx, BSP.Vendor
 	call rax
-	ret
+	ret									; Return if we get back here...
 
 	.Error:
 		mov si, MSG.Fail
@@ -96,27 +96,27 @@ LM_Entry:
 		ret
 
 FILE_IO_WRAP:
-	mov al, 4
+	mov al, 4							; LM to CM32
 	mov edx, .PMEnt
 	jmp AP_Strap
 bits 32
 	.PMEnt:
-		xor eax, eax
+		xor eax, eax					; FILE_IO (Open)
 		call FILE_IO
-		jc .NotFound
-		mov eax, 1
+		jc .NotFound					; If Error, Not Found
+		mov eax, 1						; FILE_IO (Read)
 		call FILE_IO
-		jc .NotFound
-		mov edx, .Found
+		jc .NotFound					; If Error, Not Found
+		mov edx, .Found					; We found, and loaded, the file
 		jmp .cont
 		.NotFound:
-			mov edx, .NFound
+			mov edx, .NFound			; We did not find or load the file
 		.cont:
-			mov al, 3
+			mov al, 3					; PM to LM
 			mov ebx, 0x200000
 			jmp AP_Strap
 bits 64
 	.NFound:
-		stc
+		stc								; CF = 1 on Error
 	.Found:
-		ret
+		ret								; Return

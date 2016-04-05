@@ -2,7 +2,7 @@ OBJDIR=obj
 SRCDIR=src
 INCDIR=./include/
 OUTPUT=../SYSINIT.BIN
-OBJECTS=main.o AP_Modes.o GDT.o A20.o PIC.o MMAP.o CPUID.o term.o data/rodata.o \
+OBJECTS=main.o AP_Strap.o GDT.o A20.o PIC.o MMAP.o CPUID.o term.o data/rodata.o \
 	init/common.o init/x86.o init/x86_64.o
 CC=gcc
 AS=nasm

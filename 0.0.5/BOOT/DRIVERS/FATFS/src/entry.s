@@ -126,7 +126,8 @@ bits 16
 	.RMReturn:
 		xor ax, ax
 		int 0x13
-		mov al, 0
+		xor al, al
+		xor ebx, ebx
 		mov edx, .PMEntry
 		jmp AP_Strap
 bits 32
