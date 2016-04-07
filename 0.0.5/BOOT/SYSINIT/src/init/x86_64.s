@@ -21,12 +21,17 @@ init_x64:
 
 	mov eax, 0x20100B					; Setup Temporary Page Directory
 	mov edi, 0x200000
-	stosd
+	; stosd
+	mov [edi], eax
 	add eax, 0x1000
-	mov edi, 0x201000
-	stosd
+	; mov edi, 0x201000
+	add edi, 0x1000
+	mov [edi], eax
+	mov [edi + 0xFF8], eax
+	; stosd
 	mov ecx, 512
-	mov edi, 0x202000
+	; mov edi, 0x202000
+	add edi, 0x1000
 	mov eax, 0x8B
 	.PSELoop:
 		stosd
@@ -34,11 +39,11 @@ init_x64:
 		add edi, 4
 		loop .PSELoop
 	mov eax, 0x200000
-	mov ecx, eax
-	add ecx, 3
-	mov DWORD [eax + 0xFF0], ecx
+	; mov ecx, eax
+	; add ecx, 3
+	mov DWORD [eax + 0xFF0], 0x20000B
 	add ecx, 0x1000
-	mov DWORD [eax + 0xFF8], ecx
+	mov DWORD [eax + 0xFF8], 0x20100B
 
 	mov si, MSG.Done
 	call puts32
@@ -78,14 +83,15 @@ LM_Entry:
 	call puts64
 
 	mov esi, Files.LM_Link				; Load BOS Linker / Builder
-	mov edx, 0x110000
+	mov edi, 0x110000
 	call FILE_IO_WRAP
 	jc .Error
 
 	mov si, MSG.Done
 	call puts64
 
-	mov rax, 0xFFFFFF8000110000			; Call BOS Linker / Builder
+	xchg bx, bx
+	mov rax, 0xFFFFFFFFC0110000			; Call BOS Linker / Builder
 	mov rbx, BSP.Vendor
 	call rax
 	ret									; Return if we get back here...
@@ -107,6 +113,8 @@ bits 32
 		mov eax, 1						; FILE_IO (Read)
 		call FILE_IO
 		jc .NotFound					; If Error, Not Found
+		mov eax, 3						; FILE_IO (Close)
+		call FILE_IO
 		mov edx, .Found					; We found, and loaded, the file
 		jmp .cont
 		.NotFound:

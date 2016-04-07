@@ -132,10 +132,10 @@ bits 16
 		jmp AP_Strap
 bits 32
 	.PMEntry:
+		movzx edx, WORD [esi + 2]
 		mov edi, [ebp + 8]
 		mov esi, 0x1000
 		movzx eax, WORD [0x7C00 + BPB.BPS]
-		movzx edx, cx
 		mul edx
 		mov ecx, eax
 		rep movsb

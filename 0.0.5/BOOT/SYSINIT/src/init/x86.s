@@ -51,7 +51,7 @@ init_x86:
 	call puts32
 
 	mov esi, Files.PM_Link				; Load BOS Linker / Builder
-	mov edx, 0x110000
+	mov edi, 0x110000
 	xor eax, eax
 	call FILE_IO
 	jc .Error

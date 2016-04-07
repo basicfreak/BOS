@@ -5,6 +5,10 @@
 ;                          06/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
+; This is far from being done... Nor is this function tested...
+; Needs to be separated into <1MB <16MB <4GB and >4GB for all the driver needs.
+; Currently this just starts from the bottom and works upward in memory...
+
 global _PMM_alloc
 bits 64
 default rel

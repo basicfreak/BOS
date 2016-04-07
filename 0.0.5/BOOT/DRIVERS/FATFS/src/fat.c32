@@ -18,7 +18,7 @@ int FAT_Open(void* Path)
 {
 	if(!isFATINITd)
 		FAT_INIT();
-	
+
 	int depth = ConvertPath((char*)PathBuffer, (char*)Path);
 
 	if(!depth)
@@ -122,7 +122,7 @@ static uint32_t NextCluster(uint32_t Cluster)
 			ret = (uint32_t) (tmp >> 4);
 		else
 			ret = (uint32_t) (tmp & 0x0FFF);
-		if (ret >= 0xFF6) 
+		if (ret >= 0xFF6)
 			ret = 0;
 	} else if (FATTYPE == 16) {
 		uint16_t *FAT = (uint16_t*) FAT_BUFFER;

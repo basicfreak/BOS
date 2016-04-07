@@ -2,7 +2,7 @@
 ;                                   BOS 0.0.5
 ;                                  BUILD: 0005
 ;                                   PMM Freer
-;                          06/04/2016 - Brian T Hoover
+;                          07/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
 global _PMM_free
@@ -14,12 +14,12 @@ align 0x800
 
 ; RAX = Length; RDX = Base
 _PMM_free:
-	test rax, 0xFFF
+	test rax, 0xFFF						; Check for bad inputs
 	jnz .InputError
 	test rdx, 0xFFF
 	jnz .InputError
 
-	push rsi
+	push rsi							; Save Modified Registers
 	push rcx
 	push rbx
 	push rdi
@@ -29,41 +29,40 @@ _PMM_free:
 	push r9
 	push r10
 
-	mov r8, rdx ;base
-	mov r9, rax ;length
-	add rdx, rax ;base+length
-	mov r10, rdx
-	mov rsi, PMM_STACK
-	call _Lock
-	mov rcx, PMM_Entries
-	test rcx, rcx
-	jz .AddEntry
+	mov r8, rdx							; Store Base_to_free in r8
+	mov r9, rax							; Store Length_to_free in r9
+	add rdx, rax						; Base += Length_to_free
+	mov r10, rdx						; Store Base+Length_to_free in r10
+	mov rsi, PMM_STACK					; PMM Stack Location
+	call _Lock							; Lock the PMM
+	mov rcx, [PMM_Entries]				; Get current number of entries
+	test rcx, rcx						; If No entries
+	jz .AddEntry						;    Just Add a new one
 	.EntryLoop:
-		lodsq
-		xchg rdx, rax
-		lodsq
-		mov rbx, rdx
-		add rbx, rax
-		cmp rbx, r8
-		je .AddAbove
-		cmp rdx, r10
-		je .AddBelow
-		loop .EntryLoop
+		lodsq							; Load Base Address
+		xchg rdx, rax					; into RDX
+		lodsq							; Load Length into RAX
+		mov rbx, rdx					; RBX = Base
+		add rbx, rax					;    += Length
+		cmp rbx, r8						; Is Base+Length = Base_to_free?
+		je .AddAbove					;    yes, add above entry
+		cmp rdx, r10					; Is Base = End_to_free?
+		je .AddBelow					;    yes, add below entry
+		loop .EntryLoop					; Loop through all entries
 	.AddEntry:
-		inc QWORD [PMM_Entries]
-		mov [esi], r8
-		mov [esi + 8], r9
-		jmp .FixUsage
+		inc QWORD [PMM_Entries]			; Increase PMM_Entries count
+		mov [rsi], r8					; Add Base to PMM_Stack
+		mov [rsi + 8], r9				; Add Length to PMM Stack
+		jmp .FixUsage					; We still need to fix Free/Used_RAM
 	.AddBelow:
-		sub [esi - 16], r9
-		jmp .FixUsage
+		sub [rsi - 16], r9				; Subtract Length_to_free from Base
 	.AddAbove:
-		add [esi - 8], r8
+		add [rsi - 8], r8				; Add Length_to_free to Length
 	.FixUsage:
-		add [Free_RAM], r10
-		sub [Used_RAM], r10
-	call _Unlock
-	pop r10
+		add [Free_RAM], r10				; Add End_to_free to Free_RAM
+		sub [Used_RAM], r10				; Subtract End_to_free from Used_RAM
+	call _Unlock						; Unlock the PMM
+	pop r10								; Restore Modified Registers
 	pop r9
 	pop r8
 	pop rdx
@@ -72,7 +71,7 @@ _PMM_free:
 	pop rbx
 	pop rcx
 	pop rsi
-	ret
+	ret									; Return
 	.InputError:
-		stc
-		ret
+		stc								; Set CF
+		ret								; Return

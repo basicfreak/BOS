@@ -12,4 +12,4 @@ extern Used_RAM
 extern Free_RAM
 extern PMM_Entries
 
-PMM_STACK		equ 0xFFFFFFFF80300000
+PMM_STACK		equ 0xFFFFFFFFC0300000

@@ -1,6 +1,6 @@
 OBJDIR=obj
 SRCDIR=src
-OUTPUT=../BUILD.BIN
+OUTPUT=../VMM.BIN
 OBJECTS=start.o
 
 CC=gcc

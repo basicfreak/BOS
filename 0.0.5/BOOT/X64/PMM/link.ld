@@ -1,10 +1,8 @@
 OUTPUT_FORMAT("binary")
 ENTRY(_init)
-phys = 0xFFFFFFFF80110000;
+phys = 0xFFFFFFFFC0100000;
 SECTIONS
 {
-  FILE_IO = 0xA000;
-  AP_Strap = 0x8800;
   . = phys;
   .init phys : AT(phys) {
     FILL(0x90)
