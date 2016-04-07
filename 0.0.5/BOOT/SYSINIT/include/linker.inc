@@ -9,4 +9,3 @@
 extern BS_ReadFile
 extern FILE_IO
 extern AP_Strap
-extern SVGA_puts
