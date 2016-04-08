@@ -2,10 +2,10 @@
 ;                                   BOS 0.0.5
 ;                                  BUILD: 0005
 ;                                 PMM Allocator
-;                          06/04/2016 - Brian T Hoover
+;                          07/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
-; This is far from being done... Nor is this function tested...
+; This is far from being done...
 ; Needs to be separated into <1MB <16MB <4GB and >4GB for all the driver needs.
 ; Currently this just starts from the bottom and works upward in memory...
 
@@ -52,9 +52,10 @@ _PMM_alloc:
 		add [Used_RAM], r8
 		mov [rsi - 8], rax
 		xchg rax, rdx
+		add rax, rdx
 		test rdx, rdx
 		jz .RemoveEntry
-		add rax, rdx
+		clc
 	.Return:
 		call _Unlock
 		pop r8
@@ -69,4 +70,6 @@ _PMM_alloc:
 		sub rdi, 16
 		rep movsq
 		pop rdi
+		dec QWORD [PMM_Entries]
+		clc
 		jmp .Return

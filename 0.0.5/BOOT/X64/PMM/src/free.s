@@ -57,10 +57,10 @@ _PMM_free:
 	.AddBelow:
 		sub [rsi - 16], r9				; Subtract Length_to_free from Base
 	.AddAbove:
-		add [rsi - 8], r8				; Add Length_to_free to Length
+		add [rsi - 8], r9				; Add Length_to_free to Length
 	.FixUsage:
-		add [Free_RAM], r10				; Add End_to_free to Free_RAM
-		sub [Used_RAM], r10				; Subtract End_to_free from Used_RAM
+		add [Free_RAM], r9				; Add Length_to_free to Free_RAM
+		sub [Used_RAM], r9				; Subtract Length_to_free from Used_RAM
 	call _Unlock						; Unlock the PMM
 	pop r10								; Restore Modified Registers
 	pop r9
@@ -71,6 +71,7 @@ _PMM_free:
 	pop rbx
 	pop rcx
 	pop rsi
+	clc
 	ret									; Return
 	.InputError:
 		stc								; Set CF

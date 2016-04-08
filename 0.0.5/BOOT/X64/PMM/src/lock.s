@@ -29,7 +29,7 @@ _Lock:
 
 ALIGN 0x100
 _Unlock:
-	btc QWORD [PMM_LOCK], 0				; Clear PMM_LOCK
+	mov QWORD [PMM_LOCK], 0				; Clear PMM_LOCK
 	ret									; Return
 
 section .data

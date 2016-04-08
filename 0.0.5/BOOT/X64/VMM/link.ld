@@ -3,6 +3,8 @@ ENTRY(_init)
 phys = 0xFFFFFFFFC0108000;
 SECTIONS
 {
+  _PMM_free = 0xFFFFFFFFC0101000;
+  _PMM_alloc = 0xFFFFFFFFC0101800;
   . = phys;
   .init phys : AT(phys) {
     FILL(0x90)

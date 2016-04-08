@@ -12,10 +12,17 @@ global start
 start:
 	xchg bx, bx
 	call _PMM_init
+	jc .Error
 	xchg bx, bx
 	call _VMM_init
-	cli
+	jc .Error
 	xchg bx, bx
-	hlt
-	jmp $
+
+
+
+	.Error:
+		xchg bx, bx
+		ret
+		hlt
+		jmp $
 
