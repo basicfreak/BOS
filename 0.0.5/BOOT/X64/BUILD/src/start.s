@@ -10,10 +10,10 @@ extern _VMM_init
 global start
 
 start:
-	xchg bx, bx
+	; xchg bx, bx
 	call _PMM_init
 	jc .Error
-	xchg bx, bx
+	; xchg bx, bx
 	call _VMM_init
 	jc .Error
 	xchg bx, bx
