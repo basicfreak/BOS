@@ -107,7 +107,7 @@ _PMM_alloc:
 	.OOM:
 		mov rax, -1						; OOM Error Code = -1
 		stc								; Set Error Flag
-		jmp .Return						; Goto .Return
+		jmp .ReturnNoUpdate				; Goto .Return
 	.FoundSpaceStart:
 		sub [rsi - 8], r8				; Subtract Requested Length from Length
 		add [rsi - 16], r8				; Add Requested Length to Base
@@ -128,6 +128,7 @@ _PMM_alloc:
 	.Return:
 		sub [Free_RAM], r8				; Adjust Free_RAM
 		add [Used_RAM], r8				; Adjust Used_RAM
+	.ReturnNoUpdate:
 		call _Unlock					; Unlock the PMM
 		pop r10							; Restore Modified Registers
 		pop r9

@@ -19,31 +19,31 @@ init_x64:
 	mov si, MSG.PDIR
 	call puts32
 
-	mov eax, 0x20100B					; Setup Temporary Page Directory
-	mov edi, 0x200000
-	; stosd
-	mov [edi], eax
+	mov edi, 0x200000					; 0 Out Temporary Page Directory Memory
+	mov ecx, 0xE00
+	xor eax, eax
+	rep stosd
+
+	mov edi, 0x200000					; Setup Temporary Page Directory
+	mov eax, 0x200003
+	mov [edi + 0xFF0], eax				; Recursive
+	add eax, 0x1004
+	mov [edi], eax						; Lower Half (0)
+	mov [edi + 0xFF8], eax				; Higher Half (-512GB)
+	add edi, 0x1000
 	add eax, 0x1000
-	; mov edi, 0x201000
-	add edi, 0x1000
-	mov [edi], eax
-	mov [edi + 0xFF8], eax
-	; stosd
-	mov ecx, 512
-	; mov edi, 0x202000
-	add edi, 0x1000
-	mov eax, 0x8B
+	mov [edi], eax						; Lower Half (0 and -512GB)
+	mov [edi + 0xFF8], eax				; Higher Half (-1GB)
+	add edi, 0x1000						; Map first GB to 0, -512GB, and -1GB
+	mov eax, 0x87
+	mov ecx, 511
 	.PSELoop:
 		stosd
-		add eax, 0x200000
 		add edi, 4
+		add eax, 0x200000
 		loop .PSELoop
-	mov eax, 0x200000
-	; mov ecx, eax
-	; add ecx, 3
-	mov DWORD [eax + 0xFF0], 0x20000B
-	add ecx, 0x1000
-	mov DWORD [eax + 0xFF8], 0x20100B
+	mov eax, 0x206003					; This is a Page Table at the very end..
+	stosd
 
 	mov si, MSG.Done
 	call puts32

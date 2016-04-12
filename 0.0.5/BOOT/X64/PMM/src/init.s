@@ -15,10 +15,7 @@ default rel
 
 _init:
 	push rsi							; Save Modified Registers
-	push rcx
-	push rbx
 	push rdi
-	push rax
 	push rdx
 
 	mov rsi, 0xE000						; MMAP was saved to 0xE000 by SYSINIT
@@ -56,11 +53,11 @@ _init:
 		sub rax, [Free_RAM]				;    (Total_RAM - Free_RAM)
 		mov [Used_RAM], rax
 	pop rdx								; Restore Modified Registers
-	pop rax
 	pop rdi
-	pop rbx
-	pop rcx
 	pop rsi
+	mov rax, [Total_RAM]
+	mov rbx, [Used_RAM]
+	mov rcx, [Free_RAM]
 	ret									; Return
 	.LowMemFix:
 		push rbx						; Save RBX
