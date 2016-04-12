@@ -2,7 +2,7 @@
 ;                                   BOS 0.0.5
 ;                                  BUILD: 0005
 ;                              VMM Reference Table
-;                          10/04/2016 - Brian T Hoover
+;                          12/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
 global _VMM_RefInc
@@ -15,37 +15,39 @@ default rel
 
 ; RAX = Physical Page Address
 ; Returns RAX = New Count
+ALIGN 0x100
 _VMM_RefInc:
-	push rbp
+	push rbp							; Save Modified Registers
 	push rbx
-	mov rbx, rax
-	shr rbx, 11
-	mov rax, 0xFFFFFFFFFFFFF8
+	mov rbx, rax						; Calculate Offset into Reference Table
+	shr rbx, 9
+	mov rax, 0x7FFFFFFFFFFFF8
 	and rbx, rax
-	mov rbp, TABLE_BASE
-	call _Lock
-	inc QWORD [rbp + rbx]
-	mov rax, [rbp + rbx]
-	call _Unlock
-	pop rbx
+	mov rbp, TABLE_BASE					; Base Address of Reference Table
+	call _Lock							; Lock the Reference Table
+	inc QWORD [rbp + rbx]				; Increment Reference Count
+	mov rax, [rbp + rbx]				; RAX = Reference Count
+	call _Unlock						; Unlock the Reference Table
+	pop rbx								; Restore Modified Registers
 	pop rbp
-	ret
+	ret									; Return
 
 ; RAX = Physical Page Address
 ; Returns RAX = New Count
+ALIGN 0x100
 _VMM_RefDec:
-	push rbp
+	push rbp							; Save Modified Registers
 	push rbx
-	mov rbx, rax
-	shr rbx, 11
-	mov rax, 0xFFFFFFFFFFFFF8
+	mov rbx, rax						; Calculate Offset into Reference Table
+	shr rbx, 9
+	mov rax, 0x7FFFFFFFFFFFF8
 	and rbx, rax
-	mov rbp, TABLE_BASE
-	call _Lock
-	dec QWORD [rbp + rbx]
-	mov rax, [rbp + rbx]
-	call _Unlock
-	pop rbx
+	mov rbp, TABLE_BASE					; Base Address of Reference Table
+	call _Lock							; Lock the Reference Table
+	dec QWORD [rbp + rbx]				; Decrement Reference Count
+	mov rax, [rbp + rbx]				; RAX = Reference Count
+	call _Unlock						; Unlock the Reference Table
+	pop rbx								; Restore Modified Registers
 	pop rbp
 	ret
 

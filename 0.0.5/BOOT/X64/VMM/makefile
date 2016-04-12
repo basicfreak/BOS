@@ -3,7 +3,7 @@ SRCDIR=src
 INCDIR=./include/
 
 OUTPUT=../VMM.BIN
-OBJECTS=init.o RefTable.o map.o unmap.o
+OBJECTS=init.o map.o unmap.o RefTable.o
 
 CC=x86_64-elf-gcc
 AS=nasm

@@ -15,6 +15,8 @@ _DIRTY				equ 0x40
 _SIZE				equ 0x80
 _GLOBAL				equ 0x100
 
+_EXEC				equ 63
+
 _PML4				equ 0xFFFFFF7FBFDFE000
 _PDP				equ 0xFFFFFF7FBFC00000
 _PD					equ 0xFFFFFF7F80000000

@@ -9,8 +9,8 @@ SECTIONS
   _PMM_free = 0xFFFFFFFFC0101000;
   _PMM_alloc = 0xFFFFFFFFC0101800;
   _VMM_init = 0xFFFFFFFFC0108000;
-  _VMM_umap = 0xFFFFFFFFC0109000;
-  _VMM_map = 0xFFFFFFFFC0109800;
+  _VMM_unmap = 0xFFFFFFFFC0109800;
+  _VMM_map = 0xFFFFFFFFC0109000;
 
   .text phys : AT(phys) {
     text = .;
