@@ -1,23 +1,28 @@
 ; -------------------------------------- --------------------------------------
 ;                                   BOS 0.0.5
-;                                  BUILD: 0005
+;                                  BUILD: 0006
 ;                                   CPU Strap
-;                          05/04/2016 - Brian T Hoover
+;                          13/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
-; NOTE: The first time you enter Long Mode, all other modes except for Real Mode
-; will actually be Capability Mode!
+; The further I get, the more issues I notice in this code.
+; This time the issue is CR3 is >4GB, so upon leaving long mode, we could not
+; set CR3 back to the original value.
+; Now we must enable Long Mode and set CR3 and CR4 from outside of this code,
+; not too hard, and this will never touch CR3 or CR4 again.
+
+; And I also realize the name AP_Strap should be something else, but upon
+; activating APs (I think) we will use the function AP_Entry - and for now, this
+; is all setup to where I have very little other code to fix up due to changes.
 
 bits 16
 section .CPUSection
 global AP_Strap
-extern gdt
 
 %include 'PIC.inc'
 
 ; AL = Function
 ; (E/R)DX = Destination
-; EBX = Page Dir
 
 ; Functions (AL)
 ; 0 = RM to PM 32-Bit
@@ -55,38 +60,30 @@ AP_Strap:
 		jmp .lockup						; Have a nice and productive day.
 
 	.RMtoPM:
-		test ebx, ebx
-		jnz .RMtoPM_Paging
-		jmp .RMtoPM_NoPageing
-	.PM16toPM:
-		jmp 0x18:.inPM					; Long Jump to 32-Bit Protected Mode
-	.RMtoLM:
 		call PIC_ReMask					; Setup PIC Masks
 		mov eax, cr0					; Set PM Bit in CR0
 		or al, 1
 		mov cr0, eax
-		jmp 0x18:.PMtoLM				; Long Jump to 32-Bit Protected Mode
+	.PM16toPM:
+		jmp 0x18:.inPM					; Far Jump to Protected Mode 32
+	.RMtoLM:
+		call PIC_ReMask					; Setup PIC Masks
+		mov eax, cr0					; Set PM and PG bits in CR0
+		bts eax, 31
+		bts ax, 0
+		mov cr0, eax
+		jmp 0x38:.inLM					; Long jump to Long Mode
 
 bits 32
 	.PMtoRM:
-		jmp 0x08:.inPRM					; Long Jump to 16-Bit Protected Mode
+		jmp 0x08:.inPRM					; Long jump to 16-Bit Protected Mode
 	.PMtoLM:
-		mov cr3, ebx					; Set Page Directory (CR3)
-		xchg ebx, edx					; Save Destination
-		mov ecx, 0xC0000080				; Set Long Mode Bit in MSR
-		rdmsr
-		bts eax, 8
-		wrmsr
-		xchg ebx, edx					; Restore Destination
-		mov eax, cr4					; Set PSE and PAE Bits in CR4
-		or eax, 0x30
-		mov cr4, eax
-		mov eax, cr0					; Set PG Bit in CR0
+		mov eax, cr0					; Set PG bit in CR0
 		bts eax, 31
 		mov cr0, eax
-		jmp 0x38:.inLM					; Long Jump to Long Mode
+		jmp 0x38:.inLM					; Long jump to Long Mode
 	.PMtoPM16:
-		jmp 0x08:.inCM16				; Long Jump to 16-Bit Protected Mode
+		jmp 0x08:.inCM16				; Long jump to 16-Bit Protected Mode
 
 bits 64
 	.LMtoCM32:
@@ -146,16 +143,3 @@ bits 16
 		call PIC_ReMask					; Setup PIC Masks
 		sti								; Enable Interrupts
 		jmp DWORD edx					; Far Jump to Destination
-	.RMtoPM_Paging:
-		call PIC_ReMask					; Setup PIC Masks
-		mov cr3, ebx					; Set Page Directory (CR3)
-		mov eax, cr0					; Set PM and PG Bit in CR0
-		or eax, 0x80000001
-		mov cr0, eax
-		jmp 0x18:.inPM					; Far Jump to Protected Mode 32
-	.RMtoPM_NoPageing:
-		call PIC_ReMask					; Setup PIC Masks
-		mov eax, cr0					; Set PM Bit in CR0
-		or al, 1
-		mov cr0, eax
-		jmp 0x18:.inPM					; Far Jump to Protected Mode 32

@@ -55,9 +55,9 @@ _init:
 	pop rdx								; Restore Modified Registers
 	pop rdi
 	pop rsi
-	mov rax, [Total_RAM]
-	mov rbx, [Used_RAM]
-	mov rcx, [Free_RAM]
+	mov rax, Total_RAM
+	mov rbx, Used_RAM
+	mov rcx, Free_RAM
 	ret									; Return
 	.LowMemFix:
 		push rbx						; Save RBX

@@ -1,9 +1,8 @@
 OUTPUT_FORMAT("binary")
-ENTRY(start)
+ENTRY(_init)
 phys = 0xFFFFFFFFC0110000;
 SECTIONS
 {
-  FILE_IO = 0xA000;
   AP_Strap = 0x8800;
   _PMM_init = 0xFFFFFFFFC0100000;
   _PMM_free = 0xFFFFFFFFC0101000;

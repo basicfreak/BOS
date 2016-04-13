@@ -31,7 +31,7 @@ bits 16
 		call puts							; Call puts
 		mov al, 2							; RM to LM
 		mov edx, .LMEnt
-		mov ebx, 0x200000
+		mov ebx, cr3
 		jmp AP_Strap
 bits 64
 	.LMEnt:

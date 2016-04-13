@@ -1,8 +1,8 @@
 ; -------------------------------------- --------------------------------------
 ;                                   BOS 0.0.5
-;                                  BUILD: 0005
+;                                  BUILD: 0006
 ;                          System Initialization x86_64
-;                          04/04/2016 - Brian T Hoover
+;                          13/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
 bits 32
@@ -49,8 +49,18 @@ init_x64:
 	call puts32
 	mov si, MSG.LM64
 	call puts32
-	mov edx, LM_Entry					; PM to LM
+
 	mov ebx, 0x200000
+	mov cr3, ebx					; Set Page Directory (CR3)
+	mov ecx, 0xC0000080				; Set Long Mode Bit in MSR
+	rdmsr
+	bts eax, 8
+	wrmsr
+	mov eax, cr4					; Set PSE and PAE Bits in CR4
+	or eax, 0x30
+	mov cr4, eax
+
+	mov edx, LM_Entry					; PM to LM
 	mov al, 3
 	jmp AP_Strap
 
@@ -90,9 +100,10 @@ LM_Entry:
 	mov si, MSG.Done
 	call puts64
 
-	xchg bx, bx
 	mov rax, 0xFFFFFFFFC0110000			; Call BOS Linker / Builder
 	mov rbx, BSP.Vendor
+	mov rcx, FILE_IO_WRAP
+	mov rdx, puts64
 	call rax
 	ret									; Return if we get back here...
 

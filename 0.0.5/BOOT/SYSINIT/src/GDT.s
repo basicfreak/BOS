@@ -15,11 +15,11 @@ global gdt
 ; 0x18 = 32-bit Code Segment 00000000-FFFFFFFF Ring 0
 ; 0x20 = 32-bit Data Segment 00000000-FFFFFFFF Ring 0
 ; 0x2B = 32-bit Code Segment 00000000-FFFFFFFF Ring 3
-; 0x23 = 32-bit Data Segment 00000000-FFFFFFFF Ring 3
-; 0x28 = 64-bit Code Segment Ring 0
-; 0x30 = 64-bit Data Segment Ring 0
-; 0x3B = 64-bit Code Segment Ring 3
-; 0x43 = 64-bit Data Segment Ring 3
+; 0x33 = 32-bit Data Segment 00000000-FFFFFFFF Ring 3
+; 0x38 = 64-bit Code Segment Ring 0
+; 0x40 = 64-bit Data Segment Ring 0
+; 0x4B = 64-bit Code Segment Ring 3
+; 0x53 = 64-bit Data Segment Ring 3
 
 gdt: ; this is at 0x9000
 	dw (gdt.end - gdt - 1)   ;last byte in table
