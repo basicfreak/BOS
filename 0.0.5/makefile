@@ -1,11 +1,13 @@
 # Define the Module's Output File(s) Here:
-MODULES=BOOT/SYSINIT.BIN BOOT/X64/FATFS.BIN BOOT/X64/PMM.BIN BOOT/X64/VMM.BIN  \
-	BOOT/X64/BUILD.BIN
+MODULES=boot/sysinit.bin boot/x86/fatfs.bin boot/x64/fatfs.bin boot/x86/pmm.bin\
+		boot/x64/pmm.bin boot/x86/vmm.bin boot/x64/vmm.bin boot/x86/build.bin  \
+		boot/x64/build.bin boot/x86/idt.elf boot/x64/idt.elf
 
 HDDIMG=hdd.img
 HDDOFFSET=32256
 HDDMNT=hdd_mount
 
+INCDIR=include/
 CCMACHINE=-mno-mmx -mno-sse -mno-3dnow -mno-red-zone
 CCWARNINGS=-Wall -Wextra -Wfatal-errors -Wpedantic -pedantic-errors -Wshadow   \
 	-Wunsafe-loop-optimizations -Wconversion -Wmissing-prototypes -Winline     \
@@ -22,21 +24,21 @@ AS=nasm
 LD=x86_64-elf-ld
 OC=x86_64-elf-objcopy
 CAT=cat
-INCDIR=include/
+CP=cp
+RM=rm
+ECHO=echo
 CCFLAGS=$(CCWARNINGS) $(CCMACHINE) $(CCCODE) -I $(INCDIR)
 LDFLAGS=-Tlink.ld
 ASFLAGS=-felf64 -i$(INCDIR)
+AS32FLAGS=-felf32 -i$(INCDIR)
 OCFLAGS=-O elf64-x86-64
-CP=cp
-RM=rm
 
-# These are programs used by only this script (at least the variables)
+# These are programs used by only this script
 BOCHS=bochs
 SUDO=sudo
 MOUNT=mount
 UMOUNT=umount
 SYNC=sync
-ECHO=echo
 PATHS=$(basename $(MODULES))
 
 
@@ -46,9 +48,9 @@ build:
 	@$(ECHO) "BUILD:"
 	-@for MODULE in $(PATHS); do \
 		$(ECHO) "    $$MODULE:" ; \
-		$(MAKE) CC=$(CC) CC32=$(CC32) AS=$(AS) LD=$(LD) OC=$(OC) CAT=$(CAT)    \
+		$(MAKE) CC=$(CC) CC32=$(CC32) AS=$(AS) LD=$(LD) OC=$(OC) ECHO=$(ECHO)  \
 			CCFLAGS="$(CCFLAGS)" LDFLAGS=$(LDFLAGS) ASFLAGS="$(ASFLAGS)"       \
-				ECHO=$(ECHO) RM=$(RM) OCFLAGS="$(OCFLAGS)" -C $$MODULE -s; \
+			OCFLAGS="$(OCFLAGS)" AS32FLAGS="$(AS32FLAGS)" -C $$MODULE -s ; \
 	done
 	@$(ECHO) "DONE!"
 
@@ -56,9 +58,7 @@ clean:
 	@$(ECHO) "CLEAN:"
 	-@for MODULE in $(PATHS); do \
 		$(ECHO) "    $$MODULE:" ; \
-		$(MAKE) CC=$(CC) CC32=$(CC32) AS=$(AS) LD=$(LD) OC=$(OC) CAT=$(CAT)    \
-			CCFLAGS="$(CCFLAGS)" LDFLAGS=$(LDFLAGS) ASFLAGS="$(ASFLAGS)"       \
-				ECHO=$(ECHO) RM=$(RM) OCFLAGS="$(OCFLAGS)" -C $$MODULE -s clean; \
+		$(MAKE) ECHO=$(ECHO) RM=$(RM) -C $$MODULE -s clean; \
 	done
 	@$(ECHO) "    $(HDDIMG):"
 	@$(SUDO) $(MOUNT) -ooffset=$(HDDOFFSET) $(HDDIMG) $(HDDMNT)
