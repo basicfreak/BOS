@@ -40,6 +40,9 @@ _init:
 	call puts
 xchg bx, bx
 ; Now maybe we can do something here...
+	mov rsi, FILES.IDT
+	call FILE_IO
+	xchg bx, bx
 	.Error:
 		ret
 	.Fail:
@@ -66,9 +69,8 @@ puts:
 	ret
 
 FILE_IO:
-	push rdi
 	push rsi
-	push rax
+	push rdi
 	mov rdi, 0x580
 	.CopyToLowMem:
 		lodsb
@@ -76,10 +78,11 @@ FILE_IO:
 		test al, al
 		jnz .CopyToLowMem
 	mov rsi, 0x580
+	mov rdi, 0x200000
+	xor rax, rax
 	call [Pointers.FILE_IO]
-	pop rax
-	pop rsi
 	pop rdi
+	pop rsi
 	ret
 
 section .data
@@ -97,5 +100,10 @@ section .rodata
 MSG:
 	.PMM			db 0x7, "Initilizing Physical Memory   ", 0
 	.VMM			db 0x7, "Initilizing Virtual Memory    ", 0
+	.IDT			db 0x7, "Loading Interrupt Handler     ", 0
+	.IDIinst		db 0x7, "Installing Interrupt Handler  ", 0
 	.Done			db 0x2, "                     [ DONE! ]", 0xA, 0xD, 0
 	.Fail			db 0x4, "                     [ FAIL! ]", 0xA, 0xD, 0
+
+FILES:
+	.IDT			db "/boot/x64/build.bin", 0 ; TEST DO NOT USE ON ACTUAL BUILD!

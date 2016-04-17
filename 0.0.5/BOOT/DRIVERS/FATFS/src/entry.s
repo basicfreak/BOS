@@ -132,6 +132,7 @@ bits 16
 		jmp AP_Strap
 bits 32
 	.PMEntry:
+xchg bx, bx
 		movzx edx, WORD [esi + 2]
 		mov edi, [ebp + 8]
 		mov esi, 0x1000

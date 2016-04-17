@@ -23,9 +23,12 @@ extern MSG.Ok
 extern MSG.No
 extern MSG.Fail
 extern MSG.Error
-extern Files.FATDisk
-extern Files.ExtDisk
-extern Files.TFTPPXE
+extern Files.PM_FAT
+extern Files.PM_EXT
+extern Files.PM_PXE
+extern Files.LM_FAT
+extern Files.LM_EXT
+extern Files.LM_PXE
 extern Files.PM_PMM
 extern Files.PM_VMM
 extern Files.PM_Link

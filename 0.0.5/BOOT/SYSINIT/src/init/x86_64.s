@@ -113,29 +113,19 @@ LM_Entry:
 		ret
 
 FILE_IO_WRAP:
-	mov al, 4							; LM to CM32
-	mov edx, .PMEnt
-	jmp AP_Strap
-bits 32
-	.PMEnt:
-		xor eax, eax					; FILE_IO (Open)
-		call FILE_IO
-		jc .NotFound					; If Error, Not Found
-		mov eax, 1						; FILE_IO (Read)
-		call FILE_IO
-		jc .NotFound					; If Error, Not Found
-		mov eax, 3						; FILE_IO (Close)
-		call FILE_IO
-		mov edx, .Found					; We found, and loaded, the file
-		jmp .cont
-		.NotFound:
-			mov edx, .NFound			; We did not find or load the file
-		.cont:
-			mov al, 3					; PM to LM
-			mov ebx, 0x200000
-			jmp AP_Strap
-bits 64
-	.NFound:
+	push r15
+	xor rax, rax						; FILE_IO (Open)
+	call FILE_IO
+	jc .NotFound						; If Error, Not Found
+	mov rax, 1							; FILE_IO (Read)
+	call FILE_IO
+	jc .NotFound						; If Error, Not Found
+	mov r15, rax
+	mov rax, 3							; FILE_IO (Close)
+	call FILE_IO
+	mov rax, r15
+	pop r15
+	ret
+	.NotFound:
 		stc								; CF = 1 on Error
-	.Found:
-		ret								; Return
+		ret

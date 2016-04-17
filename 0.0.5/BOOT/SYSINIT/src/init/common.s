@@ -72,32 +72,32 @@ init_16:
 	jc ERROR
 	mov si, MSG.Done
 	call puts
-	mov si, MSG.BootDevice
-	call puts
+	; mov si, MSG.BootDevice
+	; call puts
 
-	mov cx, 3
-	mov di, 0xA000						; Driver Address = 0:A000
-	mov al, BYTE [bp + VAR.bootInfo]	; Determine Boot Device
-	bt ax, 0
-	jc .FatDisk
-	bt ax, 1
-	jc .ExtDisk
-	bt ax, 3
-	jc .TftpPxe
-	jmp ERROR
-	.FatDisk:
-		mov si, Files.FATDisk			; The Boot Device is a FAT Disk
-		jmp .ReadDiskDriver
-	.ExtDisk:
-		mov si, Files.ExtDisk			; The Boot Device is an EXT Disk
-		jmp .ReadDiskDriver
-	.TftpPxe:
-		mov si, Files.TFTPPXE			; The Boot Device is PXE/TFTP
-	.ReadDiskDriver:
-		call BS_ReadFile				; Read Boot Device Driver
-		jc ERROR						; Error if CF = 1
-	mov si, MSG.Done
-	call puts
+	; mov cx, 3
+	; mov di, 0xA000						; Driver Address = 0:A000
+	; mov al, BYTE [bp + VAR.bootInfo]	; Determine Boot Device
+	; bt ax, 0
+	; jc .FatDisk
+	; bt ax, 1
+	; jc .ExtDisk
+	; bt ax, 3
+	; jc .TftpPxe
+	; jmp ERROR
+	; .FatDisk:
+	; 	mov si, Files.FATDisk			; The Boot Device is a FAT Disk
+	; 	jmp .ReadDiskDriver
+	; .ExtDisk:
+	; 	mov si, Files.ExtDisk			; The Boot Device is an EXT Disk
+	; 	jmp .ReadDiskDriver
+	; .TftpPxe:
+	; 	mov si, Files.TFTPPXE			; The Boot Device is PXE/TFTP
+	; .ReadDiskDriver:
+	; 	call BS_ReadFile				; Read Boot Device Driver
+	; 	jc ERROR						; Error if CF = 1
+	; mov si, MSG.Done
+	; call puts
 
 	mov si, MSG.PM32
 	call puts
