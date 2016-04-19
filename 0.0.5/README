@@ -1,4 +1,4 @@
-BOS 0.0.5.0004
+BOS 0.0.5.0006
 This code is all a work in progress!
 
 
@@ -10,7 +10,6 @@ DO NOT USE ON REAL HARDWARE!
 
 
 
-Bochs breakpoints are set to keep from executing RAM!
 
 Any code that is not commented should be considered highly volatile!
 
@@ -18,7 +17,12 @@ Code that is commented should not be considered static, as bugs fixes and
 optimizations may still remain; but this code *should* function from the
 outside with the same matter as before.
 
-./Test.sh - requires root, and only tested under Ubuntu based distros.
+make - requires root, and only tested under Ubuntu based distros.
+
+make build - builds the system
+make install - puts system on image
+make clean - removes objects AND BINARIES
+make run - runs Bochs
 
 
 

@@ -1,5 +1,5 @@
 OUTPUT=../build.bin
-OBJECTS=init.o
+OBJECTS=init.o SymTree.o
 
 
 

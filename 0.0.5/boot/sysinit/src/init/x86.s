@@ -19,6 +19,38 @@ extern ERROR
 %include 'CPUID.inc'
 
 init_x86:
+	mov si, MSG.PDIR
+	call puts32
+
+	mov edi, 0x200000					; 0 Out Temporary Page Directory Memory
+	mov ecx, 0x600
+	xor eax, eax
+	rep stosd
+	or al, 3
+	mov edi, 0x201000
+	mov ecx, 0x400
+	.PTLoop:
+		stosd
+		add eax, 0x1000
+		loop .PTLoop
+	mov edi, 0x200000
+	mov eax, 0x200003
+	mov [edi + 0xFFC], eax
+	add eax, 0x1000
+	mov [edi], eax
+	mov [edi + 0x600], eax
+	add eax, 0x1000
+	mov [edi + 4], eax
+	mov [edi + 0x604], eax
+
+	mov eax, 0x200000
+	mov cr3, eax
+	mov eax, cr0
+	bts eax, 31
+	mov cr0, eax
+
+	mov si, MSG.Done
+	call puts32
 	mov si, MSG.PMM
 	call puts32
 
@@ -50,7 +82,7 @@ init_x86:
 	mov si, MSG.Done
 	call puts32
 
-	mov eax, 0x110000					; Call BOS Linker / Builder
+	mov eax, 0xC0110000					; Call BOS Linker / Builder
 	mov ebx, BSP.Vendor
 	call eax
 	ret									; Return if we get back here...

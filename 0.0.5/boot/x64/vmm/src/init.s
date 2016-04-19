@@ -48,6 +48,14 @@ _init:
 	stosq								; PML4[256]
 	mov rdi, (_PDP + (0x1000 * 0x100))
 	invlpg [rdi]						; Invalidate PDP
+push rdi
+push rax
+xor rax, rax
+mov rcx, 0x1000
+and rdi, -0x1000
+rep stosb
+pop rax
+pop rdi
 	add rax, 0x1000
 
 	mov rcx, r15						; Calculate PDs to create
@@ -57,7 +65,18 @@ _init:
 	.AllocatePDs:
 		stosq							; PDP [xxx]
 		invlpg [rdx]					; Invalidate PD
-		add rdx, 0x200000
+push rdi
+push rax
+push rcx
+mov rcx, 0x1000
+xor rax, rax
+mov rdi, rdx
+and rdi, -0x1000
+rep stosb
+pop rcx
+pop rax
+pop rdi
+		add rdx, 0x1000
 		add rax, 0x1000
 		loop .AllocatePDs
 
@@ -69,7 +88,18 @@ _init:
 	.AllocatePTs:
 		stosq							; PD [xxx]
 		invlpg [rdx]					; Invalidate PT
-		add rdx, 0x40000000
+push rdi
+push rax
+push rcx
+mov rcx, 0x1000
+xor rax, rax
+mov rdi, rdx
+and rdi, -0x1000
+rep stosb
+pop rcx
+pop rax
+pop rdi
+		add rdx, 0x1000
 		add rax, 0x1000
 		loop .AllocatePTs
 
@@ -93,6 +123,14 @@ _init:
 			add rdx, 0x1000
 			loop .TempMap
 		sub rdx, 0x8000
+
+		mov rdi, rdx
+		push rax
+		xor rax, rax
+		mov rcx, 0x8000
+		rep stosb
+		pop rax
+
 		sub rax, 0x8000
 		mov rdi, rdx					; Destination = -8000h
 		pop rdx							; Get Physical Address of Reference Table

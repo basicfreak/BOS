@@ -13,6 +13,7 @@ global _init
 %include 'AP_Strap.inc'
 %include 'PMM.inc'
 %include 'VMM.inc'
+%include 'SymTree.inc'
 
 MINIMUM_RAM		equ 0x2000000			; 32 MB Minimum
 
@@ -40,6 +41,24 @@ _init:
 	call puts
 	mov rsi, MSG.IDT
 	call puts
+
+xchg bx, bx
+	call _StringTree_init
+xchg bx, bx
+	mov rsi, PMMALLO
+	mov rdx, _PMM_alloc
+	call _AddSymbolID
+	mov rsi, PMMFREE
+	mov rdx, _PMM_free
+	call _AddSymbolID
+	mov rsi, VMMMAP
+	mov rdx, _VMM_map
+	call _AddSymbolID
+	mov rsi, VMMUMAP
+	mov rdx, _VMM_unmap
+	call _AddSymbolID
+xchg bx, bx
+
 ; Now maybe we can do something here... Or not, I'm still trying to work out how
 ; this ELF will work, it cannot be default for my design ;)
 	mov rsi, FILES.IDT
@@ -111,3 +130,8 @@ MSG:
 
 FILES:
 	.IDT			db "/boot/x64/idt.elf", 0
+
+VMMMAP db "_VMM_map", 0
+VMMUMAP db "_VMM_unmap", 0
+PMMALLO db "_PMM_alloc", 0
+PMMFREE db "_PMM_free", 0

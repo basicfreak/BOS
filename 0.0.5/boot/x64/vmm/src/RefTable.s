@@ -14,10 +14,10 @@ bits 64
 default rel
 
 ; RAX = Physical Page Address
-; Returns RAX = New Count
 ALIGN 0x100
 _VMM_RefInc:
 	push rbp							; Save Modified Registers
+	push rax
 	push rbx
 	mov rbx, rax						; Calculate Offset into Reference Table
 	shr rbx, 9
@@ -29,6 +29,7 @@ _VMM_RefInc:
 	mov rax, [rbp + rbx]				; RAX = Reference Count
 	call _Unlock						; Unlock the Reference Table
 	pop rbx								; Restore Modified Registers
+	pop rax
 	pop rbp
 	ret									; Return
 

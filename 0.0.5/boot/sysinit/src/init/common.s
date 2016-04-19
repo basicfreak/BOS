@@ -1,8 +1,8 @@
 ; -------------------------------------- --------------------------------------
 ;                                   BOS 0.0.5
-;                                  BUILD: 0005
+;                                  BUILD: 0006
 ;                         System Initialization Common
-;                          03/04/2016 - Brian T Hoover
+;                          18/04/2016 - Brian T Hoover
 ; -----------------------------------------------------------------------------
 
 global init_16
@@ -39,6 +39,21 @@ init_16:
 	call INIT_CPUID						; Get CPUID
 
 	jc ERROR
+
+	mov eax, [BSP.ExtendedInfo]
+    bt eax, 29							; Check for Long Mode
+    jnc .PMode
+
+; To comply with all documentation...
+    mov eax, 0xEC00						; I'm unsure if this even exists
+    mov ebx, 3							; This is a waste of space
+    int 0x15							; Why DO I NEED this?!?
+    clc									; (I'm not checking this) CF=0!
+; Likely hood is I'll find the one system that will crash and burn due to not
+; supporting mixed operations mode... But it's a risk I'm willing to take...
+; I only got about 2.5KB for code in this file after all...
+
+  .PMode:
 	mov si, MSG.Done
 	call puts
 	mov si, MSG.GDT
